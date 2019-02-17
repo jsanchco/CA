@@ -10,7 +10,7 @@ namespace CA.SeedData
     using Microsoft.EntityFrameworkCore;
     using System.Diagnostics;
     using System.Linq;
-    using CA.DataEFCoreSQL;
+    using DataEFCoreSQL;
 
     #endregion
 
