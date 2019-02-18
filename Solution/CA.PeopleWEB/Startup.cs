@@ -28,7 +28,7 @@
 
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "PeopleClient/dist";
+                configuration.RootPath = "Client/dist";
             });
         }
 
@@ -52,7 +52,7 @@
             app.UseMvc();
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "PeopleClient";
+                spa.Options.SourcePath = "Client";
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
