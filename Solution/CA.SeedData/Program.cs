@@ -83,6 +83,7 @@ namespace CA.SeedData
                 {
                     Name = "Jesús",
                     Surname = "Sánchez Corzo",
+                    Username = "jsanchco",
                     AddedDate = DateTime.Now,
                     Age = 46,
                     BirthDate = new DateTime(1972, 8, 1),

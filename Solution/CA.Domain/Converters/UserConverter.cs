@@ -24,6 +24,7 @@
                 IPAddress = user.IPAddress,
                 Name = user.Name,
                 Surname = user.Surname,
+                Username = user.Username,
                 Age = user.Age,
                 BirthDate = user.BirthDate,
             };
@@ -43,6 +44,7 @@
                         IPAddress = user.IPAddress,
                         Name = user.Name,
                         Surname = user.Surname,
+                        Username = user.Username,
                         Age = user.Age,
                         BirthDate = user.BirthDate,
                     };

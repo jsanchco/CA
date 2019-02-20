@@ -9,6 +9,7 @@
     using Domain.Supervisor;
     using Domain.ViewModels;
     using Microsoft.AspNetCore.Authorization;
+    using Models;
 
     #endregion
 
@@ -25,11 +26,11 @@
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate(UserViewModel userViwModel)
+        public IActionResult Authenticate(UserAuthenticate userAuthenticate)
         {
             try
             {
-                var user = _caSupervisor.Authenticate(userViwModel.Email, userViwModel.Password);
+                var user = _caSupervisor.Authenticate(userAuthenticate.username, userAuthenticate.password);
 
                 if (user == null)
                     return BadRequest(new { message = "Username or password is incorrect" });
