@@ -26,16 +26,28 @@
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate(UserAuthenticate userAuthenticate)
+        public async Task<IActionResult> Authenticate(Login login)
         {
             try
             {
-                var user = _caSupervisor.Authenticate(userAuthenticate.username, userAuthenticate.password);
+                var userAuthenticate = await _caSupervisor.Authenticate(login.username, login.password);
 
-                if (user == null)
+                if (userAuthenticate == null)
                     return BadRequest(new { message = "Username or password is incorrect" });
 
-                return new ObjectResult(user);
+                return new ObjectResult(new Session
+                {
+                    user = new User
+                    {
+                        id = userAuthenticate.Id,
+                        name = userAuthenticate.Name,
+                        username = userAuthenticate.Username,
+                        email = userAuthenticate.Email,
+                        surname = userAuthenticate.Username,
+                        birthDate = userAuthenticate.BirthDate
+                    },
+                    token = userAuthenticate.Token
+                });
             }
             catch (Exception ex)
             {

@@ -37,6 +37,7 @@ namespace CA.Domain.Supervisor
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
+
             userViewModel.Token = tokenHandler.WriteToken(token);
 
             return userViewModel;
@@ -50,7 +51,6 @@ namespace CA.Domain.Supervisor
         public async Task<UserViewModel> GetUserByIdAsync(int id, CancellationToken ct = default(CancellationToken))
         {
             var userViewModel = UserConverter.Convert(await _userRepository.GetByIdAsync(id, ct));
-            userViewModel.Addresses = await GetAddressesByUserIdAsync(userViewModel.Id, ct);
             return userViewModel;
         }
 
