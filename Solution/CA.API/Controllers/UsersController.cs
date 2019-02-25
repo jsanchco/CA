@@ -37,16 +37,16 @@
 
                 return new ObjectResult(new Session
                 {
-                    user = new User
+                    user = new UserViewModel
                     {
-                        id = userAuthenticate.Id,
-                        name = userAuthenticate.Name,
-                        username = userAuthenticate.Username,
-                        email = userAuthenticate.Email,
-                        surname = userAuthenticate.Username,
-                        birthDate = userAuthenticate.BirthDate
+                        id = userAuthenticate.id,
+                        name = userAuthenticate.name,
+                        username = userAuthenticate.username,
+                        email = userAuthenticate.email,
+                        surname = userAuthenticate.username,
+                        birthDate = userAuthenticate.birthDate
                     },
-                    token = userAuthenticate.Token
+                    token = userAuthenticate.token
                 });
             }
             catch (Exception ex)

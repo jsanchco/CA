@@ -8,17 +8,17 @@
 
     public class BaseEntityViewModel
     {
-        public int Id { get; set; }
-        public DateTime? AddedDate { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public string IPAddress { get; set; }
+        public int id { get; set; }
+        public DateTime? addedDate { get; set; }
+        public DateTime? modifiedDate { get; set; }
+        public string iPAddress { get; set; }
 
         #region Constructor
 
         public BaseEntityViewModel()
         {
-            AddedDate = DateTime.Now;
-            ModifiedDate = DateTime.Now;
+            addedDate = DateTime.Now;
+            modifiedDate = DateTime.Now;
         }
 
         #endregion

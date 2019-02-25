@@ -3,19 +3,18 @@
     #region Using
 
     using System;
-    using System.Collections.Generic;
 
     #endregion
 
     public class UserViewModel : BaseEntityViewModel
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Username { get; set; }
-        public int Age { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Token { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string username { get; set; }
+        public int age { get; set; }
+        public DateTime birthDate { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+        public string token { get; set; }
     }
 }

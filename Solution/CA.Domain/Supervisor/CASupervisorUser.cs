@@ -29,16 +29,16 @@ namespace CA.Domain.Supervisor
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
+                Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.Name, userViewModel.Id.ToString())
+                    new Claim(ClaimTypes.Name, userViewModel.id.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            userViewModel.Token = tokenHandler.WriteToken(token);
+            userViewModel.token = tokenHandler.WriteToken(token);
 
             return userViewModel;
         }
@@ -58,17 +58,17 @@ namespace CA.Domain.Supervisor
         {
             var user = new User
             {
-                Id = newUserViewModel.Id,
+                Id = newUserViewModel.id,
                 AddedDate = DateTime.Now,
                 ModifiedDate = null,
-                IPAddress = newUserViewModel.IPAddress,
+                IPAddress = newUserViewModel.iPAddress,
 
-                Name = newUserViewModel.Name,
-                Surname = newUserViewModel.Surname,
-                Age = newUserViewModel.Age,
-                BirthDate = newUserViewModel.BirthDate,
-                Email = newUserViewModel.Email,
-                Password = newUserViewModel.Password
+                Name = newUserViewModel.name,
+                Surname = newUserViewModel.surname,
+                Age = newUserViewModel.age,
+                BirthDate = newUserViewModel.birthDate,
+                Email = newUserViewModel.email,
+                Password = newUserViewModel.password
             };
 
             await _userRepository.AddAsync(user, ct);
@@ -78,19 +78,19 @@ namespace CA.Domain.Supervisor
 
         public async Task<bool> UpdateUserAsync(UserViewModel userViewModel, CancellationToken ct = default(CancellationToken))
         {
-            var user = await _userRepository.GetByIdAsync(userViewModel.Id, ct);
+            var user = await _userRepository.GetByIdAsync(userViewModel.id, ct);
 
             if (user == null) return false;
 
             user.ModifiedDate = DateTime.Now;
-            user.IPAddress = userViewModel.IPAddress;
+            user.IPAddress = userViewModel.iPAddress;
 
-            user.Name = userViewModel.Name;
-            user.Surname = userViewModel.Surname;
-            user.Age = userViewModel.Age;
-            user.BirthDate = userViewModel.BirthDate;
-            user.Email = userViewModel.Email;
-            user.Password = userViewModel.Password;
+            user.Name = userViewModel.name;
+            user.Surname = userViewModel.surname;
+            user.Age = userViewModel.age;
+            user.BirthDate = userViewModel.birthDate;
+            user.Email = userViewModel.email;
+            user.Password = userViewModel.password;
 
             return await _userRepository.UpdateAsync(user, ct);
         }

@@ -18,14 +18,14 @@
 
             var addressViewModel = new AddressViewModel
             {
-                Id = address.Id,
-                AddedDate = address.AddedDate,
-                ModifiedDate = address.ModifiedDate,
-                IPAddress = address.IPAddress,
+                id = address.Id,
+                addedDate = address.AddedDate,
+                modifiedDate = address.ModifiedDate,
+                iPAddress = address.IPAddress,
                 
-                Street = address.Street,
-                Number = address.Number,
-                UserId = address.UserId
+                street = address.Street,
+                number = address.Number,
+                userId = address.UserId
             };
 
             return addressViewModel;
@@ -37,14 +37,14 @@
                 {
                     var model = new AddressViewModel
                     {
-                        Id = user.Id,
-                        AddedDate = user.AddedDate,
-                        ModifiedDate = user.ModifiedDate,
-                        IPAddress = user.IPAddress,
+                        id = user.Id,
+                        addedDate = user.AddedDate,
+                        modifiedDate = user.ModifiedDate,
+                        iPAddress = user.IPAddress,
 
-                        Street = user.Street,
-                        Number = user.Number,
-                        UserId = user.UserId
+                        street = user.Street,
+                        number = user.Number,
+                        userId = user.UserId
                     };
                     return model;
                 })

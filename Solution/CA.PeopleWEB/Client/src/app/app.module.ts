@@ -16,12 +16,16 @@ import {
 } from '@angular/material';
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HeaderComponent } from './components/header/header.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

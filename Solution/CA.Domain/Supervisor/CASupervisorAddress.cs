@@ -23,9 +23,9 @@ namespace CA.Domain.Supervisor
         public async Task<AddressViewModel> GetAddressByIdAsync(int id, CancellationToken ct = default(CancellationToken))
         {
             var addressViewModel = AddressConverter.Convert(await _addressRepository.GetByIdAsync(id, ct));
-            addressViewModel.UserName = 
-                _userRepository.GetByIdAsync(addressViewModel.UserId, ct).Result.Name +
-                _userRepository.GetByIdAsync(addressViewModel.UserId, ct).Result.Surname;
+            addressViewModel.userName = 
+                _userRepository.GetByIdAsync(addressViewModel.userId, ct).Result.Name +
+                _userRepository.GetByIdAsync(addressViewModel.userId, ct).Result.Surname;
 
             return addressViewModel;
         }
@@ -39,14 +39,14 @@ namespace CA.Domain.Supervisor
         {
             var address = new Address
             {
-                Id = newAddressViewModel.Id,
+                Id = newAddressViewModel.id,
                 AddedDate = DateTime.Now,
                 ModifiedDate = null,
-                IPAddress = newAddressViewModel.IPAddress,
+                IPAddress = newAddressViewModel.iPAddress,
 
-                Street = newAddressViewModel.Street,
-                Number = newAddressViewModel.Number,
-                UserId = newAddressViewModel.UserId
+                Street = newAddressViewModel.street,
+                Number = newAddressViewModel.number,
+                UserId = newAddressViewModel.userId
             };
 
             await _addressRepository.AddAsync(address, ct);
@@ -55,16 +55,16 @@ namespace CA.Domain.Supervisor
 
         public async Task<bool> UpdateAddressAsync(AddressViewModel addressViewModel, CancellationToken ct = default(CancellationToken))
         {
-            var address = await _addressRepository.GetByIdAsync(addressViewModel.Id, ct);
+            var address = await _addressRepository.GetByIdAsync(addressViewModel.id, ct);
 
             if (address == null) return false;
             
             address.ModifiedDate = DateTime.Now;
-            address.IPAddress = addressViewModel.IPAddress;
+            address.IPAddress = addressViewModel.iPAddress;
 
-            address.Street = addressViewModel.Street;
-            address.Number = addressViewModel.Number;
-            address.UserId = addressViewModel.UserId;
+            address.Street = addressViewModel.street;
+            address.Number = addressViewModel.number;
+            address.UserId = addressViewModel.userId;
 
             return await _addressRepository.UpdateAsync(address, ct);
         }

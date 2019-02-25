@@ -10,7 +10,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {}
 
-  private basePath = 'http://localhost:44314/api/users/authenticate/';
+  private basePath = 'https://localhost:44314/api/users/authenticate/';
 
   login(login: Login): Observable<Session> {
     return this.http.post<Session>(this.basePath, login);

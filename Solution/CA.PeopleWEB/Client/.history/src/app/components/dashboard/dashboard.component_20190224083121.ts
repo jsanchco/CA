@@ -18,9 +18,10 @@ export class DashboardComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getAll().subscribe(users => {
+    this.userService.getAll().pipe(first()).subscribe(users => {
       this.users = users;
-      console.log(users);
     });
+
+    console.log(this.users);
   }
 }

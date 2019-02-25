@@ -18,15 +18,16 @@
 
             var userViewModel = new UserViewModel
             {
-                Id = user.Id,
-                AddedDate = user.AddedDate,                                           
-                ModifiedDate = user.ModifiedDate,
-                IPAddress = user.IPAddress,
-                Name = user.Name,
-                Surname = user.Surname,
-                Username = user.Username,
-                Age = user.Age,
-                BirthDate = user.BirthDate,
+                id = user.Id,
+                addedDate = user.AddedDate,                                           
+                modifiedDate = user.ModifiedDate,
+                iPAddress = user.IPAddress,
+                name = user.Name,
+                surname = user.Surname,
+                username = user.Username,
+                age = user.Age,
+                birthDate = user.BirthDate,
+                email = user.Email
             };
 
             return userViewModel;
@@ -38,15 +39,16 @@
                 {
                     var model = new UserViewModel
                     {
-                        Id = user.Id,
-                        AddedDate = user.AddedDate,
-                        ModifiedDate = user.ModifiedDate,
-                        IPAddress = user.IPAddress,
-                        Name = user.Name,
-                        Surname = user.Surname,
-                        Username = user.Username,
-                        Age = user.Age,
-                        BirthDate = user.BirthDate,
+                        id = user.Id,
+                        addedDate = user.AddedDate,
+                        modifiedDate = user.ModifiedDate,
+                        iPAddress = user.IPAddress,
+                        name = user.Name,
+                        surname = user.Surname,
+                        username = user.Username,
+                        age = user.Age,
+                        birthDate = user.BirthDate,
+                        email = user.Email
                     };
                     return model;
                 })

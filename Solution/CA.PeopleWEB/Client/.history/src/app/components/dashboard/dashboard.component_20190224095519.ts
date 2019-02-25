@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.userService.getAll().subscribe(users => {
       this.users = users;
-      console.log(users);
+      console.log(this.users);
     });
   }
 }

@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
 
   private correctLogin(data: Session) {
     this.storageService.setCurrentSession(data);
-    this.router.navigate(['/layout']);
-    // this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard']);
   }
 }
