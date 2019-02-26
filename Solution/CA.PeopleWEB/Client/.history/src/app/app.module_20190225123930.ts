@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import {MaterialModule} from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { Routing } from './app.routing';
@@ -19,13 +18,6 @@ import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HeaderComponent } from './components/header/header.component';
 import { LayoutComponent } from './components/layout/layout.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-
-// Services
-import { TranslationService } from './services/translation.service';
-
-// Pipes
-import { TranslatePipe } from './pipes/translation.pipe';
 
 @NgModule({
   declarations: [
@@ -33,9 +25,7 @@ import { TranslatePipe } from './pipes/translation.pipe';
     LoginComponent,
     DashboardComponent,
     HeaderComponent,
-    LayoutComponent,
-    TranslatePipe,
-    NavbarComponent
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +33,6 @@ import { TranslatePipe } from './pipes/translation.pipe';
     HttpClientModule,
     Routing,
     BrowserAnimationsModule,
-    MaterialModule,
     CoreModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -51,7 +40,7 @@ import { TranslatePipe } from './pipes/translation.pipe';
     MatCardModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [TranslationService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 

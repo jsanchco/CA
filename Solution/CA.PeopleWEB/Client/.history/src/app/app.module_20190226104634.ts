@@ -19,7 +19,6 @@ import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HeaderComponent } from './components/header/header.component';
 import { LayoutComponent } from './components/layout/layout.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
 // Services
 import { TranslationService } from './services/translation.service';
@@ -34,8 +33,7 @@ import { TranslatePipe } from './pipes/translation.pipe';
     DashboardComponent,
     HeaderComponent,
     LayoutComponent,
-    TranslatePipe,
-    NavbarComponent
+    TranslatePipe
   ],
   imports: [
     BrowserModule,

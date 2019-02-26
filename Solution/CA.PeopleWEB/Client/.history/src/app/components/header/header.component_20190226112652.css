@@ -1,4 +1,8 @@
-.spacer {
+.example-icon {
+    padding: 0 14px;
+}
+
+.example-spacer {
     flex: 1 1 auto;
 }
 
@@ -27,5 +31,11 @@ a:active {
     line-height: 30px;
     margin: 0;
     width: 85%;
-    padding: 10px;
+}
+
+.span {
+    display: inline-block;
+    line-height: 30px;
+    padding: 10;
+    width: 85%;
 }

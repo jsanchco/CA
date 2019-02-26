@@ -10,7 +10,7 @@ export class TranslationService {
 
     public languages = ['ger', 'eng', 'spa'];
 
-    public language = 'spa';
+    public language = 'ger';
 
     private dictionary: {[key: string]: TranslationSet} = {
         'ger' : {
@@ -38,14 +38,7 @@ export class TranslationService {
     translate(value: string): string {
         console.log('translate called with value ' + value + ' and language ' + this.language);
         if ( this.dictionary[this.language] != null) {
-            const traduction = this.dictionary[this.language].values[value];
-            if (traduction == null || traduction === '') {
-                return value;
-            } else {
-                return traduction;
-            }
-
-            // return this.dictionary[this.language].values[value];
+            return this.dictionary[this.language].values[value];
         }
     }
 }
