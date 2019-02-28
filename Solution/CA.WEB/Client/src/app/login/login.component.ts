@@ -5,6 +5,7 @@ import { AuthenticationService } from '../shared/services/authentication.service
 import { StorageService } from '../shared/services/storage.service';
 import { Router } from '@angular/router';
 import { Session } from '../shared/models/session.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-login',
@@ -18,8 +19,8 @@ export class LoginComponent implements OnInit {
     public error: {code: number, message: string} = null;
 
     constructor(
+        private authenticationService: AuthenticationService,
         private storageService: StorageService,
-        // private authenticationService: AuthenticationService,
         private router: Router,
         private formBuilder: FormBuilder) {
 
@@ -37,7 +38,21 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
     }
 
-    public submitLogin(): void {
-        console.log('submitLogin()');
+    public submitLogin(form: NgForm): void {
+        this.submitted = true;
+        this.error = null;
+        localStorage.setItem('isLoggedin', 'true');
+        if (this.loginForm.valid) {
+            this.authenticationService.login(new Login(this.loginForm.value)).subscribe(
+              data => this.correctLogin(data),
+              error => {
+                this.error = error;
+              });
+        }
+    }
+
+    private correctLogin(data: Session) {
+        this.storageService.setCurrentSession(data);
+        this.router.navigate(['/dashboard']);
     }
 }
