@@ -10,6 +10,7 @@
     using Domain.ViewModels;
     using Microsoft.AspNetCore.Authorization;
     using Models;
+    using Microsoft.Extensions.Logging;
 
     #endregion
 
@@ -18,9 +19,11 @@
     public class UsersController : Controller
     {
         private readonly ICASupervisor _caSupervisor;
+        private readonly ILogger<AddressesController> _logger;
 
-        public UsersController(ICASupervisor caSupervisor)
+        public UsersController(ILogger<AddressesController> logger, ICASupervisor caSupervisor)
         {
+            _logger = logger;
             _caSupervisor = caSupervisor;
         }
 
@@ -33,8 +36,11 @@
                 var userAuthenticate = await _caSupervisor.Authenticate(login.username, login.password);
 
                 if (userAuthenticate == null)
+                {
+                    _logger.LogWarning("Error in Authenticate: username [{Username}] not registered or incorrect password", login.username);
                     return BadRequest(new { message = "Username or password is incorrect" });
-
+                }
+                    
                 return new ObjectResult(new Session
                 {
                     user = new UserViewModel
@@ -51,6 +57,7 @@
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Exception: ");
                 return StatusCode(500, ex);
             }
         }
@@ -65,6 +72,7 @@
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Exception: ");
                 return StatusCode(500, ex);
             }
         }
