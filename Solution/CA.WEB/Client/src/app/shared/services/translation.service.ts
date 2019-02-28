@@ -22,13 +22,19 @@ export class TranslationService {
         'eng' : {
             languange: 'eng',
             values: {
-                'example' : 'Example'
+                'example' : 'Example',
+                'username' : 'Username',
+                'password' : 'Password',
+                'incorrectLogin' : 'Usuario/Contraseña wrong'
             }
         },
         'spa' : {
             languange: 'spa',
             values: {
-                'example' : 'Ejemplo'
+                'example' : 'Ejemplo',
+                'username' : 'Usuario',
+                'password' : 'Contraseña',
+                'incorrectLogin' : 'Usuario/Contraseña incorrectos'
             }
         }
     };
@@ -36,16 +42,13 @@ export class TranslationService {
     constructor() { }
 
     translate(value: string): string {
-        console.log('translate called with value ' + value + ' and language ' + this.language);
         if ( this.dictionary[this.language] != null) {
             const traduction = this.dictionary[this.language].values[value];
-            if (traduction == null || traduction === '') {
+            if (traduction == null || traduction === '' || traduction === undefined) {
                 return value;
             } else {
                 return traduction;
             }
-
-            // return this.dictionary[this.language].values[value];
         }
     }
 }

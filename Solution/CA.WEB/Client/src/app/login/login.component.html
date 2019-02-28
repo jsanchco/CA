@@ -7,20 +7,25 @@
             <div fxFlex fxlayout="row" fxlayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput placeholder="Usuario" formControlName="username">
+                        <input matInput placeholder="{{ 'username' | translate }}" formControlName="username">
                     </mat-form-field>
                 </div>
             </div>
             <div fxFlex fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput type="password" placeholder="Password" formControlName="password">
+                        <input matInput type="password" placeholder="{{ 'password' | translate }}" formControlName="password">
                     </mat-form-field>
                 </div>
             </div>
             <div fxFlex fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
                     <button mat-raised-button color="primary" class="w-100" type="submit">Login</button>
+                </div>
+            </div>
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <p><span style="font-size: small; color: red;" *ngIf="errorInLogin">{{ 'incorrectLogin' | translate }}</span></p>
                 </div>
             </div>
         </form>

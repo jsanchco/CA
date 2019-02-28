@@ -7,6 +7,9 @@ import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/mat
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 
+// Pipes
+import { TranslatePipe } from '../shared/pipes/translation.pipe';
+
 @NgModule({
     imports: [
         FormsModule,
@@ -18,8 +21,10 @@ import { LoginComponent } from './login.component';
         MatButtonModule,
         FlexLayoutModule.withConfig({addFlexToParent: false})
     ],
-    declarations: [LoginComponent],
-    providers: [],
+    declarations: [
+        LoginComponent,
+        TranslatePipe
+    ]
 })
 
 export class LoginModule {}
