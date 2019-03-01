@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 
+import { User } from '../../shared/models/user.model';
+import { UserService } from '../../shared/services/user.service';
+
 export interface PeriodicElement {
     name: string;
     position: number;
@@ -23,10 +26,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
-    displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    dataSource = new MatTableDataSource(ELEMENT_DATA);
-    places: Array<any> = [];
+
+    displayedColumns = ['id', 'name', 'surname', 'username', 'age', 'birthDate', 'email'];
+    dataSource: MatTableDataSource< User >;
 
     applyFilter(filterValue: string) {
         filterValue = filterValue.trim(); // Remove whitespace
@@ -34,37 +38,13 @@ export class DashboardComponent implements OnInit {
         this.dataSource.filter = filterValue;
     }
 
-    constructor() {
-        this.places = [
-            {
-                imgSrc: 'assets/images/card-1.jpg',
-                place: 'Cozy 5 Stars Apartment',
-                description:
-                    // tslint:disable-next-line:max-line-length
-                    'The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.',
-                charge: '$899/night',
-                location: 'Barcelona, Spain'
-            },
-            {
-                imgSrc: 'assets/images/card-2.jpg',
-                place: 'Office Studio',
-                description:
-                    // tslint:disable-next-line:max-line-length
-                    'The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the night life in London, UK.',
-                charge: '$1,119/night',
-                location: 'London, UK'
-            },
-            {
-                imgSrc: 'assets/images/card-3.jpg',
-                place: 'Beautiful Castle',
-                description:
-                    // tslint:disable-next-line:max-line-length
-                    'The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Milan.',
-                charge: '$459/night',
-                location: 'Milan, Italy'
-            }
-        ];
-    }
+    constructor(private userService: UserService) {
+   }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.userService.getAll().subscribe(users => {
+            this.dataSource = new MatTableDataSource(users);
+          });
+    }
 }
+
