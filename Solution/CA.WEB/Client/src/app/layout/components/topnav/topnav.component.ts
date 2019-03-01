@@ -35,8 +35,4 @@ export class TopnavComponent implements OnInit {
         localStorage.removeItem('isLoggedin');
         this.router.navigate(['/login']);
     }
-
-    changeLang(language: string) {
-        this.translate.use(language);
-    }
 }
