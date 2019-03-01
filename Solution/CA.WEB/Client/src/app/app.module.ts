@@ -10,6 +10,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Services
+import { AuthenticationService } from './shared/services/authentication.service';
+import { TranslationService } from './shared/services/translation.service';
+
 // Pipes
 import { TranslatePipe } from './shared/pipes/translation.pipe';
 
@@ -44,7 +48,10 @@ export const createTranslateLoader = (http: HttpClient) => {
             }
         })
     ],
-    providers: [],
+    providers: [
+        AuthenticationService,
+        TranslationService
+    ],
     bootstrap: [AppComponent]
 })
 
