@@ -23,4 +23,5 @@ const routes: Routes = [
         AuthorizatedGuard
     ]
 })
+
 export class AppRoutingModule {}
