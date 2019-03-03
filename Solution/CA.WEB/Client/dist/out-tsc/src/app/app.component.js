@@ -8,11 +8,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 var AppComponent = /** @class */ (function () {
-    function AppComponent(translate) {
-        this.translate = translate;
-        translate.setDefaultLang('en');
+    function AppComponent() {
     }
     AppComponent.prototype.ngOnInit = function () {
     };
@@ -20,9 +17,9 @@ var AppComponent = /** @class */ (function () {
         Component({
             selector: 'app-root',
             templateUrl: './app.component.html',
-            styleUrls: ['./app.component.scss']
+            styleUrls: ['./app.component.scss'],
         }),
-        __metadata("design:paramtypes", [TranslateService])
+        __metadata("design:paramtypes", [])
     ], AppComponent);
     return AppComponent;
 }());

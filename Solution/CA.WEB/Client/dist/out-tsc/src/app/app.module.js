@@ -9,27 +9,20 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// AoT requires an exported function for factories
-export var createTranslateLoader = function (http) {
-    /* for development
-    return new TranslateHttpLoader(
-        http,
-        '/start-javascript/sb-admin-material/master/dist/assets/i18n/',
-        '.json'
-    );*/
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-};
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
+import { ErrorInterceptor } from './shared/helpers/error.interceptor';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         NgModule({
-            declarations: [AppComponent],
+            declarations: [
+                AppComponent
+            ],
             imports: [
                 BrowserModule,
                 AppRoutingModule,
@@ -37,15 +30,11 @@ var AppModule = /** @class */ (function () {
                 LayoutModule,
                 OverlayModule,
                 HttpClientModule,
-                TranslateModule.forRoot({
-                    loader: {
-                        provide: TranslateLoader,
-                        useFactory: createTranslateLoader,
-                        deps: [HttpClient]
-                    }
-                })
             ],
-            providers: [],
+            providers: [
+                { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+                { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+            ],
             bootstrap: [AppComponent]
         })
     ], AppModule);

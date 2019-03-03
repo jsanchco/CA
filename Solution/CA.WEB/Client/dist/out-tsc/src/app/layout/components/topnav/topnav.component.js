@@ -9,12 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 var TopnavComponent = /** @class */ (function () {
-    function TopnavComponent(router, translate) {
+    function TopnavComponent(router) {
         var _this = this;
         this.router = router;
-        this.translate = translate;
         this.router.events.subscribe(function (val) {
             if (val instanceof NavigationEnd && window.innerWidth <= 992 && _this.isToggled()) {
                 _this.toggleSidebar();
@@ -36,16 +34,13 @@ var TopnavComponent = /** @class */ (function () {
         localStorage.removeItem('isLoggedin');
         this.router.navigate(['/login']);
     };
-    TopnavComponent.prototype.changeLang = function (language) {
-        this.translate.use(language);
-    };
     TopnavComponent = __decorate([
         Component({
             selector: 'app-topnav',
             templateUrl: './topnav.component.html',
             styleUrls: ['./topnav.component.scss']
         }),
-        __metadata("design:paramtypes", [Router, TranslateService])
+        __metadata("design:paramtypes", [Router])
     ], TopnavComponent);
     return TopnavComponent;
 }());

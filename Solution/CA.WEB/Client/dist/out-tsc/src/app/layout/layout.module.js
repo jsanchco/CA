@@ -7,12 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
-import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
-import { NavComponent } from './nav/nav.component';
+// Modules Shared
+import { SharedModule } from '../shared/shared.module';
 var LayoutModule = /** @class */ (function () {
     function LayoutModule() {
     }
@@ -28,9 +28,13 @@ var LayoutModule = /** @class */ (function () {
                 MatInputModule,
                 MatMenuModule,
                 MatListModule,
-                TranslateModule
+                SharedModule
             ],
-            declarations: [LayoutComponent, NavComponent, TopnavComponent, SidebarComponent]
+            declarations: [
+                LayoutComponent,
+                TopnavComponent,
+                SidebarComponent
+            ]
         })
     ], LayoutModule);
     return LayoutModule;

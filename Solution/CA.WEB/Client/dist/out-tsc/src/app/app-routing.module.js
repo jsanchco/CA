@@ -6,12 +6,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AuthGuard } from './shared/guard/auth.guard';
+import { StorageService } from './shared/services/storage.service';
+import { AuthorizatedGuard } from './shared/guard/authorizated.guard';
 var routes = [
     {
         path: '',
         loadChildren: './layout/layout.module#LayoutModule',
-        canActivate: [AuthGuard]
+        canActivate: [AuthorizatedGuard]
     },
     {
         path: 'login',
@@ -23,9 +24,15 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         NgModule({
-            imports: [RouterModule.forRoot(routes)],
+            imports: [
+                RouterModule.forRoot(routes)
+            ],
             exports: [RouterModule],
-            providers: [AuthGuard]
+            providers: [
+                StorageService,
+                AuthorizatedGuard
+            ],
+            declarations: []
         })
     ], AppRoutingModule);
     return AppRoutingModule;

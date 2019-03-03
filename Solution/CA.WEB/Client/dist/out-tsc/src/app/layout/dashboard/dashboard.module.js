@@ -29,7 +29,11 @@ var DashboardModule = /** @class */ (function () {
                 MatIconModule,
                 FlexLayoutModule.withConfig({ addFlexToParent: false })
             ],
-            declarations: [DashboardComponent]
+            declarations: [DashboardComponent],
+            providers: [
+            // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+            // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+            ]
         })
     ], DashboardModule);
     return DashboardModule;

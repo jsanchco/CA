@@ -1,22 +1,46 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Login} from '../models/login.model';
-import {Session} from '../models/session.model';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Login } from '../models/login.model';
+import { Session } from '../models/session.model';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
-@Injectable()
+import { User } from '../models/user.model';
+
+@Injectable({ providedIn: 'root' })
 
 export class AuthenticationService {
-
-  constructor(private http: HttpClient) {}
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
   private basePath = 'http://localhost:44314/api/users/authenticate/';
 
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
   login(login: Login): Observable<Session> {
-    return this.http.post<Session>(this.basePath, login);
+    return this.http.post<Session>(this.basePath, login)
+    .pipe(map(session => {
+      // login successful if there's a jwt token in the response
+      if (session && session.token) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(session.user));
+          this.currentUserSubject.next(session.user);
+      }
+
+      return session;
+    }));
   }
 
   logout(): Observable<Boolean> {
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
     return this.http.post<Boolean>(this.basePath + 'logout', {});
   }
 }

@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.DataEFCoreSQL", "CA.Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.WEB", "CA.WEB\CA.WEB.csproj", "{352AE39C-F6FC-401E-923B-70A83CC08F29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA.TestAPI", "CA.TestServices\CA.TestAPI.csproj", "{632806F4-A9EA-4446-A3B4-83577E5D9B61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{352AE39C-F6FC-401E-923B-70A83CC08F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{352AE39C-F6FC-401E-923B-70A83CC08F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{352AE39C-F6FC-401E-923B-70A83CC08F29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632806F4-A9EA-4446-A3B4-83577E5D9B61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632806F4-A9EA-4446-A3B4-83577E5D9B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632806F4-A9EA-4446-A3B4-83577E5D9B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632806F4-A9EA-4446-A3B4-83577E5D9B61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

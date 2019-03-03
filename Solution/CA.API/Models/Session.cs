@@ -3,7 +3,7 @@ namespace CA.API.Models
 {
     #region Using
 
-    using CA.Domain.ViewModels;
+    using Domain.ViewModels;
 
     #endregion
 

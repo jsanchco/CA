@@ -64,6 +64,7 @@
 
         [HttpGet]
         [Produces(typeof(List<UserViewModel>))]
+        [Authorize]
         public async Task<IActionResult> Get()
         {
             try
