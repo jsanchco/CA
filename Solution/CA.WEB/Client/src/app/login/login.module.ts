@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material';
@@ -7,8 +7,8 @@ import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/mat
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 
-// Pipes
-import { TranslatePipe } from '../shared/pipes/translation.pipe';
+// Modules Shared
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     imports: [
@@ -19,11 +19,11 @@ import { TranslatePipe } from '../shared/pipes/translation.pipe';
         MatInputModule,
         MatCheckboxModule,
         MatButtonModule,
-        FlexLayoutModule.withConfig({addFlexToParent: false})
+        FlexLayoutModule.withConfig({addFlexToParent: false}),
+        SharedModule
     ],
     declarations: [
         LoginComponent,
-        TranslatePipe
     ]
 })
 

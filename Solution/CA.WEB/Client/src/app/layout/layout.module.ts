@@ -9,11 +9,13 @@ import {
     MatSidenavModule,
     MatToolbarModule
 } from '@angular/material';
-import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
+
+// Modules Shared
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     imports: [
@@ -26,8 +28,13 @@ import { LayoutComponent } from './layout.component';
         MatInputModule,
         MatMenuModule,
         MatListModule,
-        TranslateModule
+        SharedModule
     ],
-    declarations: [LayoutComponent, TopnavComponent, SidebarComponent]
+    declarations: [
+        LayoutComponent,
+        TopnavComponent,
+        SidebarComponent
+    ]
 })
+
 export class LayoutModule {}

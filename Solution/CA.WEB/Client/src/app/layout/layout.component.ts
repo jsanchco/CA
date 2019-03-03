@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// Pipes
+import { TranslatePipe } from '../shared/pipes/translation.pipe';
+
 @Component({
     selector: 'app-layout',
     templateUrl: './layout.component.html',

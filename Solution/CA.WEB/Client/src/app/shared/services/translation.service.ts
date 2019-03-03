@@ -25,7 +25,10 @@ export class TranslationService {
                 'example' : 'Example',
                 'username' : 'Username',
                 'password' : 'Password',
-                'incorrectLogin' : 'Usuario/Contraseña wrong'
+                'incorrectLogin' : 'Usuario/Contraseña wrong',
+                'dashboard' : 'Dashboard',
+                'blank-page' : 'Test',
+                'hello' : 'Hola!!!'
             }
         },
         'spa' : {
@@ -34,7 +37,10 @@ export class TranslationService {
                 'example' : 'Ejemplo',
                 'username' : 'Usuario',
                 'password' : 'Contraseña',
-                'incorrectLogin' : 'Usuario/Contraseña incorrectos'
+                'incorrectLogin' : 'Usuario/Contraseña incorrectos',
+                'dashboard' : 'Escritorio',
+                'blank-page' : 'Test',
+                'hello' : 'Hello!!!'
             }
         }
     };
