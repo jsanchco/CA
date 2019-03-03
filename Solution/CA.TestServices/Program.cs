@@ -25,9 +25,10 @@
             Console.WriteLine("");
             Console.WriteLine("1 - GetToken");
             Console.WriteLine("2 - GetUsers");
+            Console.WriteLine("");
             Console.WriteLine("0 - Salir");
             Console.WriteLine("");
-            Console.WriteLine("Elige una opción ...");
+            Console.Write("Elige una opción ... ");
 
             var option = Console.ReadKey();
             switch (option.KeyChar)

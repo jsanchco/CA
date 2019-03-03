@@ -14,6 +14,7 @@
 
     #endregion
 
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : Controller
@@ -63,8 +64,7 @@
         }
 
         [HttpGet]
-        [Produces(typeof(List<UserViewModel>))]
-        [Authorize]
+        [Produces(typeof(List<UserViewModel>))]        
         public async Task<IActionResult> Get()
         {
             try

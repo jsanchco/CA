@@ -44,8 +44,8 @@
             {
                 s.SwaggerDoc("v1", new Info
                 {
-                    Title = "People API",
-                    Description = "People Infromation Store API"
+                    Title = "API",
+                    Description = "Store API"
                 });
             });
         }

@@ -28,6 +28,7 @@ namespace CA.TestAPI
             try
             {
                 Console.WriteLine("");
+                Console.WriteLine("");
                 if (string.IsNullOrEmpty(_token))
                 {
                     var builder = new ConfigurationBuilder()
@@ -49,6 +50,7 @@ namespace CA.TestAPI
 
                         _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
 
+                        Console.WriteLine("authenticate -> true");
                         return true;
                     }
 
@@ -80,7 +82,7 @@ namespace CA.TestAPI
                         var stringResult = await response.Content.ReadAsStringAsync();
                         var users = JsonConvert.DeserializeObject<List<UserViewModel>>(stringResult);
                         Console.WriteLine(JsonConvert.SerializeObject(users));
-
+                       
                         return users;
                     }
 
