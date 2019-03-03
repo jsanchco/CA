@@ -4,6 +4,10 @@ import { CommonModule } from '@angular/common';
 // Pipes
 import { TranslatePipe } from '../shared/pipes/translation.pipe';
 
+// Services
+import { AuthenticationService } from '../shared/services/authentication.service';
+import { TranslationService } from '../shared/services/translation.service';
+
 @NgModule({
   declarations: [
     TranslatePipe
@@ -13,6 +17,10 @@ import { TranslatePipe } from '../shared/pipes/translation.pipe';
   ],
   exports: [
     TranslatePipe
+  ],
+  providers: [
+    AuthenticationService,
+    TranslationService
   ]
 })
 
