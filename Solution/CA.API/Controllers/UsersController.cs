@@ -4,7 +4,6 @@
 
     using Microsoft.AspNetCore.Mvc;
     using System;
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Domain.Supervisor;
     using Domain.ViewModels;
@@ -64,7 +63,6 @@
         }
 
         [HttpGet]
-        [Produces(typeof(List<UserViewModel>))]        
         public async Task<IActionResult> Get()
         {
             try

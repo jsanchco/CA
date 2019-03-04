@@ -61,6 +61,8 @@
 
             loggerFactory.AddSerilog();
 
+            app.UseAuthentication();
+
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
@@ -73,9 +75,7 @@
             app.UseSwaggerUI(s => {
                 s.SwaggerEndpoint("/swagger/v1/swagger.json", "v1 docs");
                 s.RoutePrefix = string.Empty;
-            });
-
-            app.UseAuthentication();
+            });            
         }
     }
 }

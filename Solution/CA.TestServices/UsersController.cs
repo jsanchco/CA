@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using CA.Domain.ViewModels;
-
-namespace CA.TestAPI
+﻿namespace CA.TestAPI
 {
     #region Using
 
@@ -14,6 +11,8 @@ namespace CA.TestAPI
     using Helpers;
     using System.IO;
     using Microsoft.Extensions.Configuration;
+    using System.Collections.Generic;
+    using Domain.ViewModels;
 
     #endregion
 
