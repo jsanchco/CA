@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.DataEFCoreSQL", "CA.Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.WEB", "CA.WEB\CA.WEB.csproj", "{352AE39C-F6FC-401E-923B-70A83CC08F29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA.TestAPI", "CA.TestServices\CA.TestAPI.csproj", "{632806F4-A9EA-4446-A3B4-83577E5D9B61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.TestAPI", "CA.TestServices\CA.TestAPI.csproj", "{632806F4-A9EA-4446-A3B4-83577E5D9B61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA.AgSbAdminMaterialMaster", "CA.AgSbAdminMaterialMaster\CA.AgSbAdminMaterialMaster.csproj", "{A0ABF871-0A29-40D2-B38E-C807278A06F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{632806F4-A9EA-4446-A3B4-83577E5D9B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{632806F4-A9EA-4446-A3B4-83577E5D9B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{632806F4-A9EA-4446-A3B4-83577E5D9B61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0ABF871-0A29-40D2-B38E-C807278A06F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0ABF871-0A29-40D2-B38E-C807278A06F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0ABF871-0A29-40D2-B38E-C807278A06F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0ABF871-0A29-40D2-B38E-C807278A06F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

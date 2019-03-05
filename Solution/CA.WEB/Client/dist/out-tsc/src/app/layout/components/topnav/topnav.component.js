@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { StorageService } from '../../../shared/services/storage.service';
 var TopnavComponent = /** @class */ (function () {
-    function TopnavComponent(router) {
+    function TopnavComponent(storageService, router) {
         var _this = this;
+        this.storageService = storageService;
         this.router = router;
         this.router.events.subscribe(function (val) {
             if (val instanceof NavigationEnd && window.innerWidth <= 992 && _this.isToggled()) {
@@ -32,7 +34,7 @@ var TopnavComponent = /** @class */ (function () {
     };
     TopnavComponent.prototype.onLoggedout = function () {
         localStorage.removeItem('isLoggedin');
-        this.router.navigate(['/login']);
+        this.storageService.logout();
     };
     TopnavComponent = __decorate([
         Component({
@@ -40,7 +42,7 @@ var TopnavComponent = /** @class */ (function () {
             templateUrl: './topnav.component.html',
             styleUrls: ['./topnav.component.scss']
         }),
-        __metadata("design:paramtypes", [Router])
+        __metadata("design:paramtypes", [StorageService, Router])
     ], TopnavComponent);
     return TopnavComponent;
 }());
