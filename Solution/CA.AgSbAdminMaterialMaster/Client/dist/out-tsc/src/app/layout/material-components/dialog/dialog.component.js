@@ -26,13 +26,14 @@ var DialogComponent = /** @class */ (function () {
             _this.animal = result;
         });
     };
+    var _a;
     DialogComponent = __decorate([
         Component({
             selector: 'app-dialog',
             templateUrl: './dialog.component.html',
             styleUrls: ['./dialog.component.scss']
         }),
-        __metadata("design:paramtypes", [MatDialog])
+        __metadata("design:paramtypes", [typeof (_a = typeof MatDialog !== "undefined" && MatDialog) === "function" ? _a : Object])
     ], DialogComponent);
     return DialogComponent;
 }());

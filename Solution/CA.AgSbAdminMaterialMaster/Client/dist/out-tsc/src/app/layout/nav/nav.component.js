@@ -14,13 +14,14 @@ var NavComponent = /** @class */ (function () {
         this.breakpointObserver = breakpointObserver;
         this.isHandset = this.breakpointObserver.observe(Breakpoints.Handset);
     }
+    var _a;
     NavComponent = __decorate([
         Component({
             selector: 'app-nav',
             templateUrl: './nav.component.html',
             styleUrls: ['./nav.component.scss']
         }),
-        __metadata("design:paramtypes", [BreakpointObserver])
+        __metadata("design:paramtypes", [typeof (_a = typeof BreakpointObserver !== "undefined" && BreakpointObserver) === "function" ? _a : Object])
     ], NavComponent);
     return NavComponent;
 }());

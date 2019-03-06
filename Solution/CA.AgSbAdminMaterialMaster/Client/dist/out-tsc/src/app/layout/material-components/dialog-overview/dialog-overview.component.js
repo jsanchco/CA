@@ -21,6 +21,7 @@ var DialogOverviewComponent = /** @class */ (function () {
     DialogOverviewComponent.prototype.onNoClick = function () {
         this.dialogRef.close();
     };
+    var _a;
     DialogOverviewComponent = __decorate([
         Component({
             selector: 'app-dialog-overview',
@@ -28,7 +29,7 @@ var DialogOverviewComponent = /** @class */ (function () {
             styleUrls: ['./dialog-overview.component.scss']
         }),
         __param(1, Inject(MAT_DIALOG_DATA)),
-        __metadata("design:paramtypes", [MatDialogRef, Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof MatDialogRef !== "undefined" && MatDialogRef) === "function" ? _a : Object, Object])
     ], DialogOverviewComponent);
     return DialogOverviewComponent;
 }());

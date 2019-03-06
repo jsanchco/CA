@@ -6,14 +6,13 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import { User } from '../models/user.model';
+import { GlobalVariable } from '../../../global';
 
 @Injectable({ providedIn: 'root' })
 
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-
-  private basePath = 'http://localhost:44314/api/users/authenticate/';
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -25,7 +24,8 @@ export class AuthenticationService {
   }
 
   login(login: Login): Observable<Session> {
-    return this.http.post<Session>(this.basePath, login)
+    const url = GlobalVariable.BASE_API_URL + 'users/authenticate/';
+    return this.http.post<Session>(url, login)
     .pipe(map(session => {
       // login successful if there's a jwt token in the response
       if (session && session.token) {
@@ -39,8 +39,9 @@ export class AuthenticationService {
   }
 
   logout(): Observable<Boolean> {
+    const url = GlobalVariable.BASE_API_URL + 'users/logout/';
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    return this.http.post<Boolean>(this.basePath + 'logout', {});
+    return this.http.post<Boolean>(url + 'logout', {});
   }
 }

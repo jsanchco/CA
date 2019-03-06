@@ -32,13 +32,14 @@ var TablesComponent = /** @class */ (function () {
             this.dataSource.paginator.firstPage();
         }
     };
+    var _a, _b;
     __decorate([
         ViewChild(MatPaginator),
-        __metadata("design:type", MatPaginator)
+        __metadata("design:type", typeof (_a = typeof MatPaginator !== "undefined" && MatPaginator) === "function" ? _a : Object)
     ], TablesComponent.prototype, "paginator", void 0);
     __decorate([
         ViewChild(MatSort),
-        __metadata("design:type", MatSort)
+        __metadata("design:type", typeof (_b = typeof MatSort !== "undefined" && MatSort) === "function" ? _b : Object)
     ], TablesComponent.prototype, "sort", void 0);
     TablesComponent = __decorate([
         Component({

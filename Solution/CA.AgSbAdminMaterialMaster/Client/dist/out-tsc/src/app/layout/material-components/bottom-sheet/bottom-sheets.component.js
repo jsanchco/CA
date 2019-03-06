@@ -18,13 +18,14 @@ var BottomSheetComponent = /** @class */ (function () {
         this.bottomSheet.open(BottomSheetOverviewComponent);
     };
     BottomSheetComponent.prototype.ngOnInit = function () { };
+    var _a;
     BottomSheetComponent = __decorate([
         Component({
             selector: 'app-bottom-sheet',
             templateUrl: './bottom-sheets.component.html',
             styleUrls: ['./bottom-sheets.component.scss']
         }),
-        __metadata("design:paramtypes", [MatBottomSheet])
+        __metadata("design:paramtypes", [typeof (_a = typeof MatBottomSheet !== "undefined" && MatBottomSheet) === "function" ? _a : Object])
     ], BottomSheetComponent);
     return BottomSheetComponent;
 }());

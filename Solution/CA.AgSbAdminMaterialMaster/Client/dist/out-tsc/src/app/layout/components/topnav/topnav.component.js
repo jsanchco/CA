@@ -39,13 +39,14 @@ var TopnavComponent = /** @class */ (function () {
     TopnavComponent.prototype.changeLang = function (language) {
         this.translate.use(language);
     };
+    var _a, _b;
     TopnavComponent = __decorate([
         Component({
             selector: 'app-topnav',
             templateUrl: './topnav.component.html',
             styleUrls: ['./topnav.component.scss']
         }),
-        __metadata("design:paramtypes", [Router, TranslateService])
+        __metadata("design:paramtypes", [typeof (_a = typeof Router !== "undefined" && Router) === "function" ? _a : Object, typeof (_b = typeof TranslateService !== "undefined" && TranslateService) === "function" ? _b : Object])
     ], TopnavComponent);
     return TopnavComponent;
 }());

@@ -8,6 +8,7 @@ import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.comp
     templateUrl: './dialog.component.html',
     styleUrls: ['./dialog.component.scss']
 })
+
 export class DialogComponent implements OnInit {
     animal: string;
     name: string;

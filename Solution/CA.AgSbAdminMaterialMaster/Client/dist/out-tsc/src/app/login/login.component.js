@@ -18,13 +18,14 @@ var LoginComponent = /** @class */ (function () {
         localStorage.setItem('isLoggedin', 'true');
         this.router.navigate(['/dashboard']);
     };
+    var _a;
     LoginComponent = __decorate([
         Component({
             selector: 'app-login',
             templateUrl: './login.component.html',
             styleUrls: ['./login.component.scss']
         }),
-        __metadata("design:paramtypes", [Router])
+        __metadata("design:paramtypes", [typeof (_a = typeof Router !== "undefined" && Router) === "function" ? _a : Object])
     ], LoginComponent);
     return LoginComponent;
 }());
