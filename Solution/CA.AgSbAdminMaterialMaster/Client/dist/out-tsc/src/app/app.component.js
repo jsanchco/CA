@@ -16,14 +16,13 @@ var AppComponent = /** @class */ (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
     };
-    var _a;
     AppComponent = __decorate([
         Component({
             selector: 'app-root',
             templateUrl: './app.component.html',
             styleUrls: ['./app.component.scss']
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof TranslateService !== "undefined" && TranslateService) === "function" ? _a : Object])
+        __metadata("design:paramtypes", [TranslateService])
     ], AppComponent);
     return AppComponent;
 }());

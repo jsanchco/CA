@@ -20,10 +20,9 @@ var AuthGuard = /** @class */ (function () {
         this.router.navigate(['/login']);
         return false;
     };
-    var _a;
     AuthGuard = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [typeof (_a = typeof Router !== "undefined" && Router) === "function" ? _a : Object])
+        __metadata("design:paramtypes", [Router])
     ], AuthGuard);
     return AuthGuard;
 }());

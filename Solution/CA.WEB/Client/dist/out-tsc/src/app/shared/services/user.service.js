@@ -9,13 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GlobalVariable } from '../../../global';
 var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
-        this.basePath = 'http://localhost:44314/api/';
     }
     UserService.prototype.getAll = function () {
-        return this.http.get(this.basePath + 'users');
+        var url = GlobalVariable.BASE_API_URL + 'users';
+        return this.http.get(url);
     };
     UserService = __decorate([
         Injectable({ providedIn: 'root' }),
