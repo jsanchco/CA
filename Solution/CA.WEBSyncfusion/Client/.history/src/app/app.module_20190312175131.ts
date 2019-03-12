@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { EJAngular2Module } from 'ej-angular2';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LayoutComponent } from './layout/layout.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Helpers
@@ -11,7 +13,8 @@ import { ErrorInterceptor } from './shared/helpers/error.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

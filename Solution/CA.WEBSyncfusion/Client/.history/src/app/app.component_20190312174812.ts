@@ -21,7 +21,7 @@ export class AppComponent {
   // Button click event handler to open the ejDialog
   onClick(event) {
     this.button_display = false;
-    // this.dialog.widget.element.ejDialog('open');
+    this.dialog.widget.element.ejDialog('open');
   }
 
   // Dialog close event handler
