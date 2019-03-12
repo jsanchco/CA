@@ -32,14 +32,13 @@ var SnackBarComponent = /** @class */ (function () {
         });
     };
     SnackBarComponent.prototype.ngOnInit = function () { };
-    var _a;
     SnackBarComponent = __decorate([
         Component({
             selector: 'app-snack-bar',
             templateUrl: './snack-bar.component.html',
             styleUrls: ['./snack-bar.component.scss']
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof MatSnackBar !== "undefined" && MatSnackBar) === "function" ? _a : Object])
+        __metadata("design:paramtypes", [MatSnackBar])
     ], SnackBarComponent);
     return SnackBarComponent;
 }());
