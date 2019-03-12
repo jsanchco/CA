@@ -16,7 +16,6 @@ var AuthorizatedGuard = /** @class */ (function () {
         this.storageService = storageService;
     }
     AuthorizatedGuard.prototype.canActivate = function () {
-        console.log(this.storageService.isAuthenticated());
         if (this.storageService.isAuthenticated()) {
             // logged in so return true
             return true;

@@ -11,10 +11,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { GlobalVariable } from '../../../global';
 var AuthenticationService = /** @class */ (function () {
     function AuthenticationService(http) {
         this.http = http;
-        this.basePath = 'http://localhost:44314/api/users/authenticate/';
         this.currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -27,7 +27,8 @@ var AuthenticationService = /** @class */ (function () {
     });
     AuthenticationService.prototype.login = function (login) {
         var _this = this;
-        return this.http.post(this.basePath, login)
+        var url = GlobalVariable.BASE_API_URL + 'users/authenticate/';
+        return this.http.post(url, login)
             .pipe(map(function (session) {
             // login successful if there's a jwt token in the response
             if (session && session.token) {
@@ -39,9 +40,10 @@ var AuthenticationService = /** @class */ (function () {
         }));
     };
     AuthenticationService.prototype.logout = function () {
+        var url = GlobalVariable.BASE_API_URL + 'users/logout/';
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
-        return this.http.post(this.basePath + 'logout', {});
+        return this.http.post(url + 'logout', {});
     };
     AuthenticationService = __decorate([
         Injectable({ providedIn: 'root' }),
