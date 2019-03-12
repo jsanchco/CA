@@ -1,0 +1,33 @@
+<div class="login-page">
+    <div class="content">
+        <form class="login-form" [formGroup]="loginForm" #lForm="ngForm" (ngSubmit)="submitLogin(lForm)" novalidate>
+            <div class="text-center">
+                <h2 class="app-name">Login</h2>
+            </div>
+            <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput placeholder="{{ 'username' | translate }}" formControlName="username">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput type="password" placeholder="{{ 'password' | translate }}" formControlName="password">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <button mat-raised-button color="primary" class="w-100" type="submit">Login</button>
+                </div>
+            </div>
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <p><span style="font-size: small; color: red;" *ngIf="errorInLogin">{{ 'incorrectLogin' | translate }}</span></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

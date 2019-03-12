@@ -10,8 +10,6 @@ export class AuthorizatedGuard implements CanActivate {
               private storageService: StorageService) { }
 
   canActivate() {
-    return false;
-
     if (this.storageService.isAuthenticated()) {
       // logged in so return true
       return true;
