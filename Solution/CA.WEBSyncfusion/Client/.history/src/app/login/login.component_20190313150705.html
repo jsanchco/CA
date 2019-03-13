@@ -1,0 +1,57 @@
+<div class="col-lg-12 control-section">
+    <div class="content-wrapper" style="margin-bottom: 25px;">
+        <div class="formtitle">
+            <span>Loggin</span>
+        </div>
+
+        <ejs-toast #defaulttoast id='defaulttoast' [position]="position" icon="e-meeting">
+            <ng-template #content>
+                <div>Conference Room 01 / Building 135 10:00 AM-10:30 AM</div>
+            </ng-template>
+            <ng-template #title>
+                <div>Adaptive Tiles Meeting</div>
+            </ng-template>
+        </ejs-toast>
+
+        <form id="formId" [formGroup]="loginForm" #formDir="ngForm" class="form-horizontal" #lForm="ngForm" (ngSubmit)="submitLogin(lForm)" novalidate="">
+
+            <div class="form-group">
+                <div class="e-float-input">
+                    <input id="username" type="text" formControlName="check">
+                    <span class="e-float-line"></span>
+                    <label for="check" class="e-float-text">
+                        {{ 'username' | translate }}
+                    </label>
+                </div>
+                <div *ngIf="check.errors">
+                    <div *ngIf="check.errors.required && check.touched" class="e-error">
+                        {{ 'field-required' | translate }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="e-float-input">
+                    <input id="password" type="password" formControlName="check">
+                    <span class="e-float-line"></span>
+                    <label for="check" class="e-float-text">
+                        {{ 'password' | translate }}
+                    </label>
+                </div>
+                <div *ngIf="check.errors">
+                    <div *ngIf="check.errors.required && check.touched" class="e-error">
+                        {{ 'field-required' | translate }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div style="text-align: center">
+                    <button id="validateSubmit" class="samplebtn e-control e-btn e-primary" type="submit" style="height:40px;width: 150px;" data-ripple="true">
+                        {{ 'validate' | translate }}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
