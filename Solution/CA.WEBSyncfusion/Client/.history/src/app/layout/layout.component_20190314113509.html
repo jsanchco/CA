@@ -1,6 +1,14 @@
 <div class="control-section">
     <!-- sample level element  -->
+    <div class="col-lg-12 col-sm-12 col-md-12 center">
+        Click/Touch the button to view the sample
+    </div>
+    <div class="col-lg-12 col-sm-12 col-md-12 center">
+        <a class="e-btn" id="newTab" (click)="newTabClick()" target="_blank">Open in new Tab</a>
+    </div>
+    <!-- sample level element  -->
     <div id="wrapper">
+        <title>Essential JS 2 for Angular - Sidebar > SideBar with ListView</title>
         <div class="col-lg-12 col-sm-12 col-md-12" id="sidebar-section">
             <div class="col-lg-12 col-sm-12 col-md-12">
                 <div id="head">
@@ -12,12 +20,10 @@
                 <ejs-sidebar id="sidebar-menu" #sidebarInstance [type]='type' [width]='width'>
                     <!-- normal state element declaration -->
                     <div id="close" class="e-icons" (click)="closeClick()"></div>
-
                     <div class="content-area">
                         <!--List view element declaration-->
                         <ejs-listview id="menulist" [dataSource]='dataList' [fields]='fields' (select)="onSelect($event)"></ejs-listview>
                     </div>
-
                     <!-- end of normal state element declaration -->
                 </ejs-sidebar>
                 <!-- end of sidebar element -->
@@ -27,10 +33,7 @@
                         <router-outlet></router-outlet>
                     </div> -->
 
-                    <!-- <div class="content textArea">Application content</div> -->
-                    <div class="main-container">
-                        <router-outlet></router-outlet>
-                    </div>
+                    <div class="content textArea">Application content</div>
                 </div>
                 <!--end of main content declaration -->
             </div>

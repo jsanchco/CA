@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders, CUSTOM_ELEMENTS_SCHEMA } from '@angular/
 import { CommonModule } from '@angular/common';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { RadioButtonModule } from '@syncfusion/ej2-angular-buttons';
 import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
 
@@ -19,6 +20,7 @@ import { SharedSyncfusionModule } from '../shared/shared-syncfusion.module';
     SidebarModule,
     SharedModule,
     RadioButtonModule,
+    BrowserModule,
     SharedSyncfusionModule
   ]
 })

@@ -18,8 +18,13 @@ export class LayoutComponent implements OnInit {
   public width = '250px';
   public type = 'Over';
   public dataList: { [key: string]: Object }[] = [
-      { text: 'Dashboard' },
-      { text: 'Users' }
+      { text: 'Home' },
+      { text: 'About' },
+      { text: 'Careers' },
+      { text: 'FAQs' },
+      { text: 'Blog' },
+      { text: 'Uses' },
+      { text: 'Contact' }
   ];
   public fields: Object = { tooltip: 'text' };
 
@@ -35,20 +40,10 @@ export class LayoutComponent implements OnInit {
   // }
   // Listview select event handler
   onSelect(args: SelectEventArgs) {
-    console.log('onSelect: ' + args.text);
+    console.log('onSelect');
     this.sidebarInstance.hide();
-    switch (args.text) {
-      case 'Dashboard':
-      this.router.navigate(['/dashboard']);
-        break;
-      case 'Users':
-        this.router.navigate(['/users']);
-        break;
-
-      default:
-        break;
-    }
-    // document.getElementsByClassName('textArea')[0].innerHTML = args.text + ' Page Content';
+    this.router.navigate(['/dashboard']);
+    document.getElementsByClassName('textArea')[0].innerHTML = args.text + ' Page Content';
   }
 
   openClick() {

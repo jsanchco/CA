@@ -8,10 +8,10 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            // {
-            //     path: '',
-            //     redirectTo: 'dashboard'
-            // },
+            {
+                path: '',
+                redirectTo: 'dashboard'
+            },
             {
                 path: 'dashboard',
                 loadChildren: './dashboard/dashboard.module#DashboardModule'

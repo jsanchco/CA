@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation, Inject, ViewChild, OnInit } from '@angular/core';
 import { SidebarComponent } from '@syncfusion/ej2-angular-navigations';
-import { Router } from '@angular/router';
 import { ListViewComponent, SelectEventArgs } from '@syncfusion/ej2-angular-lists';
 import { enableRipple } from '@syncfusion/ej2-base';
 
@@ -18,12 +17,17 @@ export class LayoutComponent implements OnInit {
   public width = '250px';
   public type = 'Over';
   public dataList: { [key: string]: Object }[] = [
-      { text: 'Dashboard' },
-      { text: 'Users' }
+      { text: 'Home' },
+      { text: 'About' },
+      { text: 'Careers' },
+      { text: 'FAQs' },
+      { text: 'Blog' },
+      { text: 'Uses' },
+      { text: 'Contact' }
   ];
   public fields: Object = { tooltip: 'text' };
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -35,20 +39,9 @@ export class LayoutComponent implements OnInit {
   // }
   // Listview select event handler
   onSelect(args: SelectEventArgs) {
-    console.log('onSelect: ' + args.text);
+    console.log('onSelect');
     this.sidebarInstance.hide();
-    switch (args.text) {
-      case 'Dashboard':
-      this.router.navigate(['/dashboard']);
-        break;
-      case 'Users':
-        this.router.navigate(['/users']);
-        break;
-
-      default:
-        break;
-    }
-    // document.getElementsByClassName('textArea')[0].innerHTML = args.text + ' Page Content';
+    document.getElementsByClassName('textArea')[0].innerHTML = args.text + 'Page Content';
   }
 
   openClick() {

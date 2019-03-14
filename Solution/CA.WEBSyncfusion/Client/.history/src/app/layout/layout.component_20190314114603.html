@@ -15,7 +15,28 @@
 
                     <div class="content-area">
                         <!--List view element declaration-->
-                        <ejs-listview id="menulist" [dataSource]='dataList' [fields]='fields' (select)="onSelect($event)"></ejs-listview>
+                        <!-- <ejs-listview id="menulist" [dataSource]='dataList' [fields]='fields' (select)="onSelect($event)"></ejs-listview> -->
+
+                        <ul>
+                            <li class="sidebar-item">
+                                <span class="e-icons home"></span>
+                                <span class="e-text" title="home">Home</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <span class="e-icons profile"></span>
+                                <span class="e-text" title="profile">Profile</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <span class="e-icons info"></span>
+                                <span class="e-text" title="info">Info</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <span class="e-icons settings"></span>
+                                <span class="e-text" title="settings">Settings</span>
+                            </li>
+                        </ul>
+
+
                     </div>
 
                     <!-- end of normal state element declaration -->
@@ -27,10 +48,7 @@
                         <router-outlet></router-outlet>
                     </div> -->
 
-                    <!-- <div class="content textArea">Application content</div> -->
-                    <div class="main-container">
-                        <router-outlet></router-outlet>
-                    </div>
+                    <div class="content textArea">Application content</div>
                 </div>
                 <!--end of main content declaration -->
             </div>
