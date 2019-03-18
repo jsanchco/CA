@@ -61,7 +61,7 @@ export class UsersComponent implements OnInit {
   }
 
   actionBegin(args: any): void {
-    // const gridInstance: any = (<any>document.getElementById('Normalgrid')).ej2_instances[0];
+    const gridInstance: any = (<any>document.getElementById('Normalgrid')).ej2_instances[0];
         if (args.requestType === 'save') {
             // if (gridInstance.pageSettings.currentPage !== 1 && gridInstance.editSettings.newRowPosition === 'Top') {
             //     args.index = (gridInstance.pageSettings.currentPage * gridInstance.pageSettings.pageSize) - gridInstance.pageSettings.pageSize;

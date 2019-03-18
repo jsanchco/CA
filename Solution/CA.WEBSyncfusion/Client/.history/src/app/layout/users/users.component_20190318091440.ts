@@ -20,8 +20,6 @@ export class UsersComponent implements OnInit {
 
   public data: Object[];
   public pageSettings: Object;
-  public editSettings: Object;
-  public toolbar: string[];
 
   @ViewChild('grid')
     public grid: GridComponent;
@@ -30,13 +28,10 @@ export class UsersComponent implements OnInit {
   public toastObj: ToastComponent;
 
   constructor(private usersService: UsersService) {
-  }
+   }
 
   ngOnInit() {
     this.pageSettings = { pageCount: 3 };
-    this.editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true , newRowPosition: 'Top' };
-    this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
-
     this.getUsers();
   }
 
@@ -44,6 +39,7 @@ export class UsersComponent implements OnInit {
     this.usersService.getAll().subscribe(
       data => {
         this.data = data;
+        console.log(data);
       },
       error => {
         this.toastObj.width = '100%';
@@ -58,16 +54,5 @@ export class UsersComponent implements OnInit {
           }
         );
       });
-  }
-
-  actionBegin(args: any): void {
-    // const gridInstance: any = (<any>document.getElementById('Normalgrid')).ej2_instances[0];
-        if (args.requestType === 'save') {
-            // if (gridInstance.pageSettings.currentPage !== 1 && gridInstance.editSettings.newRowPosition === 'Top') {
-            //     args.index = (gridInstance.pageSettings.currentPage * gridInstance.pageSettings.pageSize) - gridInstance.pageSettings.pageSize;
-            // } else if (gridInstance.editSettings.newRowPosition === 'Bottom') {
-            //     args.index = (gridInstance.pageSettings.currentPage * gridInstance.pageSettings.pageSize) - 1;
-            // }
-        }
-  }
+    }
 }

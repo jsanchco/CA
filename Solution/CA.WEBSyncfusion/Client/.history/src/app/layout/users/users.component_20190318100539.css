@@ -9,6 +9,5 @@
 }
 
 .user-section {
-    position: absolute;
-    left: 10%;
+    margin: 0 auto;
 }

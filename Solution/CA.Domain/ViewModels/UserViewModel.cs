@@ -1,4 +1,5 @@
-﻿namespace CA.Domain.ViewModels
+﻿// ReSharper disable InconsistentNaming
+namespace CA.Domain.ViewModels
 { 
     #region Using
 
@@ -16,5 +17,7 @@
         public string email { get; set; }
         public string password { get; set; }
         public string token { get; set; }
+        public int proffesionId { get; set; }
+        public string proffesionName { get; set; }
     }
 }

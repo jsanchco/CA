@@ -16,6 +16,7 @@ namespace CA.DataEFCoreSQL
 
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Address> Address { get; set; }
+        public virtual DbSet<Profession> Profession { get; set; }
 
         public static long InstanceCount;
 
@@ -27,6 +28,7 @@ namespace CA.DataEFCoreSQL
         {
             new UserConfiguration(modelBuilder.Entity<User>());
             new AddressConfiguration(modelBuilder.Entity<Address>());
+            new ProfessionConfiguration(modelBuilder.Entity<Profession>());
         }
     }
 }

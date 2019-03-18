@@ -18,6 +18,9 @@
         public string Password { get; set; }
         public string Token { get; set; }
 
+        public int ProffesionId { get; set; }
+        public virtual Profession Profession { get; set; }
+
         public virtual ICollection<Address> Addresses { get; set; } = new HashSet<Address>();
     }
 }

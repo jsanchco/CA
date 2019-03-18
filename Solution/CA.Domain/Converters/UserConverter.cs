@@ -27,7 +27,9 @@
                 username = user.Username,
                 age = user.Age,
                 birthDate = user.BirthDate,
-                email = user.Email
+                email = user.Email,
+                proffesionId = user.ProffesionId,
+                proffesionName = user.Profession.Name
             };
 
             return userViewModel;
@@ -48,7 +50,9 @@
                         username = user.Username,
                         age = user.Age,
                         birthDate = user.BirthDate,
-                        email = user.Email
+                        email = user.Email,
+                        proffesionId = user.ProffesionId,
+                        proffesionName = user.Profession.Name
                     };
                     return model;
                 })

@@ -79,6 +79,39 @@ namespace CA.SeedData
             using (var context = new EFContext(optionsBuilder.Options))
             using (var dbContextTransaction = context.Database.BeginTransaction())
             {
+                var profession = new Profession
+                {
+                    Id = 1,
+                    AddedDate = DateTime.Now,
+                    Name = "Progammer",
+                    Description = "Computer Programmer"
+                };
+
+                if (!context.Profession.Any())
+                {
+                    context.Profession.Add(profession);
+
+                    profession = new Profession
+                    {
+                        Id = 2,
+                        AddedDate = DateTime.Now,
+                        Name = "Analyst",
+                        Description = "Computer Analyst"
+                    };
+                    context.Profession.Add(profession);
+
+                    profession = new Profession
+                    {
+                        Id = 3,
+                        AddedDate = DateTime.Now,
+                        Name = "Project Manager",
+                        Description = "Project Manager"
+                    };
+                    context.Profession.Add(profession);
+                }
+
+                context.SaveChanges();
+
                 var user = new User
                 {
                     Name = "Jesús",

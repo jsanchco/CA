@@ -10,5 +10,9 @@
 
 .user-section {
     position: absolute;
-    left: 10%;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
 }

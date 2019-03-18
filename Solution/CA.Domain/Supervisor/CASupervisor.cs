@@ -13,6 +13,7 @@ namespace CA.Domain.Supervisor
     {
         private readonly IUserRepository _userRepository;
         private readonly IAddressRepository _addressRepository;
+        private readonly IProffesionRepository _proffesionRepository;
         private readonly AppSettings _appSettings;
 
         public CASupervisor()
@@ -22,10 +23,12 @@ namespace CA.Domain.Supervisor
         public CASupervisor(
             IUserRepository userRepository,
             IAddressRepository addressRepository,
+            IProffesionRepository proffesionRepository,
             IOptions<AppSettings> appSettings)
         {
             _userRepository = userRepository;
             _addressRepository = addressRepository;
+            _proffesionRepository = proffesionRepository;
             _appSettings = appSettings.Value;
         }
     }

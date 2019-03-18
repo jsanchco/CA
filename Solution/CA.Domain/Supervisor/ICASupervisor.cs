@@ -33,5 +33,16 @@ namespace CA.Domain.Supervisor
         Task<bool> DeleteUserAsync(int id, CancellationToken ct = default(CancellationToken));
 
         #endregion
+
+        #region Profession
+
+        Task<List<ProfessionViewModel>> GetAllProfessionAsync(CancellationToken ct = default(CancellationToken));
+        Task<ProfessionViewModel> GetByIdAsync(int id, CancellationToken ct = default(CancellationToken));
+        Task<List<UserViewModel>> GetByProffesionIdAsync(int id, CancellationToken ct = default(CancellationToken));
+        Task<ProfessionViewModel> AddAsync(ProfessionViewModel newProfessionViewModel, CancellationToken ct = default(CancellationToken));
+        Task<bool> UpdateAsync(ProfessionViewModel professionViewModel, CancellationToken ct = default(CancellationToken));
+        Task<bool> DeleteAsync(int id, CancellationToken ct = default(CancellationToken));
+
+        #endregion
     }
 }

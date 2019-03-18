@@ -1,4 +1,5 @@
-﻿namespace CA.Domain.ViewModels
+﻿// ReSharper disable InconsistentNaming
+namespace CA.Domain.ViewModels
 {
     #region Using
 

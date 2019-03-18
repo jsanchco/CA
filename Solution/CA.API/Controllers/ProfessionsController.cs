@@ -1,39 +1,40 @@
-﻿namespace CA.API.Controllers
+﻿// ReSharper disable InconsistentNaming
+namespace CA.API.Controllers
 {
     #region Using
 
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
+    using Domain.Supervisor;
+    using Microsoft.Extensions.Logging;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Domain.Supervisor;
     using Domain.ViewModels;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.AspNetCore.Authorization;
 
     #endregion
 
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class AddressesController : ControllerBase
+    public class ProfessionsController : ControllerBase
     {
         private readonly ICASupervisor _caSupervisor;
         private readonly ILogger<AddressesController> _logger;
 
-        public AddressesController(ILogger<AddressesController> logger, ICASupervisor caSupervisor)
+        public ProfessionsController(ILogger<AddressesController> logger, ICASupervisor caSupervisor)
         {
             _logger = logger;
             _caSupervisor = caSupervisor;
         }
 
         [HttpGet]
-        [Produces(typeof(List<AddressViewModel>))]
+        [Produces(typeof(List<ProfessionViewModel>))]
         public async Task<IActionResult> Get()
         {
             try
             {
-                return new ObjectResult(await _caSupervisor.GetAllAddressAsync());
+                return new ObjectResult(await _caSupervisor.GetAllProfessionAsync());
             }
             catch (Exception ex)
             {

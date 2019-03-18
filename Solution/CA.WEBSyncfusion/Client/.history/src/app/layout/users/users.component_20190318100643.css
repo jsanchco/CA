@@ -10,5 +10,6 @@
 
 .user-section {
     position: absolute;
-    left: 10%;
+    top: 50%;
+    left: 50%;
 }

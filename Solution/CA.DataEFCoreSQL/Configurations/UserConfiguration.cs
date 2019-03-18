@@ -20,6 +20,9 @@
             entity.Property(x => x.AddedDate).IsRequired();
             entity.Property(x => x.Name).IsRequired();
             entity.Ignore(x => x.Token);
+
+            entity.HasIndex(x => x.ProffesionId).HasName("IFK_Proffesion_User");
+            entity.HasOne(u => u.Profession).WithMany(a => a.Users).HasForeignKey(a => a.Id).HasConstraintName("FK__Proffesion__UserId");
         }
     }
 }
