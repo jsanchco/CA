@@ -33,17 +33,22 @@
 
         public async Task<List<Address>> GetAllAsync(CancellationToken ct = default(CancellationToken))
         {
-            return await _context.Address.ToListAsync(ct);
+            return await _context.Address
+                .Include(x => x.User)
+                .ToListAsync(ct);
         }
 
         public async Task<Address> GetByIdAsync(int id, CancellationToken ct = default(CancellationToken))
         {
-            return await _context.Address.FirstOrDefaultAsync(x => x.Id == id, ct);
+            return await _context.Address
+                .Include(x => x.User)
+                .FirstOrDefaultAsync(x => x.Id == id, ct);
         }
 
         public async Task<List<Address>> GetByUserIdAsync(int id, CancellationToken ct = default(CancellationToken))
         {
             return await _context.Address
+                .Include(x => x.User)
                 .Where(x => x.UserId == id)
                 .ToListAsync(ct);
         }

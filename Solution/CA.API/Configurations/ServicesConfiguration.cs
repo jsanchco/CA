@@ -21,7 +21,8 @@
         {
             services
                 .AddScoped<IUserRepository, UserRepository>()
-                .AddScoped<IAddressRepository, AddressRepository>();
+                .AddScoped<IAddressRepository, AddressRepository>()
+                .AddScoped<IProfessionRepository, ProfessionRepository>();
 
             return services;
         }

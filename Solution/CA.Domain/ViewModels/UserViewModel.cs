@@ -17,7 +17,7 @@ namespace CA.Domain.ViewModels
         public string email { get; set; }
         public string password { get; set; }
         public string token { get; set; }
-        public int proffesionId { get; set; }
-        public string proffesionName { get; set; }
+        public int professionId { get; set; }
+        public string professionName { get; set; }
     }
 }

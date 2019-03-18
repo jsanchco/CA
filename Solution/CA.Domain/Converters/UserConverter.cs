@@ -28,8 +28,8 @@
                 age = user.Age,
                 birthDate = user.BirthDate,
                 email = user.Email,
-                proffesionId = user.ProffesionId,
-                proffesionName = user.Profession.Name
+                professionId = user.ProfessionId,
+                professionName = user.Profession.Name
             };
 
             return userViewModel;
@@ -51,8 +51,8 @@
                         age = user.Age,
                         birthDate = user.BirthDate,
                         email = user.Email,
-                        proffesionId = user.ProffesionId,
-                        proffesionName = user.Profession.Name
+                        professionId = user.ProfessionId,
+                        professionName = user.Profession.Name
                     };
                     return model;
                 })

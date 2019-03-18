@@ -12,7 +12,7 @@
     {
         public ProfessionConfiguration(EntityTypeBuilder<Profession> entity)
         {
-            entity.ToTable("Proffesion");
+            entity.ToTable("Profession");
 
             entity.HasKey(x => x.Id);
             entity.Property(x => x.Id).ValueGeneratedOnAdd();

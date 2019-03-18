@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CA.DataEFCoreSQL.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20190223094125_FirstMigration")]
+    [Migration("20190318220250_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,6 +49,29 @@ namespace CA.DataEFCoreSQL.Migrations
                     b.ToTable("Address");
                 });
 
+            modelBuilder.Entity("CA.Domain.Entities.Profession", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("AddedDate")
+                        .IsRequired();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("IPAddress");
+
+                    b.Property<DateTime?>("ModifiedDate");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Profession");
+                });
+
             modelBuilder.Entity("CA.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -73,11 +96,16 @@ namespace CA.DataEFCoreSQL.Migrations
 
                     b.Property<string>("Password");
 
+                    b.Property<int>("ProfessionId");
+
                     b.Property<string>("Surname");
 
                     b.Property<string>("Username");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProfessionId")
+                        .HasName("IFK_Profession_User");
 
                     b.ToTable("User");
                 });
@@ -88,6 +116,15 @@ namespace CA.DataEFCoreSQL.Migrations
                         .WithMany("Addresses")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK__Address__UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("CA.Domain.Entities.User", b =>
+                {
+                    b.HasOne("CA.Domain.Entities.Profession", "Profession")
+                        .WithMany("Users")
+                        .HasForeignKey("ProfessionId")
+                        .HasConstraintName("FK__Profession__UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

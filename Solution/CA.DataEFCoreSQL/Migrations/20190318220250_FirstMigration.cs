@@ -9,6 +9,23 @@ namespace CA.DataEFCoreSQL.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Profession",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddedDate = table.Column<DateTime>(nullable: false),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
+                    IPAddress = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Profession", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -23,11 +40,18 @@ namespace CA.DataEFCoreSQL.Migrations
                     Age = table.Column<int>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     Email = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true)
+                    Password = table.Column<string>(nullable: true),
+                    ProfessionId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK__Profession__UserId",
+                        column: x => x.ProfessionId,
+                        principalTable: "Profession",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,6 +82,11 @@ namespace CA.DataEFCoreSQL.Migrations
                 name: "IFK_User_Address",
                 table: "Address",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IFK_Profession_User",
+                table: "User",
+                column: "ProfessionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -67,6 +96,9 @@ namespace CA.DataEFCoreSQL.Migrations
 
             migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "Profession");
         }
     }
 }

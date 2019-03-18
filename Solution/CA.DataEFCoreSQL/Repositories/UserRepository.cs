@@ -32,17 +32,23 @@
 
         public async Task<User> Authenticate(string username, string password, CancellationToken ct = default(CancellationToken))
         {
-            return await _context.User.FirstOrDefaultAsync(x => x.Username == username && x.Password == password, ct);
+            return await _context.User
+                .Include(x => x.Profession)
+                .FirstOrDefaultAsync(x => x.Username == username && x.Password == password, ct);
         }
 
         public async Task<List<User>> GetAllAsync(CancellationToken ct = default(CancellationToken))
         {
-            return await _context.User.ToListAsync(ct);
+            return await _context.User
+                .Include(x => x.Profession)
+                .ToListAsync(ct);
         }
 
         public async Task<User> GetByIdAsync(int id, CancellationToken ct = default(CancellationToken))
         {
-            return await _context.User.FirstOrDefaultAsync(x => x.Id == id, ct);
+            return await _context.User
+                .Include(x => x.Profession)
+                .FirstOrDefaultAsync(x => x.Id == id, ct);
         }
 
         public async Task<User> AddAsync(User newUser, CancellationToken ct = default(CancellationToken))

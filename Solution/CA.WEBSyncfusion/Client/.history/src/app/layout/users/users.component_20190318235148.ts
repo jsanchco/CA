@@ -48,6 +48,7 @@ export class UsersComponent implements OnInit {
   getUsers(): void {
     this.usersService.getAll().subscribe(
       data => {
+        console.log(data);
         this.data = data;
       },
       error => {
@@ -68,11 +69,8 @@ export class UsersComponent implements OnInit {
   getProfessions(): void {
     this.professionsService.getAll().subscribe(
       data => {
-        // this.professions = data;
-
-        this.professions = [
-          { text: 'Programmer', value: 1 },
-          { text: 'Analyst', value: 2 }];
+        console.log(data);
+        this.professions = data;
       },
       error => {
         this.toastObj.width = '100%';

@@ -81,7 +81,6 @@ namespace CA.SeedData
             {
                 var profession = new Profession
                 {
-                    Id = 1,
                     AddedDate = DateTime.Now,
                     Name = "Progammer",
                     Description = "Computer Programmer"
@@ -93,7 +92,6 @@ namespace CA.SeedData
 
                     profession = new Profession
                     {
-                        Id = 2,
                         AddedDate = DateTime.Now,
                         Name = "Analyst",
                         Description = "Computer Analyst"
@@ -102,7 +100,6 @@ namespace CA.SeedData
 
                     profession = new Profession
                     {
-                        Id = 3,
                         AddedDate = DateTime.Now,
                         Name = "Project Manager",
                         Description = "Project Manager"
@@ -121,7 +118,8 @@ namespace CA.SeedData
                     Age = 46,
                     BirthDate = new DateTime(1972, 8, 1),
                     Email = "jsanchco@gmail.com",
-                    Password = "123456"
+                    Password = "123456",
+                    ProfessionId = 1
                 };
 
                 if (!context.User.Any())
@@ -160,6 +158,7 @@ namespace CA.SeedData
 
                 Console.WriteLine($"Table User -> {context.User.Count()} rows");
                 Console.WriteLine($"Table Address -> {context.Address.Count()} rows");
+                Console.WriteLine($"Table Profession -> {context.Profession.Count()} rows");
                 Console.WriteLine($"\t{ts.Seconds}.{ts.Milliseconds} sg.ms");
 
                 Console.WriteLine("");

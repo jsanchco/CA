@@ -9,7 +9,6 @@ import { GridComponent } from '@syncfusion/ej2-angular-grids';
 
 // Services
 import { UsersService } from '../../shared/services/users.service';
-import { ProfessionsService } from '../../shared/services/profession.service';
 
 @Component({
   selector: 'app-users',
@@ -20,7 +19,6 @@ import { ProfessionsService } from '../../shared/services/profession.service';
 export class UsersComponent implements OnInit {
 
   public data: Object[];
-  public professions: Object[];
   public pageSettings: Object;
   public editSettings: Object;
   public toolbar: string[];
@@ -31,9 +29,7 @@ export class UsersComponent implements OnInit {
   @ViewChild('toastMessage')
   public toastObj: ToastComponent;
 
-  constructor(
-    private usersService: UsersService,
-    private professionsService: ProfessionsService) {
+  constructor(private usersService: UsersService) {
   }
 
   ngOnInit() {
@@ -42,37 +38,13 @@ export class UsersComponent implements OnInit {
     this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
 
     this.getUsers();
-    this.getProfessions();
   }
 
   getUsers(): void {
     this.usersService.getAll().subscribe(
       data => {
+        console.log(data);
         this.data = data;
-      },
-      error => {
-        this.toastObj.width = '100%';
-        this.toastObj.position.X = 'Center';
-        this.toastObj.position.Y = 'Bottom';
-        this.toastObj.show(
-          {
-            title: 'Error',
-            icon: 'e-error toast-icons',
-            cssClass: 'e-toast-danger',
-            content: error.messageError
-          }
-        );
-      });
-  }
-
-  getProfessions(): void {
-    this.professionsService.getAll().subscribe(
-      data => {
-        // this.professions = data;
-
-        this.professions = [
-          { text: 'Programmer', value: 1 },
-          { text: 'Analyst', value: 2 }];
       },
       error => {
         this.toastObj.width = '100%';

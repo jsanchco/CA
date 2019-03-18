@@ -12,7 +12,7 @@
 
     #endregion
 
-    public class ProfessionRepository : IProffesionRepository
+    public class ProfessionRepository : IProfessionRepository
     {
         private readonly EFContext _context;
 
@@ -28,18 +28,23 @@
 
         public async Task<List<Profession>> GetAllAsync(CancellationToken ct = default(CancellationToken))
         {
-            return await _context.Profession.ToListAsync(ct);
+            return await _context.Profession
+                .Include(x => x.Users)
+                .ToListAsync(ct);
         }
 
         public async Task<Profession> GetByIdAsync(int id, CancellationToken ct = default(CancellationToken))
         {
-            return await _context.Profession.FirstOrDefaultAsync(x => x.Id == id, ct);
+            return await _context.Profession
+                .Include(x => x.Users)
+                .FirstOrDefaultAsync(x => x.Id == id, ct);
         }
 
-        public async Task<List<User>> GetByProffesionIdAsync(int id, CancellationToken ct = default(CancellationToken))
+        public async Task<List<User>> GetByProfesionIdAsync(int id, CancellationToken ct = default(CancellationToken))
         {
             return await _context.User
-                .Where(x => x.ProffesionId == id)
+                .Include(x => x.Profession)
+                .Where(x => x.ProfessionId == id)
                 .ToListAsync(ct);
         }
 
