@@ -11,7 +11,6 @@ import { ToastComponent } from '@syncfusion/ej2-angular-notifications';
 // Services
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { StorageService } from '../shared/services/storage.service';
-import { TranslationService } from '../shared/services/translation.service';
 import { WaitService } from '../shared/services/wait.service';
 
 // Models
@@ -38,7 +37,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private storageService: StorageService,
-    private translationService: TranslationService,
     private waitService: WaitService,
     private router: Router) {
       this.loginForm = new FormGroup({
@@ -62,7 +60,7 @@ export class LoginComponent implements OnInit {
 
       this.waitService.createSpinner({
         target: this.spin.nativeElement,
-        label: this.translationService.translate('connect')
+        label: 'Conectando ...',
       });
   }
 

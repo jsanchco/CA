@@ -12,4 +12,9 @@ export class AppComponent {
 
   constructor() {
   }
+
+  @HostListener('window:onbeforeunload', ['$event'])
+  onBeforeUnload() {
+
+  }
 }

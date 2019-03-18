@@ -34,6 +34,7 @@ namespace CA.Domain.Supervisor
                     new Claim(ClaimTypes.Name, userViewModel.id.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
+                //Expires = DateTime.UtcNow.AddMinutes(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

@@ -1,5 +1,5 @@
 import {
-  Component, HostListener
+  Component
 } from '@angular/core';
 
 @Component({

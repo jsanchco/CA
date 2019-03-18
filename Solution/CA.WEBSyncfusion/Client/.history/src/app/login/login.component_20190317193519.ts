@@ -7,6 +7,7 @@ import {
 import { Router } from '@angular/router';
 import { FormValidators } from '@syncfusion/ej2-angular-inputs';
 import { ToastComponent } from '@syncfusion/ej2-angular-notifications';
+import { saveAs } from 'file-saver';
 
 // Services
 import { AuthenticationService } from '../shared/services/authentication.service';
@@ -106,5 +107,9 @@ export class LoginComponent implements OnInit {
 
   get password() {
     return this.loginForm.get('password');
+  }
+
+  saveLogFile(): void {
+    saveAs(new Blob(['Hello!!!!'], { type: 'text' }), 'data.log');
   }
 }

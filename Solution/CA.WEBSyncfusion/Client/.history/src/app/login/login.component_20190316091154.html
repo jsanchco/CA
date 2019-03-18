@@ -1,14 +1,16 @@
-<div style="text-align:center">
-    <div id="ej2Spinner" #spin></div>
-</div>
-
 <div class="col-lg-12 control-section">
     <div class="content-wrapper" style="margin-bottom: 25px;">
         <div class="formtitle">
             <span>Loggin</span>
         </div>
 
-        <ejs-toast #toastError id='toastError'>
+        <ejs-toast #defaulttoast id='defaulttoast' icon="e-meeting">
+            <ng-template #content>
+                <div>Conference Room 01 / Building 135 10:00 AM-10:30 AM</div>
+            </ng-template>
+            <ng-template #title>
+                <div>Adaptive Tiles Meeting</div>
+            </ng-template>
         </ejs-toast>
 
         <form id="formId" [formGroup]="loginForm" #formDir="ngForm" class="form-horizontal" #lForm="ngForm" (ngSubmit)="submitLogin(lForm)" novalidate="">

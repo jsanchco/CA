@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   NgForm,
   FormGroup,
@@ -11,8 +11,6 @@ import { ToastComponent } from '@syncfusion/ej2-angular-notifications';
 // Services
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { StorageService } from '../shared/services/storage.service';
-import { TranslationService } from '../shared/services/translation.service';
-import { WaitService } from '../shared/services/wait.service';
 
 // Models
 import { Login } from '../shared/models/login.model';
@@ -33,13 +31,9 @@ export class LoginComponent implements OnInit {
   @ViewChild('toastError')
   public toastObj: ToastComponent;
 
-  @ViewChild('spin') spin: ElementRef;
-
   constructor(
     private authenticationService: AuthenticationService,
     private storageService: StorageService,
-    private translationService: TranslationService,
-    private waitService: WaitService,
     private router: Router) {
       this.loginForm = new FormGroup({
         'username': new FormControl('', [FormValidators.required]),
@@ -59,23 +53,14 @@ export class LoginComponent implements OnInit {
           });
         }
       });
-
-      this.waitService.createSpinner({
-        target: this.spin.nativeElement,
-        label: this.translationService.translate('connect')
-      });
   }
 
   public submitLogin(form: NgForm): void {
     this.submitted = true;
     localStorage.setItem('isLoggedin', 'true');
     if (this.loginForm.valid) {
-      this.waitService.showSpinner(this.spin.nativeElement);
       this.authenticationService.login(new Login(this.loginForm.value)).subscribe(
-        data => {
-          this.waitService.hideSpinner(this.spin.nativeElement);
-          this.correctLogin(data);
-        },
+        data => this.correctLogin(data),
         error => {
           this.errorInLogin = true;
           this.toastObj.width = '100%';
@@ -89,7 +74,6 @@ export class LoginComponent implements OnInit {
               content: error.messageError
             }
           );
-          this.waitService.hideSpinner(this.spin.nativeElement);
         });
     }
   }

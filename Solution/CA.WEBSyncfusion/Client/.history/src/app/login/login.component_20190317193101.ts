@@ -7,6 +7,7 @@ import {
 import { Router } from '@angular/router';
 import { FormValidators } from '@syncfusion/ej2-angular-inputs';
 import { ToastComponent } from '@syncfusion/ej2-angular-notifications';
+import { saveAs } from 'file-saver';
 
 // Services
 import { AuthenticationService } from '../shared/services/authentication.service';
