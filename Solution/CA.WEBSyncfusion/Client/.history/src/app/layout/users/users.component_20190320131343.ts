@@ -6,19 +6,18 @@ import {
 
 import { ToastComponent } from '@syncfusion/ej2-angular-notifications';
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
-import { ForeignKeyService, EditService, IEditCell, GridComponent } from '@syncfusion/ej2-angular-grids';
+import { IEditCell, GridComponent } from '@syncfusion/ej2-angular-grids';
 import { Query } from '@syncfusion/ej2-data';
 
 // Services
 import { UsersService } from '../../shared/services/users.service';
 import { ProfessionsService } from '../../shared/services/profession.service';
-import { Profession } from '../../shared/models/profession.model';
+import { Profession } from 'src/app/shared/models/profession.model';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css'],
-  providers: [ForeignKeyService, EditService]
+  styleUrls: ['./users.component.css']
 })
 
 export class UsersComponent implements OnInit {
@@ -28,10 +27,9 @@ export class UsersComponent implements OnInit {
   public editSettings: Object;
   public toolbar: string[];
 
-  // public professions: { [key: string]: Object }[];
+  public professions: { [key: string]: Object }[];
 
   // public professions: Object[];
-  public professions: { [key: string]: Object }[];
   public professionParams: IEditCell;
   public professionElem: HTMLElement;
   public professionObj: DropDownList;
@@ -54,7 +52,6 @@ export class UsersComponent implements OnInit {
 
     this.configureGrid();
     this.getUsers();
-    // this.getProfessions();
   }
 
   getUsers(): void {
@@ -81,44 +78,12 @@ export class UsersComponent implements OnInit {
     this.professionsService.getAll().subscribe(
       data => {
         for (let i = 0; i < data.length; i++) {
-          const profession = new Profession();
-          profession.id = data[i].id;
-          profession.name = data[i].name;
-          profession.description = data[i].description;
-
-          this.profession.push(profession);
+            this.professions.push({
+              id: data[i].id,
+              name: data[i].name,
+              description: data[i].description
+            });
         }
-
-      // this.professions = data;
-      //   this.professions = [
-      //     { name: 'Programmer', id: '1' },
-      //     { name: 'Analyst', id: '2' },
-      //     { name: 'Project Manager', id: '3' }
-      // ];
-        // this.professions = data;
-        // let test: { [key: string]: Object }[];
-        // for (let i = 0; i < data.length; i++) {
-        //     test.push({
-        //       id: data[i].id,
-        //       name: data[i].name,
-        //       description: data[i].description
-        //     });
-        // }
-
-
-        // for (let i = 0; i < this.professions.length; i++) {
-        //   this.professions[i].professionId = this.professions[i].id;
-        // }
-
-        console.log(this.professions);
-        // for (let i = 0; i < data.length; i++) {
-        //   console.log(this.professions);
-        //     this.professions.push({
-        //       id: data[i].id,
-        //       name: data[i].name,
-        //       description: data[i].description
-        //     });
-        // }
         // public professions: { [key: string]: Object }[] = [
         //   { countryName: 'United States', countryId: '1' },
         //   { countryName: 'Australia', countryId: '2' }
@@ -174,8 +139,15 @@ export class UsersComponent implements OnInit {
           this.professionObj = new DropDownList({
             dataSource: this.professions,
             fields: { value: 'id', text: 'name' },
-            placeholder: 'Select a profession',
-            floatLabelType: 'Never'
+            change: () => {
+              this.professionObj.enabled = true;
+              const tempQuery: Query = new Query().where('id', 'equal', this.professionObj.value);
+              this.professionObj.query = tempQuery;
+              this.professionObj.text = null;
+              this.professionObj.dataBind();
+        },
+      placeholder: 'Select a profession',
+      floatLabelType: 'Never'
       });
       this.professionObj.appendTo(this.professionElem);
     }};

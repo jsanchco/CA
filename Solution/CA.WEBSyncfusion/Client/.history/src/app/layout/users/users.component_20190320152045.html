@@ -13,8 +13,9 @@
                 <e-column field='surname' headerText='Apellidos' width='120' textAlign='Right'></e-column>
                 <e-column field='username' headerText='Nick' width='150' textAlign='Right'></e-column>
                 <e-column field='age' headerText='Age' width='150'></e-column>
-                <!-- <e-column field='professionName' headerText='Profesión' width='150' editType='dropdownedit' [edit]='professionParams'></e-column> -->
-                <e-column field='professionName' headerText='Profesión' width='150' editType='dropdownedit' foreignKeyField='id' foreignKeyValue='name' [dataSource]='professions'></e-column>
+                <e-column field='professionName' headerText='Profesión' width='150' editType="dropdownedit" [dataSource]='professions'></e-column>
+                <!-- <e-column field='professionName' headerText='Profesión' width='150' foreignKeyValue='professionId' [dataSource]='professions'></e-column> -->
+                <!-- <e-column field='EmployeeID' headerText='Employee Name' width=120 foreignKeyValue='FirstName' [dataSource]='employeeData'></e-column> -->
             </e-columns>
         </ejs-grid>
     </div>

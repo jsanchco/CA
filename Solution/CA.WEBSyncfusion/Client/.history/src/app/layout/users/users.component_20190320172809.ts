@@ -12,7 +12,7 @@ import { Query } from '@syncfusion/ej2-data';
 // Services
 import { UsersService } from '../../shared/services/users.service';
 import { ProfessionsService } from '../../shared/services/profession.service';
-import { Profession } from '../../shared/models/profession.model';
+// import { Profession } from 'src/app/shared/models/profession.model';
 
 @Component({
   selector: 'app-users',
@@ -54,7 +54,7 @@ export class UsersComponent implements OnInit {
 
     this.configureGrid();
     this.getUsers();
-    // this.getProfessions();
+    this.getProfessions();
   }
 
   getUsers(): void {
@@ -80,21 +80,11 @@ export class UsersComponent implements OnInit {
   getProfessions(): void {
     this.professionsService.getAll().subscribe(
       data => {
-        for (let i = 0; i < data.length; i++) {
-          const profession = new Profession();
-          profession.id = data[i].id;
-          profession.name = data[i].name;
-          profession.description = data[i].description;
-
-          this.profession.push(profession);
-        }
-
-      // this.professions = data;
-      //   this.professions = [
-      //     { name: 'Programmer', id: '1' },
-      //     { name: 'Analyst', id: '2' },
-      //     { name: 'Project Manager', id: '3' }
-      // ];
+        this.professions  = [
+          { name: 'Programmer', id: '1' },
+          { name: 'Analyst', id: '2' },
+          { name: 'Project Manager', id: '3' },
+      ];
         // this.professions = data;
         // let test: { [key: string]: Object }[];
         // for (let i = 0; i < data.length; i++) {
