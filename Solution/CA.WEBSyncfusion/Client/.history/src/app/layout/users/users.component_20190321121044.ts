@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
     private professionsService: ProfessionsService) {
   }
 
-  ngOnInit(): void {     
+  ngOnInit(): void {
       this.getUsers();
       this.getProfessions();
 

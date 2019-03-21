@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { 
-  ForeignKeyService, 
-  EditSettingsModel, 
-  ToolbarItems, 
-  EditService, 
-  ToolbarService 
-} from '@syncfusion/ej2-angular-grids';
-
-import { data, employeeData } from '../../shared/helpers/datasource';
+import { ForeignKeyService, EditSettingsModel, ToolbarItems, EditService, ToolbarService } from '@syncfusion/ej2-angular-grids';
+import { Profession } from '../../shared/helpers/datasource';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,11 +19,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
       this.data = data;
       this.employeeData = employeeData;
-      console.log(this.data);
-      console.log(this.employeeData);
-
       this.editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true };
       this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
   }
-  
 }

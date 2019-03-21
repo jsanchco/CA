@@ -10,6 +10,7 @@ import {
 // Services
 import { UsersService } from '../../shared/services/users.service';
 import { ProfessionsService } from '../../shared/services/profession.service';
+import { Profession } from '../../shared/models/profession.model';
 
 @Component({
   selector: 'app-users',
@@ -30,7 +31,7 @@ export class UsersComponent implements OnInit {
     private professionsService: ProfessionsService) {
   }
 
-  ngOnInit(): void {     
+  ngOnInit(): void {
       this.getUsers();
       this.getProfessions();
 

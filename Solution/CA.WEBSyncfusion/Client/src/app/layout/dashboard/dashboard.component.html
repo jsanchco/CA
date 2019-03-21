@@ -1,3 +1,16 @@
-<p>
-  dashboard works!
-</p>
+<div class="control-section">
+  <div class="col-lg-10 content-wrapper user-section" style="margin-bottom: 25px;">
+      <div class="formtitle">
+          <span>Dashboard</span>
+      </div>
+
+    <ejs-grid #grid [dataSource]='data' [editSettings]='editSettings' [toolbar]='toolbar'>
+        <e-columns>
+          <e-column field='OrderID' headerText='Order ID' textAlign='Right' width=100></e-column>
+          <e-column field='EmployeeID' headerText='Employee Name' width=120 foreignKeyField='ID' foreignKeyValue='FirstName' [dataSource]='employeeData'></e-column>
+          <e-column field='Freight' headerText='Freight' textAlign='Right' width=80></e-column>
+          <e-column field='ShipCity' headerText='Ship City' width=130  ></e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+</div>
