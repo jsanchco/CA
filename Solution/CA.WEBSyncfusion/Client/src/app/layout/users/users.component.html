@@ -6,8 +6,7 @@
 
         <!-- <ejs-toast #toastMessage id='toastMessage'></ejs-toast> -->
 
-        <!-- <ejs-grid #grid id='Normalgrid' [dataSource]='users' allowPaging='true' [pageSettings]='pageSettings' [editSettings]='editSettings' [toolbar]='toolbar' (actionBegin)='actionBegin($event)'> -->
-        <ejs-grid #grid [dataSource]='users' [editSettings]='editSettings' [toolbar]='toolbar'>
+        <ejs-grid #grid [dataSource]='data' [editSettings]='editSettings' [toolbar]='toolbar'>
             <e-columns>
                 <e-column field='id' headerText='Id' width='120' textAlign='Right'></e-column>
                 <e-column field='name' headerText='Nombre' width='160'></e-column>
@@ -15,10 +14,6 @@
                 <e-column field='username' headerText='Nick' width='150' textAlign='Right'></e-column>
                 <e-column field='age' headerText='Age' width='150'></e-column>
                 <e-column field='professionId' headerText='Profesión' width=150 foreignKeyField='id' foreignKeyValue='name' [dataSource]='professions'></e-column>
-                <!-- <e-column field='professionName' headerText='Profesión' width='150'></e-column> -->
-                <!-- <e-column field='EmployeeID' headerText='Employee Name' width=120 foreignKeyField='ID' foreignKeyValue='FirstName' [dataSource]='employeeData'></e-column> -->
-                <!-- <e-column field='professionName' headerText='Profesión' width='150' editType='dropdownedit' [edit]='professionParams'></e-column> -->
-                <!-- <e-column field='professionName' headerText='Profesión' width='150' editType='dropdownedit' foreignKeyField='id' foreignKeyValue='name' [dataSource]='professions'></e-column> -->
             </e-columns>
         </ejs-grid>
     </div>

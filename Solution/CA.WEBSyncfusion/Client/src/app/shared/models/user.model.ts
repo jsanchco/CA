@@ -6,5 +6,6 @@ export class User {
     public age: number;
     public birthDate: Date;
     public email: string;
+    public professionId: number;
     public professionName: string;
 }

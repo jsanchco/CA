@@ -26,8 +26,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
       this.data = data;
       this.employeeData = employeeData;
-      console.log(this.data);
-      console.log(this.employeeData);
 
       this.editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true };
       this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
