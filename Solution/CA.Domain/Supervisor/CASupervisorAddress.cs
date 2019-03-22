@@ -73,5 +73,64 @@ namespace CA.Domain.Supervisor
         {
             return await _addressRepository.DeleteAsync(id, ct);
         }
+
+        public List<AddressViewModel> GetAllAddress()
+        {
+            return AddressConverter.ConvertList(_addressRepository.GetAll());
+        }
+
+        public AddressViewModel GetAddressById(int id)
+        {
+            var addressViewModel = AddressConverter.Convert(_addressRepository.GetById(id));
+            addressViewModel.userName =
+                _userRepository.GetById(addressViewModel.userId).Name +
+                _userRepository.GetById(addressViewModel.userId).Surname;
+
+            return addressViewModel;
+        }
+
+        public List<AddressViewModel> GetAddressesByUserId(int id)
+        {
+            return AddressConverter.ConvertList(_addressRepository.GetByUserId(id));
+        }
+
+        public AddressViewModel AddAddress(AddressViewModel newAddressViewModel)
+        {
+            var address = new Address
+            {
+                Id = newAddressViewModel.id,
+                AddedDate = DateTime.Now,
+                ModifiedDate = null,
+                IPAddress = newAddressViewModel.iPAddress,
+
+                Street = newAddressViewModel.street,
+                Number = newAddressViewModel.number,
+                UserId = newAddressViewModel.userId
+            };
+
+            _addressRepository.Add(address);
+            return newAddressViewModel;
+        }
+
+        public bool UpdateAddress(AddressViewModel addressViewModel)
+        {
+            var address = _addressRepository.GetById(addressViewModel.id);
+
+            if (address == null) return false;
+
+            address.ModifiedDate = DateTime.Now;
+            address.IPAddress = addressViewModel.iPAddress;
+
+            address.Street = addressViewModel.street;
+            address.Number = addressViewModel.number;
+            address.UserId = addressViewModel.userId;
+
+            return _addressRepository.Update(address);
+        }
+
+        public bool DeleteAddress(int id)
+        {
+            return _addressRepository.Delete(id);
+        }
     }
 }

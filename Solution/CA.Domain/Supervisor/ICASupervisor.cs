@@ -21,6 +21,13 @@ namespace CA.Domain.Supervisor
         Task<bool> UpdateAddressAsync(AddressViewModel addressViewModel, CancellationToken ct = default(CancellationToken));
         Task<bool> DeleteAddressAsync(int id, CancellationToken ct = default(CancellationToken));
 
+        List<AddressViewModel> GetAllAddress();
+        AddressViewModel GetAddressById(int id);
+        List<AddressViewModel> GetAddressesByUserId(int id);
+        AddressViewModel AddAddress(AddressViewModel newAddressViewModel);
+        bool UpdateAddress(AddressViewModel addressViewModel);
+        bool DeleteAddress(int id);
+
         #endregion
 
         #region User
@@ -32,6 +39,12 @@ namespace CA.Domain.Supervisor
         Task<bool> UpdateUserAsync(UserViewModel userViewModel, CancellationToken ct = default(CancellationToken));
         Task<bool> DeleteUserAsync(int id, CancellationToken ct = default(CancellationToken));
 
+        List<UserViewModel> GetAllUser();
+        UserViewModel GetUserById(int id);
+        UserViewModel AddUser(UserViewModel newUserViewModel);
+        bool UpdateUser(UserViewModel userViewModel);
+        bool DeleteUser(int id);
+
         #endregion
 
         #region Profession
@@ -42,6 +55,13 @@ namespace CA.Domain.Supervisor
         Task<ProfessionViewModel> AddAsync(ProfessionViewModel newProfessionViewModel, CancellationToken ct = default(CancellationToken));
         Task<bool> UpdateAsync(ProfessionViewModel professionViewModel, CancellationToken ct = default(CancellationToken));
         Task<bool> DeleteAsync(int id, CancellationToken ct = default(CancellationToken));
+
+        List<ProfessionViewModel> GetAllProfession();
+        ProfessionViewModel GetById(int id);
+        List<UserViewModel> GetByProfessionId(int id);
+        ProfessionViewModel Add(ProfessionViewModel newProfessionViewModel);
+        bool Update(ProfessionViewModel professionViewModel);
+        bool Delete(int id);
 
         #endregion
     }

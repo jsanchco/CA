@@ -10,6 +10,7 @@
     using Microsoft.AspNetCore.Authorization;
     using Models;
     using Microsoft.Extensions.Logging;
+    using System.Linq;
 
     #endregion
 
@@ -62,18 +63,53 @@
             }
         }
 
+        //[HttpGet]
+        //public async Task<IActionResult> GetAsyn()
+        //{
+        //    try
+        //    {
+        //        return new ObjectResult(await _caSupervisor.GetAllUserAsync());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, "Exception: ");
+        //        return StatusCode(500, ex);
+        //    }
+        //}
+
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public object Get()
         {
             try
             {
-                return new ObjectResult(await _caSupervisor.GetAllUserAsync());
+                var data = _caSupervisor.GetAllUser().ToList();
+                return new { Items = data, data.Count };
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Exception: ");
                 return StatusCode(500, ex);
             }
+        }
+
+        [HttpPost]
+        public object Post([FromBody]UserViewModel userViewModel)
+        {
+            return userViewModel;
+        }
+
+        [HttpPut]
+        public object Put(int id, [FromBody]UserViewModel userViewModel)
+        {
+            return userViewModel;
+        }
+
+        // DELETE: api/users/5
+        [HttpDelete("{id:int}")]
+        //[Route("users/{id:int}")]
+        public object Delete(int id)
+        {            
+            return Json(id);
         }
     }
 }

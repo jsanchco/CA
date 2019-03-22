@@ -11,6 +11,7 @@ namespace CA.API.Controllers
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Domain.ViewModels;
+    using System.Linq;
 
     #endregion
 
@@ -28,13 +29,28 @@ namespace CA.API.Controllers
             _caSupervisor = caSupervisor;
         }
 
+        //[HttpGet]
+        //[Produces(typeof(List<ProfessionViewModel>))]
+        //public async Task<IActionResult> Get()
+        //{
+        //    try
+        //    {
+        //        return new ObjectResult(await _caSupervisor.GetAllProfessionAsync());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, "Exception: ");
+        //        return StatusCode(500, ex);
+        //    }
+        //}
+
         [HttpGet]
-        [Produces(typeof(List<ProfessionViewModel>))]
-        public async Task<IActionResult> Get()
+        public object Get()
         {
             try
             {
-                return new ObjectResult(await _caSupervisor.GetAllProfessionAsync());
+                var data = _caSupervisor.GetAllProfession().ToList();
+                return new { Items = data, data.Count };
             }
             catch (Exception ex)
             {
@@ -42,5 +58,6 @@ namespace CA.API.Controllers
                 return StatusCode(500, ex);
             }
         }
+
     }
 }

@@ -18,5 +18,11 @@
         Task<User> AddAsync(User newUser, CancellationToken ct = default(CancellationToken));
         Task<bool> UpdateAsync(User user, CancellationToken ct = default(CancellationToken));
         Task<bool> DeleteAsync(int id, CancellationToken ct = default(CancellationToken));
+
+        List<User> GetAll();
+        User GetById(int id);
+        User Add(User newUser);
+        bool Update(User user);
+        bool Delete(int id);
     }
 }

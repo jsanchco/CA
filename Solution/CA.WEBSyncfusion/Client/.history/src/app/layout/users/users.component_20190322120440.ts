@@ -7,10 +7,17 @@ import {
   EditService,
   ToolbarService
 } from '@syncfusion/ej2-angular-grids';
-import { ToastComponent } from '@syncfusion/ej2-angular-notifications';
 
 import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
+
+// // Services
+// import { UsersService } from '../../shared/services/users.service';
+// import { ProfessionsService } from '../../shared/services/profession.service';
 import { StorageService } from '../../shared/services/storage.service';
+
+// // Models
+// import { User } from '../../shared/models/user.model';
+// import { Profession } from '../../shared/models/profession.model';
 
 @Component({
   selector: 'app-users',
@@ -21,14 +28,13 @@ import { StorageService } from '../../shared/services/storage.service';
 
 export class UsersComponent implements OnInit {
 
+  public items: Object[];
+
   public users: DataManager;
   public professions: DataManager;
   public pageSettings: Object;
   public editSettings: EditSettingsModel;
   public toolbar: ToolbarItems[];
-
-  @ViewChild('toastMessage')
-    public toastMessage: ToastComponent;
 
  @ViewChild('grid')
     public grid: GridComponent;
@@ -41,7 +47,7 @@ export class UsersComponent implements OnInit {
       this.users = new DataManager({ 
         url: this.storageService.getBaseApiUrl() + 'users', 
         adaptor: new WebApiAdaptor ,
-        headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
+        headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }]
       });
 
       this.professions = new DataManager({ 
@@ -54,33 +60,4 @@ export class UsersComponent implements OnInit {
       this.editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true };
       this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
   }
-
-  actionFailure(e: any): void {
-    let messageError = '';
-    if (e.error[0] != null) {
-      messageError = e.error[0].error.statusText;
-    } else {
-      if (e.error.error != null) {
-        messageError = e.error.error.statusText;
-      }
-    }
-
-    this.toastMessage.width = '100%';
-    this.toastMessage.position.X = 'Center';
-    this.toastMessage.position.Y = 'Bottom';
-    this.toastMessage.show({
-      title: 'Error',
-      icon: 'e-error toast-icons',
-      cssClass: 'e-toast-danger',
-      content: messageError});
-  } 
-
-  actionBegin(args: any): void {
-    console.log('actionBegin -> ' + args.requestType);
-    if (args.requestType === 'save') {          
-    }
-    if (args.requestType === 'beginEdit') {          
-      //args.model.query.addParams('id', '1');
-    }    
-  }  
 }

@@ -4,13 +4,32 @@
           <span>Dashboard</span>
       </div>
 
-    <ejs-grid #grid [dataSource]='data' [editSettings]='editSettings' [toolbar]='toolbar'>
-        <e-columns>
-          <e-column field='OrderID' headerText='Order ID' textAlign='Right' width=100></e-column>
-          <e-column field='EmployeeID' headerText='Employee Name' width=120 foreignKeyField='ID' foreignKeyValue='FirstName' [dataSource]='employeeData'></e-column>
-          <e-column field='Freight' headerText='Freight' textAlign='Right' width=80></e-column>
-          <e-column field='ShipCity' headerText='Ship City' width=130  ></e-column>
-      </e-columns>
-    </ejs-grid>
+      <div>
+          <ejs-grid #grid [dataSource]='data' [editSettings]='editSettings' [toolbar]='toolbar'>
+            <e-columns>
+              <e-column field='OrderID' headerText='Order ID' textAlign='Right' width=100></e-column>
+              <e-column field='EmployeeID' headerText='Employee Name' width=120 foreignKeyField='ID' foreignKeyValue='FirstName' [dataSource]='employeeData'></e-column>
+              <e-column field='Freight' headerText='Freight' textAlign='Right' width=80></e-column>
+              <e-column field='ShipCity' headerText='Ship City' width=130  ></e-column>
+          </e-columns>
+        </ejs-grid>
+      </div>
+
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+
+      <div class="control-section">
+        <ejs-grid #grid1 [dataSource]='dataMgr' allowPaging='true' [pageSettings]='pageSettings'>
+            <e-columns>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
+                <e-column field='CustomerID' headerText='Customer ID' width='160'></e-column>
+                <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right'></e-column>
+                <e-column field='Freight' headerText='Freight' width='150' format="C2" textAlign='Right'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' width='150' ></e-column>
+            </e-columns>
+        </ejs-grid>
+    
+    </div>
+
   </div>
 </div>

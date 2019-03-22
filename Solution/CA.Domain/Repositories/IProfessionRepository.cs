@@ -18,5 +18,12 @@
         Task<Profession> AddAsync(Profession newProfession, CancellationToken ct = default(CancellationToken));
         Task<bool> UpdateAsync(Profession profession, CancellationToken ct = default(CancellationToken));
         Task<bool> DeleteAsync(int id, CancellationToken ct = default(CancellationToken));
+
+        List<Profession> GetAll();
+        Profession GetById(int id);
+        List<User> GetByProfesionId(int id);
+        Profession Add(Profession newProfession);
+        bool Update(Profession profession);
+        bool Delete(int id);
     }
 }

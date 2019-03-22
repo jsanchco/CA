@@ -26,9 +26,14 @@
             _context.Dispose();
         }
 
-        private async Task<bool> AddressExists(int id, CancellationToken ct = default(CancellationToken))
+        private async Task<bool> AddressExistsAsync(int id, CancellationToken ct = default(CancellationToken))
         {
             return await GetByIdAsync(id, ct) != null;
+        }
+
+        private bool AddressExists(int id)
+        {
+            return GetById(id) != null;
         }
 
         public async Task<List<Address>> GetAllAsync(CancellationToken ct = default(CancellationToken))
@@ -62,7 +67,7 @@
 
         public async Task<bool> UpdateAsync(Address address, CancellationToken ct = default(CancellationToken))
         {
-            if (!await AddressExists(address.Id, ct))
+            if (!await AddressExistsAsync(address.Id, ct))
                 return false;
 
             _context.Address.Update(address);
@@ -72,13 +77,64 @@
 
         public async Task<bool> DeleteAsync(int id, CancellationToken ct = default(CancellationToken))
         {
-            if (!await AddressExists(id, ct))
+            if (!await AddressExistsAsync(id, ct))
                 return false;
 
             var toRemove = _context.Address.Find(id);
             _context.Address.Remove(toRemove);
             await _context.SaveChangesAsync(ct);
             return true;
+        }
+
+        public List<Address> GetAll()
+        {
+            return _context.Address
+                .Include(x => x.User)
+                .ToList();
+        }
+
+        public Address GetById(int id)
+        {
+            return _context.Address
+                .Include(x => x.User)
+                .FirstOrDefault(x => x.Id == id);
+        }
+
+        public List<Address> GetByUserId(int id)
+        {
+            return _context.Address
+                .Include(x => x.User)
+                .Where(x => x.UserId == id)
+                .ToList();
+        }
+
+        public Address Add(Address newAddress)
+        {
+            _context.Address.Add(newAddress);
+            _context.SaveChanges();
+            return newAddress;
+        }
+
+        public bool Update(Address address)
+        {
+            if (!AddressExists(address.Id))
+                return false;
+
+            _context.Address.Update(address);
+            _context.SaveChanges();
+            return true;
+        }
+
+        public bool Delete(int id)
+        {
+            if (!AddressExists(id))
+                return false;
+
+            var toRemove = _context.Address.Find(id);
+            _context.Address.Remove(toRemove);
+            _context.SaveChanges();
+            return true;
+
         }
     }
 }

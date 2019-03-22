@@ -53,7 +53,6 @@
             _context.Profession.Add(newProfession);
             await _context.SaveChangesAsync(ct);
             return newProfession;
-
         }
 
         public async Task<bool> UpdateAsync(Profession profession, CancellationToken ct = default(CancellationToken))
@@ -64,7 +63,6 @@
             _context.Profession.Update(profession);
             await _context.SaveChangesAsync(ct);
             return true;
-
         }
 
         public async Task<bool> DeleteAsync(int id, CancellationToken ct = default(CancellationToken))
@@ -75,6 +73,56 @@
             var toRemove = _context.Profession.Find(id);
             _context.Profession.Remove(toRemove);
             await _context.SaveChangesAsync(ct);
+            return true;
+        }
+
+        public List<Profession> GetAll()
+        {
+            return _context.Profession
+                .Include(x => x.Users)
+                .ToList();
+        }
+
+        public Profession GetById(int id)
+        {
+            return _context.Profession
+                .Include(x => x.Users)
+                .FirstOrDefault(x => x.Id == id);
+        }
+
+        public List<User> GetByProfesionId(int id)
+        {
+            return _context.User
+                .Include(x => x.Profession)
+                .Where(x => x.ProfessionId == id)
+                .ToList();
+        }
+
+        public Profession Add(Profession newProfession)
+        {
+            _context.Profession.Add(newProfession);
+            _context.SaveChanges();
+            return newProfession;
+        }
+
+        public bool Update(Profession profession)
+        {
+            if (GetById(profession.Id) == null)
+                return false;
+
+            _context.Profession.Update(profession);
+            _context.SaveChanges();
+            return true;
+        }
+
+        public bool Delete(int id)
+        {
+            if (GetById(id) == null)
+                return false;
+
+            var toRemove = _context.Profession.Find(id);
+            _context.Profession.Remove(toRemove);
+            _context.SaveChanges();
             return true;
         }
     }

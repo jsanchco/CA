@@ -45,7 +45,6 @@ namespace CA.Domain.Supervisor
 
             await _professionRepository.AddAsync(profession, ct);
             return newProfessionViewModel;
-
         }
 
         public async Task<bool> UpdateAsync(ProfessionViewModel professionViewModel, CancellationToken ct = default(CancellationToken))
@@ -66,6 +65,58 @@ namespace CA.Domain.Supervisor
         public async Task<bool> DeleteAsync(int id, CancellationToken ct = default(CancellationToken))
         {
             return await _professionRepository.DeleteAsync(id, ct);
+        }
+
+        public List<ProfessionViewModel> GetAllProfession()
+        {
+            return ProfessionConverter.ConvertList(_professionRepository.GetAll());
+        }
+
+        public ProfessionViewModel GetById(int id)
+        {
+            return ProfessionConverter.Convert(_professionRepository.GetById(id));
+        }
+
+        public List<UserViewModel> GetByProfessionId(int id)
+        {
+            return UserConverter.ConvertList(_professionRepository.GetByProfesionId(id));
+        }
+
+        public ProfessionViewModel Add(ProfessionViewModel newProfessionViewModel)
+        {
+            var profession = new Profession
+            {
+                Id = newProfessionViewModel.id,
+                AddedDate = DateTime.Now,
+                ModifiedDate = null,
+                IPAddress = newProfessionViewModel.iPAddress,
+
+                Name = newProfessionViewModel.name,
+                Description = newProfessionViewModel.description
+            };
+
+            _professionRepository.Add(profession);
+            return newProfessionViewModel;
+        }
+
+        public bool Update(ProfessionViewModel professionViewModel)
+        {
+            var profession = _professionRepository.GetById(professionViewModel.id);
+
+            if (profession == null) return false;
+
+            profession.ModifiedDate = DateTime.Now;
+            profession.IPAddress = professionViewModel.iPAddress;
+
+            profession.Name = professionViewModel.name;
+            profession.Description = professionViewModel.description;
+
+            return _professionRepository.Update(profession);
+        }
+
+        public bool Delete(int id)
+        {
+            return _professionRepository.Delete(id);
         }
     }
 }

@@ -100,5 +100,62 @@ namespace CA.Domain.Supervisor
         {
             return await _userRepository.DeleteAsync(id, ct);
         }
+
+        public List<UserViewModel> GetAllUser()
+        {
+            return UserConverter.ConvertList(_userRepository.GetAll());
+        }
+
+        public UserViewModel GetUserById(int id)
+        {
+            var userViewModel = UserConverter.Convert(_userRepository.GetById(id));
+            return userViewModel;
+        }
+
+        public UserViewModel AddUser(UserViewModel newUserViewModel)
+        {
+            var user = new User
+            {
+                Id = newUserViewModel.id,
+                AddedDate = DateTime.Now,
+                ModifiedDate = null,
+                IPAddress = newUserViewModel.iPAddress,
+
+                Name = newUserViewModel.name,
+                Surname = newUserViewModel.surname,
+                Age = newUserViewModel.age,
+                BirthDate = newUserViewModel.birthDate,
+                Email = newUserViewModel.email,
+                Password = newUserViewModel.password
+            };
+
+            _userRepository.Add(user);
+
+            return newUserViewModel;
+        }
+
+        public bool UpdateUser(UserViewModel userViewModel)
+        {
+            var user = _userRepository.GetById(userViewModel.id);
+
+            if (user == null) return false;
+
+            user.ModifiedDate = DateTime.Now;
+            user.IPAddress = userViewModel.iPAddress;
+
+            user.Name = userViewModel.name;
+            user.Surname = userViewModel.surname;
+            user.Age = userViewModel.age;
+            user.BirthDate = userViewModel.birthDate;
+            user.Email = userViewModel.email;
+            user.Password = userViewModel.password;
+
+            return _userRepository.Update(user);
+        }
+
+        public bool DeleteUser(int id)
+        {
+            return _userRepository.Delete(id);
+        }
     }
 }
