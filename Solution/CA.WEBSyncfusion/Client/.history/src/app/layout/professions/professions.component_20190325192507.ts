@@ -10,7 +10,7 @@ import {
 } from '@syncfusion/ej2-angular-grids';
 import { ToastComponent } from '@syncfusion/ej2-angular-notifications';
 
-import { DataManager, WebApiAdaptor , UrlAdaptor, ODataAdaptor, Query, RemoteSaveAdaptor } from '@syncfusion/ej2-data';
+import { DataManager, WebApiAdaptor , UrlAdaptor, ODataAdaptor, Query } from '@syncfusion/ej2-data';
 import { StorageService } from '../../shared/services/storage.service';
 
 setCulture('es-ES');
@@ -41,19 +41,13 @@ export class ProfessionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.professions = new DataManager({
-      // url: this.storageService.getBaseApiUrl() + 'professions/getspecial',
-      url: this.storageService.getBaseApiUrl() + 'professions',
+      url: this.storageService.getBaseApiUrl() + 'professions/getspecial',
       adaptor: new WebApiAdaptor,
       // adaptor: new ODataAdaptor,
-      // adaptor: new RemoteSaveAdaptor,
       headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
-      // insertUrl: this.storageService.getBaseApiUrl() + 'professions',
-      // insertUrl: this.storageService.getBaseApiUrl() + 'professions/insert',
-      // updateUrl: this.storageService.getBaseApiUrl() + 'professions',
-      // removeUrl: this.storageService.getBaseApiUrl() + 'professions'
     });
     // this.query = new Query().addParams('id', '1');
-    // this.query = new Query().addParams('id', '3').addParams('description', 'Manager');
+    this.query = new Query().addParams('id', '1').addParams('description', 'managers');
     // this.query = new Query().addParams('description', 'manager');
 
     this.pageSettings = { pageCount: 3 };

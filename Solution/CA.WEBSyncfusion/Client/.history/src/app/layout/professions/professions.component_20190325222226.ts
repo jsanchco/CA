@@ -53,7 +53,7 @@ export class ProfessionsComponent implements OnInit {
       // removeUrl: this.storageService.getBaseApiUrl() + 'professions'
     });
     // this.query = new Query().addParams('id', '1');
-    // this.query = new Query().addParams('id', '3').addParams('description', 'Manager');
+    this.query = new Query().addParams('id', '3').addParams('description', 'Manager');
     // this.query = new Query().addParams('description', 'manager');
 
     this.pageSettings = { pageCount: 3 };

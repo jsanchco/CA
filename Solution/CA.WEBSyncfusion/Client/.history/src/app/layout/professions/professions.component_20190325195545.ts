@@ -41,19 +41,18 @@ export class ProfessionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.professions = new DataManager({
-      // url: this.storageService.getBaseApiUrl() + 'professions/getspecial',
-      url: this.storageService.getBaseApiUrl() + 'professions',
+      url: this.storageService.getBaseApiUrl() + 'professions/getspecial',
       adaptor: new WebApiAdaptor,
       // adaptor: new ODataAdaptor,
       // adaptor: new RemoteSaveAdaptor,
       headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
-      // insertUrl: this.storageService.getBaseApiUrl() + 'professions',
+      insertUrl: this.storageService.getBaseApiUrl() + 'professions',
       // insertUrl: this.storageService.getBaseApiUrl() + 'professions/insert',
       // updateUrl: this.storageService.getBaseApiUrl() + 'professions',
       // removeUrl: this.storageService.getBaseApiUrl() + 'professions'
     });
     // this.query = new Query().addParams('id', '1');
-    // this.query = new Query().addParams('id', '3').addParams('description', 'Manager');
+    this.query = new Query().addParams('id', '3').addParams('description', 'Manager');
     // this.query = new Query().addParams('description', 'manager');
 
     this.pageSettings = { pageCount: 3 };

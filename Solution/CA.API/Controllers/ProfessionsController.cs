@@ -45,7 +45,7 @@ namespace CA.API.Controllers
         //}
 
         [HttpGet]
-        public object Get()
+        public object Get(int id, string description)
         {
             try
             {
@@ -58,6 +58,21 @@ namespace CA.API.Controllers
                 return StatusCode(500, ex);
             }
         }
+
+        //[HttpGet]
+        //public object Get()
+        //{
+        //    try
+        //    {
+        //        var data = _caSupervisor.GetAllProfession().ToList();
+        //        return new { Items = data, data.Count };
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, "Exception: ");
+        //        return StatusCode(500, ex);
+        //    }
+        //}
 
         [HttpPost]
         public object Post([FromBody]ProfessionViewModel professionViewModel)
@@ -109,9 +124,8 @@ namespace CA.API.Controllers
             }
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("getspecial/{id}/{description}")]
+        [HttpGet("getspecial")]
+        //[Route("getspecial/{id}/{description}")]
         public object GetSpecial(int id, string description)
         {
             try
