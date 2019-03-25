@@ -10,7 +10,7 @@ import {
 } from '@syncfusion/ej2-angular-grids';
 import { ToastComponent } from '@syncfusion/ej2-angular-notifications';
 
-import { DataManager, WebApiAdaptor , UrlAdaptor, ODataAdaptor, Query } from '@syncfusion/ej2-data';
+import { DataManager, WebApiAdaptor , UrlAdaptor, Query } from '@syncfusion/ej2-data';
 import { StorageService } from '../../shared/services/storage.service';
 
 setCulture('es-ES');
@@ -41,18 +41,11 @@ export class ProfessionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.professions = new DataManager({
-      url: this.storageService.getBaseApiUrl() + 'professions/getspecial1/1',
+      url: this.storageService.getBaseApiUrl() + 'professions',
       adaptor: new WebApiAdaptor,
-      crossDomain: true, 
-      // Offline: true, 
-      // adaptor: new ODataAdaptor, 
-      //headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
+      headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
     });
-    
-    //this.query = new Query().addParams('id', '1');
-    //this.query = new Query().addParams('id', '1').addParams('description', 'managers');
-    //this.query = new Query().addParams('description', 'manager');
-    
+
     this.pageSettings = { pageCount: 3 };
     this.editSettings = { showDeleteConfirmDialog: true, allowEditing: true, allowAdding: true, allowDeleting: true };
     this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];

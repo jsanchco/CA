@@ -41,18 +41,13 @@ export class ProfessionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.professions = new DataManager({
-      url: this.storageService.getBaseApiUrl() + 'professions/getspecial1/1',
-      adaptor: new WebApiAdaptor,
-      crossDomain: true, 
-      // Offline: true, 
-      // adaptor: new ODataAdaptor, 
-      //headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
+      url: this.storageService.getBaseApiUrl() + 'professions/getspecial',
+      //adaptor: new WebApiAdaptor,
+      adaptor: new UrlAdaptor,
+      headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
     });
-    
-    //this.query = new Query().addParams('id', '1');
-    //this.query = new Query().addParams('id', '1').addParams('description', 'managers');
-    //this.query = new Query().addParams('description', 'manager');
-    
+
+    this.query = new Query().addParams('id', '1');
     this.pageSettings = { pageCount: 3 };
     this.editSettings = { showDeleteConfirmDialog: true, allowEditing: true, allowAdding: true, allowDeleting: true };
     this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];

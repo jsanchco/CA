@@ -110,6 +110,7 @@ namespace CA.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("getspecial/{id}/{description}")]
         public object GetSpecial(int id, string description)
         {
@@ -117,6 +118,25 @@ namespace CA.API.Controllers
             {
                 var data = _caSupervisor.GetAllProfession().ToList()
                     .Where(x => x.id == id && x.description.Contains(description))
+                    .ToList();
+                return new { Items = data, data.Count };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception: ");
+                return StatusCode(500, ex);
+            }
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("getspecial1/{id}")]
+        public object GetSpecial1(int id)
+        {
+            try
+            {
+                var data = _caSupervisor.GetAllProfession().ToList()
+                    .Where(x => x.id == id)
                     .ToList();
                 return new { Items = data, data.Count };
             }
