@@ -1,0 +1,14 @@
+.formtitle {
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: 500;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.70);
+    margin-top: 2%;
+}
+
+.profession-section {
+    position: absolute;
+    left: 10%;
+}

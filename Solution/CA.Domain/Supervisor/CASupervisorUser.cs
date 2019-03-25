@@ -59,17 +59,18 @@ namespace CA.Domain.Supervisor
         {
             var user = new User
             {
-                Id = newUserViewModel.id,
                 AddedDate = DateTime.Now,
                 ModifiedDate = null,
                 IPAddress = newUserViewModel.iPAddress,
 
                 Name = newUserViewModel.name,
                 Surname = newUserViewModel.surname,
+                Username = newUserViewModel.username,
                 Age = newUserViewModel.age,
                 BirthDate = newUserViewModel.birthDate,
                 Email = newUserViewModel.email,
-                Password = newUserViewModel.password
+                Password = newUserViewModel.password,
+                ProfessionId = newUserViewModel.professionId
             };
 
             await _userRepository.AddAsync(user, ct);
@@ -79,7 +80,10 @@ namespace CA.Domain.Supervisor
 
         public async Task<bool> UpdateUserAsync(UserViewModel userViewModel, CancellationToken ct = default(CancellationToken))
         {
-            var user = await _userRepository.GetByIdAsync(userViewModel.id, ct);
+            if (userViewModel.id == null)
+                return false;
+
+            var user = await _userRepository.GetByIdAsync((int)userViewModel.id, ct);
 
             if (user == null) return false;
 
@@ -88,10 +92,12 @@ namespace CA.Domain.Supervisor
 
             user.Name = userViewModel.name;
             user.Surname = userViewModel.surname;
+            user.Username = userViewModel.username;
             user.Age = userViewModel.age;
             user.BirthDate = userViewModel.birthDate;
             user.Email = userViewModel.email;
             user.Password = userViewModel.password;
+            user.ProfessionId = userViewModel.professionId;
 
             return await _userRepository.UpdateAsync(user, ct);
         }
@@ -116,17 +122,18 @@ namespace CA.Domain.Supervisor
         {
             var user = new User
             {
-                Id = newUserViewModel.id,
                 AddedDate = DateTime.Now,
                 ModifiedDate = null,
                 IPAddress = newUserViewModel.iPAddress,
 
                 Name = newUserViewModel.name,
                 Surname = newUserViewModel.surname,
+                Username = newUserViewModel.username,
                 Age = newUserViewModel.age,
                 BirthDate = newUserViewModel.birthDate,
                 Email = newUserViewModel.email,
-                Password = newUserViewModel.password
+                Password = newUserViewModel.password,
+                ProfessionId = newUserViewModel.professionId
             };
 
             _userRepository.Add(user);
@@ -136,7 +143,10 @@ namespace CA.Domain.Supervisor
 
         public bool UpdateUser(UserViewModel userViewModel)
         {
-            var user = _userRepository.GetById(userViewModel.id);
+            if (userViewModel.id == null)
+                return false;
+
+            var user = _userRepository.GetById((int)userViewModel.id);
 
             if (user == null) return false;
 
@@ -145,10 +155,12 @@ namespace CA.Domain.Supervisor
 
             user.Name = userViewModel.name;
             user.Surname = userViewModel.surname;
+            user.Username = userViewModel.username;
             user.Age = userViewModel.age;
             user.BirthDate = userViewModel.birthDate;
             user.Email = userViewModel.email;
             user.Password = userViewModel.password;
+            user.ProfessionId = userViewModel.professionId;
 
             return _userRepository.Update(user);
         }

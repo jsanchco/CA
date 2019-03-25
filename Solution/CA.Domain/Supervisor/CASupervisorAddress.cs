@@ -39,7 +39,6 @@ namespace CA.Domain.Supervisor
         {
             var address = new Address
             {
-                Id = newAddressViewModel.id,
                 AddedDate = DateTime.Now,
                 ModifiedDate = null,
                 IPAddress = newAddressViewModel.iPAddress,
@@ -55,7 +54,10 @@ namespace CA.Domain.Supervisor
 
         public async Task<bool> UpdateAddressAsync(AddressViewModel addressViewModel, CancellationToken ct = default(CancellationToken))
         {
-            var address = await _addressRepository.GetByIdAsync(addressViewModel.id, ct);
+            if (addressViewModel.id == null)
+                return false;
+
+            var address = await _addressRepository.GetByIdAsync((int)addressViewModel.id, ct);
 
             if (address == null) return false;
             
@@ -98,7 +100,6 @@ namespace CA.Domain.Supervisor
         {
             var address = new Address
             {
-                Id = newAddressViewModel.id,
                 AddedDate = DateTime.Now,
                 ModifiedDate = null,
                 IPAddress = newAddressViewModel.iPAddress,
@@ -114,7 +115,10 @@ namespace CA.Domain.Supervisor
 
         public bool UpdateAddress(AddressViewModel addressViewModel)
         {
-            var address = _addressRepository.GetById(addressViewModel.id);
+            if (addressViewModel.id == null)
+                return false;
+
+            var address = _addressRepository.GetById((int)addressViewModel.id);
 
             if (address == null) return false;
 

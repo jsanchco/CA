@@ -81,7 +81,7 @@ namespace CA.DataEFCoreSQL.Migrations
 
                     b.Property<int>("Age");
 
-                    b.Property<DateTime>("BirthDate");
+                    b.Property<DateTime?>("BirthDate");
 
                     b.Property<string>("Email");
 

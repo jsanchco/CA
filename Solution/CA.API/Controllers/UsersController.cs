@@ -95,21 +95,51 @@
         [HttpPost]
         public object Post([FromBody]UserViewModel userViewModel)
         {
-            return userViewModel;
+            try
+            {
+                var result = _caSupervisor.AddUser(userViewModel);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception: ");
+                return StatusCode(500, ex);
+            }            
         }
 
         [HttpPut]
-        public object Put(int id, [FromBody]UserViewModel userViewModel)
+        public object Put([FromBody]UserViewModel userViewModel)
         {
-            return userViewModel;
+            try
+            {
+                if (_caSupervisor.UpdateUser(userViewModel) && userViewModel.id != null)
+                {
+                    return _caSupervisor.GetUserById((int) userViewModel.id);
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception: ");
+                return StatusCode(500, ex);
+            }
         }
 
         // DELETE: api/users/5
         [HttpDelete("{id:int}")]
         //[Route("users/{id:int}")]
         public object Delete(int id)
-        {            
-            return Json(id);
+        {
+            try
+            {
+                return _caSupervisor.DeleteUser(id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception: ");
+                return StatusCode(500, ex);
+            }
         }
     }
 }

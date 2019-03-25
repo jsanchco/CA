@@ -50,18 +50,18 @@ namespace CA.Domain.Supervisor
         #region Profession
 
         Task<List<ProfessionViewModel>> GetAllProfessionAsync(CancellationToken ct = default(CancellationToken));
-        Task<ProfessionViewModel> GetByIdAsync(int id, CancellationToken ct = default(CancellationToken));
-        Task<List<UserViewModel>> GetByProfessionIdAsync(int id, CancellationToken ct = default(CancellationToken));
+        Task<ProfessionViewModel> GetProfessionByIdAsync(int id, CancellationToken ct = default(CancellationToken));
+        Task<List<UserViewModel>> GetUsersByProfessionIdAsync(int id, CancellationToken ct = default(CancellationToken));
         Task<ProfessionViewModel> AddAsync(ProfessionViewModel newProfessionViewModel, CancellationToken ct = default(CancellationToken));
         Task<bool> UpdateAsync(ProfessionViewModel professionViewModel, CancellationToken ct = default(CancellationToken));
         Task<bool> DeleteAsync(int id, CancellationToken ct = default(CancellationToken));
 
         List<ProfessionViewModel> GetAllProfession();
-        ProfessionViewModel GetById(int id);
-        List<UserViewModel> GetByProfessionId(int id);
-        ProfessionViewModel Add(ProfessionViewModel newProfessionViewModel);
-        bool Update(ProfessionViewModel professionViewModel);
-        bool Delete(int id);
+        ProfessionViewModel GetProfessionById(int id);
+        List<UserViewModel> GetUsersByProfessionId(int id);
+        ProfessionViewModel AddProfession(ProfessionViewModel newProfessionViewModel);
+        bool UpdateProfession(ProfessionViewModel professionViewModel);
+        bool DeleteProfession(int id);
 
         #endregion
     }

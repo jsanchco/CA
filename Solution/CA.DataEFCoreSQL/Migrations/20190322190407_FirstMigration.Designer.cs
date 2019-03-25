@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CA.DataEFCoreSQL.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20190318220250_FirstMigration")]
+    [Migration("20190322190407_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,7 +83,7 @@ namespace CA.DataEFCoreSQL.Migrations
 
                     b.Property<int>("Age");
 
-                    b.Property<DateTime>("BirthDate");
+                    b.Property<DateTime?>("BirthDate");
 
                     b.Property<string>("Email");
 

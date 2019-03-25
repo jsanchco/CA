@@ -108,7 +108,7 @@
 
         public bool Update(User user)
         {
-            if (UserExists(user.Id))
+            if (!UserExists(user.Id))
                 return false;
 
             _context.User.Update(user);
@@ -123,7 +123,7 @@
 
             var toRemove = _context.User.Find(id);
             _context.User.Remove(toRemove);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
             return true;
         }
     }

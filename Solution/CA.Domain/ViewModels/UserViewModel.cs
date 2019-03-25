@@ -13,7 +13,7 @@ namespace CA.Domain.ViewModels
         public string surname { get; set; }
         public string username { get; set; }
         public int age { get; set; }
-        public DateTime birthDate { get; set; }
+        public DateTime? birthDate { get; set; }
         public string email { get; set; }
         public string password { get; set; }
         public string token { get; set; }

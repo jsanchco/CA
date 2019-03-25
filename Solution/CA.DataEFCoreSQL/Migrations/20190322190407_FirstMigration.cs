@@ -38,7 +38,7 @@ namespace CA.DataEFCoreSQL.Migrations
                     Surname = table.Column<string>(nullable: true),
                     Username = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
-                    BirthDate = table.Column<DateTime>(nullable: false),
+                    BirthDate = table.Column<DateTime>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     ProfessionId = table.Column<int>(nullable: false)

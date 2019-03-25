@@ -9,7 +9,7 @@ namespace CA.Domain.ViewModels
 
     public class BaseEntityViewModel
     {
-        public int id { get; set; }
+        public int? id { get; set; }
         public DateTime? addedDate { get; set; }
         public DateTime? modifiedDate { get; set; }
         public string iPAddress { get; set; }
