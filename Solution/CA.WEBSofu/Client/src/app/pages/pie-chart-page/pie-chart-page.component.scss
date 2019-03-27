@@ -1,0 +1,16 @@
+app-pie-chart-page {
+  .polar-chart,
+  .nested-pie-chart,
+  .doughnut-pie-chart,
+  .custom-pie-chart {
+    height: 400px;
+  }
+  .polar-clock-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 110px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+}

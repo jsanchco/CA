@@ -1,0 +1,73 @@
+<h2 class="text-center">Pagination</h2>
+<div class="text-center">
+  <nav class="breadcrumb mx-auto d-inline-block">
+    <a class="breadcrumb-item text-body" routerLink="/">Home</a>
+    <a class="breadcrumb-item text-body" routerLink="/">Components</a>
+    <span class="breadcrumb-item active">Pagination</span>
+  </nav>
+</div>
+<div class="row">
+  <div class="col-12 col-lg-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Basic pagination</h5>
+        <div>Default pagination</div>
+        <div class="overflow-x-auto">
+          <ngb-pagination [collectionSize]="70" [(page)]="basicPage" aria-label="Default pagination"></ngb-pagination>
+          <div>directionLinks = false</div>
+          <ngb-pagination [collectionSize]="70" [(page)]="basicPage" [directionLinks]="false"></ngb-pagination>
+          <div>boundaryLinks = true</div>
+          <ngb-pagination [collectionSize]="70" [(page)]="basicPage" [boundaryLinks]="true"></ngb-pagination>
+        </div>
+        <hr>
+
+        <pre>Current page: {{basicPage}}</pre>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Pagination size</h5>
+        <div class="overflow-x-auto">
+          <ngb-pagination [collectionSize]="50" [(page)]="sizePage" size="lg"></ngb-pagination>
+          <ngb-pagination [collectionSize]="50" [(page)]="sizePage"></ngb-pagination>
+          <ngb-pagination [collectionSize]="50" [(page)]="sizePage" size="sm"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Advanced pagination</h5>
+        <div class="overflow-x-auto">
+          <div>maxSize = 5, rotate = false</div>
+          <ngb-pagination [collectionSize]="120" [(page)]="advancedPage" [maxSize]="5"
+                          [boundaryLinks]="true"></ngb-pagination>
+
+          <div>maxSize = 5, rotate = true</div>
+          <ngb-pagination [collectionSize]="120" [(page)]="advancedPage" [maxSize]="5" [rotate]="true"
+                          [boundaryLinks]="true"></ngb-pagination>
+
+          <div>maxSize = 5, rotate = true, ellipses = false</div>
+          <ngb-pagination [collectionSize]="120" [(page)]="advancedPage" [maxSize]="5" [rotate]="true"
+                          [ellipses]="false"
+                          [boundaryLinks]="true"></ngb-pagination>
+        </div>
+        <hr>
+        <pre>Current page: {{advancedPage}}</pre>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Disabled pagination</h5>
+        <div class="overflow-x-auto">
+          <ngb-pagination [collectionSize]="70" [(page)]="disabledPage" [disabled]='isDisabled'></ngb-pagination>
+        </div>
+        <hr>
+        <button class="btn btn-sm btn-outline-primary" (click)="toggleDisabled()">
+          Toggle disabled
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+@import '../../../styles/variables';
+
+app-grid-page {
+  .row > .col,
+  .row > [class^=col-] {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: $primary-color;
+    border-radius: 2px;
+  }
+  .row + .row {
+    margin-top: 1rem;
+  }
+  .bd-example-row-flex-cols .row {
+    min-height: 10rem;
+    background-color: rgba($primary-color, .2);
+  }
+}

@@ -1,0 +1,36 @@
+<h2 class="text-center">Progress bar</h2>
+<div class="text-center">
+  <nav class="breadcrumb mx-auto d-inline-block">
+    <a class="breadcrumb-item text-body" routerLink="/">Home</a>
+    <a class="breadcrumb-item text-body" routerLink="/">Components</a>
+    <span class="breadcrumb-item active">Progress bar</span>
+  </nav>
+</div>
+<div class="row">
+  <div class="col-12 col-lg-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Contextual progress bars</h5>
+        <p><ngb-progressbar type="primary" [value]="50"></ngb-progressbar></p>
+        <p><ngb-progressbar type="danger" [value]="75"></ngb-progressbar></p>
+        <p><ngb-progressbar type="warning" [value]="100"></ngb-progressbar></p>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Gradient</h5>
+        <p><ngb-progressbar [value]="75" class="bar-gradient"></ngb-progressbar></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Progress bars with height</h5>
+        <p><ngb-progressbar type="primary" [value]="25">default</ngb-progressbar></p>
+        <p><ngb-progressbar type="danger" [value]="50" height="10px">10px</ngb-progressbar></p>
+        <p><ngb-progressbar type="warning" [value]="75" height=".5rem">.5rem</ngb-progressbar></p>
+      </div>
+    </div>
+  </div>
+</div>

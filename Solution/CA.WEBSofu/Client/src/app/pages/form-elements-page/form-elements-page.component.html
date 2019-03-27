@@ -1,0 +1,553 @@
+<h2 class="text-center">Form Controls</h2>
+<div class="text-center">
+  <nav class="breadcrumb mx-auto d-inline-block">
+    <a class="breadcrumb-item text-body" routerLink="/">Home</a>
+    <a class="breadcrumb-item text-body" routerLink="/">Forms</a>
+    <span class="breadcrumb-item active">Inputs</span>
+  </nav>
+</div>
+<div class="row mb-3">
+  <div class="col-12 col-lg-8 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Input</h5>
+        <div class="row">
+          <div class="col-12 col-sm-6 form-group">
+            <label for="input-name">Name</label>
+            <input type="text" class="form-control" id="input-name">
+          </div>
+          <div class="col-12 col-sm-6 form-group">
+            <label for="input-email-error">Email address</label>
+            <input type="email" class="form-control is-invalid" id="input-email-error">
+            <div class="form-text invalid-feedback">
+              <small>
+                Helping text
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <label for="input-password">Password</label>
+            <input type="password" class="form-control" id="input-password">
+          </div>
+          <div class="col-12 col-sm-6 form-group">
+            <label for="input-email">Email address</label>
+            <input type="email" class="form-control" id="input-email">
+            <div class="form-text">
+              <small>
+                Helping text
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-12 col-sm-6">
+            <label for="input-icon-right">Icon right</label>
+            <div class="input-group">
+              <input type="text" class="form-control border-right-transparent" id="input-icon-right"
+                     placeholder="Input with icon">
+              <div class="input-group-append">
+                <span class="input-group-text px-3"><i class="icon-people"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <label for="input-icon-left">Icon left</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text px-3"><i class="icon-people"></i></span>
+              </div>
+              <input type="text" class="form-control border-left-transparent" id="input-icon-left"
+                     placeholder="Input with icon">
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-lg-6">
+            <label for="dropdown-input">Drop down input</label>
+            <div class="input-group">
+              <input type="text" class="form-control border-right-transparent" id="dropdown-input"
+                     placeholder="Drop down input">
+              <div class="input-group-append">
+                <div ngbDropdown class="dropdown-no-toggle dropdown-grow d-inline-block input-group-text px-3"
+                     placement="bottom-right">
+                  <i class="material-icons" ngbDropdownToggle>keyboard_arrow_down</i>
+                  <div ngbDropdownMenu>
+                    <button class="dropdown-item">Action - 1</button>
+                    <button class="dropdown-item">Another Action</button>
+                    <button class="dropdown-item">Something else is here</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <label for="dropdown-input-icon">Drop down wth icon</label>
+            <div class="input-group">
+              <div class="input-group-append">
+                <span class="input-group-text px-3"><i class="icon-people"></i></span>
+              </div>
+              <input type="text" class="form-control border-right-transparent border-left-transparent"
+                     id="dropdown-input-icon"
+                     placeholder="Drop down wth icon">
+              <div class="input-group-append">
+                <div ngbDropdown class="dropdown-no-toggle dropdown-grow d-inline-block input-group-text px-3"
+                     placement="bottom-right">
+                  <i class="material-icons" ngbDropdownToggle>keyboard_arrow_down</i>
+                  <div ngbDropdownMenu>
+                    <button class="dropdown-item">Action - 1</button>
+                    <button class="dropdown-item">Another Action</button>
+                    <button class="dropdown-item">Something else is here</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="text-area">Text area</label>
+          <textarea class="form-control" id="text-area" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Input mask</h5>
+        <div class="form-group">
+          <label for="input-date">Date</label>
+          <input [textMask]="{mask: dateMask}" type="text" class="form-control" id="input-date"
+                 placeholder="DD/MM/YYYY">
+        </div>
+        <div class="form-group">
+          <label for="input-phone">Phone</label>
+          <input [textMask]="{mask: phoneMask}" type="text" class="form-control" id="input-phone"
+                 placeholder="(___) ___-____">
+        </div>
+        <div class="form-group">
+          <label for="input-money">Money</label>
+          <input [textMask]="{mask: moneyMask}" type="text" class="form-control" id="input-money"
+                 placeholder="Enter some amount">
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Autocomplete</h5>
+        <div class="form-group">
+          <label for="input-auto">Money</label>
+          <input type="text" class="form-control" id="input-auto" placeholder="Choose state"
+                 [(ngModel)]="autocompleteModel" [ngbTypeahead]="search">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Input with buttons</h5>
+        <div class="row">
+          <div class="col-12 col-lg-4">
+            <div class="input-group mt-3">
+              <input type="email" class="form-control" placeholder="Email address">
+              <span class="input-group-btn">
+                <button class="btn px-gdn-btn px-gdn-btn-icon px-4" type="button">
+                  <i class="material-icons">send</i>
+                </button>
+              </span>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="input-group mt-3">
+              <input type="email" class="form-control" placeholder="Email address">
+              <span ngbDropdown class="input-group-btn">
+                <button class="btn px-gdn-btn px-4" type="button" ngbDropdownToggle>
+                  Action
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button class="dropdown-item">Action - 1</button>
+                  <button class="dropdown-item">Another Action</button>
+                  <button class="dropdown-item">Something else is here</button>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="input-group mt-3">
+              <span ngbDropdown class="input-group-btn">
+                <button class="btn px-gdn-btn px-4" type="button" ngbDropdownToggle>
+                  Action
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button class="dropdown-item">Action - 1</button>
+                  <button class="dropdown-item">Another Action</button>
+                  <button class="dropdown-item">Something else is here</button>
+                </div>
+              </span>
+              <input type="email" class="form-control" placeholder="Email address">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Input validation</h5>
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <label class="text-success" for="input-success">Valid</label>
+            <div class="input-group">
+              <input type="text" class="form-control is-valid" id="input-success">
+              <div class="input-group-append">
+                <span class="input-group-text px-3"><i class="icon-check text-success"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <label class="text-warning" for="input-warning">Warning</label>
+            <div class="input-group">
+              <input type="text" class="form-control border-warning" id="input-warning">
+              <div class="input-group-append">
+                <span class="input-group-text px-3"><i class="icon-exclamation text-warning"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <label class="text-danger" for="input-error">Error</label>
+            <div class="input-group">
+              <input type="text" class="form-control is-invalid" id="input-error">
+              <div class="input-group-append">
+                <span class="input-group-text px-3"><i class="icon-close text-danger"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row align-items-stretch">
+  <div class="col-12 col-xl-2 mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Toggle</h5>
+        <div class="d-flex align-items-center mb-3">
+          <div class="px-gdn-toggle">
+            <input id="toggle-1" type="checkbox" checked/>
+            <label for="toggle-1" class="label-default"></label>
+          </div>
+          <div class="pl-3">
+            <label class="mb-0" for="toggle-1">Default</label>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="px-gdn-toggle">
+            <input id="toggle-2" type="checkbox" disabled/>
+            <label for="toggle-2" class="label-default"></label>
+          </div>
+          <div class="pl-3 text-secondary">
+            <label class="mb-0" for="toggle-2">Disabled</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-xl-5 mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">File browser</h5>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="custom-file-input">
+          <label class="custom-file-label px-3" for="custom-file-input">Choose file</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-xl-5 mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Disabled states</h5>
+        <div class="form-group">
+          <input disabled type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-xl-6 mb-3">
+    <div class=card>
+      <div class="card-body">
+        <h5 class="card-title">Checkbox</h5>
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-checkbox px-gdn-checkbox-1">
+              <input type="checkbox" class="custom-control-input" id="px-gdn-checkbox-1" checked>
+              <label class="custom-control-label ml-3" for="px-gdn-checkbox-1">Checkbox 1</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-checkbox px-gdn-checkbox-1">
+              <input type="checkbox" class="custom-control-input" id="px-gdn-checkbox-2" disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-checkbox-2">Disabled</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-checkbox px-gdn-checkbox-1">
+              <input type="checkbox" class="custom-control-input" id="px-gdn-checkbox-3" checked disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-checkbox-3">Disabled & Checked</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-checkbox px-gdn-checkbox-2">
+              <input type="checkbox" class="custom-control-input" id="px-gdn-checkbox-4" checked>
+              <label class="custom-control-label ml-3" for="px-gdn-checkbox-4">Checkbox 2</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-checkbox px-gdn-checkbox-2">
+              <input type="checkbox" class="custom-control-input" id="px-gdn-checkbox-5" disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-checkbox-5">Disabled</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-checkbox px-gdn-checkbox-2">
+              <input type="checkbox" class="custom-control-input" id="px-gdn-checkbox-6" disabled checked>
+              <label class="custom-control-label ml-3" for="px-gdn-checkbox-6">Disabled & Checked</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-checkbox px-gdn-checkbox-3">
+              <input type="checkbox" class="custom-control-input" id="px-gdn-checkbox-7" checked>
+              <label class="custom-control-label ml-3" for="px-gdn-checkbox-7">Checkbox 3</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-checkbox px-gdn-checkbox-3">
+              <input type="checkbox" class="custom-control-input" id="px-gdn-checkbox-8" disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-checkbox-8">Disabled</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-checkbox px-gdn-checkbox-3">
+              <input type="checkbox" class="custom-control-input" id="px-gdn-checkbox-9" disabled checked>
+              <label class="custom-control-label ml-3" for="px-gdn-checkbox-9">Disabled & Checked</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-xl-6 mb-3">
+    <div class=card>
+      <div class="card-body">
+        <h5 class="card-title">Radio button</h5>
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-radio px-gdn-radio-1">
+              <input type="radio" id="px-gdn-radio-1" name="radio-group-1" class="custom-control-input" checked>
+              <label class="custom-control-label ml-3" for="px-gdn-radio-1">Radio 1</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-radio px-gdn-radio-1">
+              <input type="radio" id="px-gdn-radio-2" class="custom-control-input" disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-radio-2">Disabled</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-radio px-gdn-radio-1">
+              <input type="radio" id="px-gdn-radio-3" class="custom-control-input" checked disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-radio-3">Disabled & Checked</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-radio px-gdn-radio-2">
+              <input type="radio" id="px-gdn-radio-4" name="radio-group-1" class="custom-control-input">
+              <label class="custom-control-label ml-3" for="px-gdn-radio-4">Radio 2</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-radio px-gdn-radio-2">
+              <input type="radio" id="px-gdn-radio-5" class="custom-control-input" disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-radio-5">Disabled</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-radio px-gdn-radio-2">
+              <input type="radio" id="px-gdn-radio-6" class="custom-control-input" checked disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-radio-6">Disabled & Checked</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-radio px-gdn-radio-3">
+              <input type="radio" id="px-gdn-radio-7" name="radio-group-1" class="custom-control-input">
+              <label class="custom-control-label ml-3" for="px-gdn-radio-7">Radio 3</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-radio px-gdn-radio-3">
+              <input type="radio" id="px-gdn-radio-8" class="custom-control-input" disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-radio-8">Disabled</label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <div class="custom-control custom-radio px-gdn-radio-3">
+              <input type="radio" id="px-gdn-radio-9" class="custom-control-input" checked disabled>
+              <label class="custom-control-label ml-3" for="px-gdn-radio-9">Disabled & Checked</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Sizing</h5>
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-3">
+            <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg">
+          </div>
+          <div class="col-12 col-lg-4 mb-3">
+            <input class="form-control" type="text" placeholder="Default input">
+          </div>
+          <div class="col-12 col-lg-4">
+            <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-lg-4 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Select</h5>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Single</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Multiple</label>
+          <select multiple class="form-control" id="exampleFormControlSelect2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title mb-4">Checkboxes and radios</h5>
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="">
+            Option one is this and that&mdash;be sure to include why it's great
+          </label>
+        </div>
+        <div class="form-check disabled mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="" disabled>
+            Option two is disabled
+          </label>
+        </div>
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                   checked>
+            Option one is this and that&mdash;be sure to include why it's great
+          </label>
+        </div>
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            Option two can be something else and selecting it will deselect option one
+          </label>
+        </div>
+        <div class="form-check disabled mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"
+                   disabled>
+            Option three is disabled
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5>Custom checkboxes and radios</h5>
+        <div class="mb-3">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="custom-control custom-radio color-radio dark">
+            <input type="radio" id="color-radio-1" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="color-radio-1">Dark</label>
+          </div>
+          <div class="custom-control custom-radio color-radio brown">
+            <input type="radio" id="color-radio-2" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="color-radio-2">Brown</label>
+          </div>
+          <div class="custom-control custom-radio color-radio grey">
+            <input type="radio" id="color-radio-3" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="color-radio-3">Grey</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

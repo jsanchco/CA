@@ -1,0 +1,52 @@
+<h2 class="text-center">Other</h2>
+
+<div id="parent">
+    <input id="btnOpen" style="height: 30px" type="button" ej-button class="ejinputtext" value="Click to open Dialog" (click)="onClick($event)" *ngIf="button_display" />
+    <ej-dialog id="basicDialog" #dialog title="Facebook" [(enableResize)]="resize" containment="#parent" (close)="onClose($event)">
+        Facebook is an online social networking service headquartered in Menlo Park, California. Its website was launched on February 4, 2004, by Mark Zuckerberg with his Harvard College roommates and fellow students Eduardo Saverin, Andrew McCollum, Dustin Moskovitz
+        and Chris Hughes. The founders had initially limited the website's membership to Harvard students, but later expanded it to colleges in the Boston area, the Ivy League, and Stanford University. It gradually added support for students at various
+        other universities and later to high-school students.
+    </ej-dialog>
+</div>
+
+<div class="text-center">
+    <nav class="breadcrumb mx-auto d-inline-block">
+        <a class="breadcrumb-item text-body" routerLink="/">Home</a>
+        <a class="breadcrumb-item text-body" routerLink="/">Components</a>
+        <span class="breadcrumb-item active">Other</span>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Breadcrumb</h5>
+                <nav class="breadcrumb">
+                    <a class="breadcrumb-item text-body" href="#">Home</a>
+                    <a class="breadcrumb-item text-body" href="#">Library</a>
+                    <a class="breadcrumb-item text-body" href="#">Data</a>
+                    <span class="breadcrumb-item active">Bootstrap</span>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Collapse</h5>
+                <p>
+                    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+            Toggle
+          </button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                    <div class="card">
+                        <div class="card-body">
+                            You can collapse this card by clicking Toggle
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

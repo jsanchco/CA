@@ -1,0 +1,31 @@
+@import '../../../styles/variables';
+
+app-rating-page {
+  .custom-star {
+    .star {
+      font-size: 1.5rem;
+      color: #d2d2d2;
+    }
+    .filled {
+      color: $primary-color
+    }
+  }
+}
+
+.custom-decimal {
+  .star {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #d3d3d3;
+  }
+  .full {
+    color: $primary-color;
+  }
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: $primary-color;
+  }
+}
