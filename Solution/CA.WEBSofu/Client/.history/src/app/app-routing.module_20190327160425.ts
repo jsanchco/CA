@@ -9,12 +9,12 @@ import { StorageService } from './shared/services/storage.service';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './pages/main-page.module#MainPageModule',
+    loadChildren: './pages/login-page.module#LayoutModule',
     canActivate: [AuthorizatedGuard]
   },
   {
       path: 'login',
-      loadChildren: './login/login-page.module#LoginPageModule'
+      loadChildren: './login/login.module#LoginModule'
   }
 ];
 
