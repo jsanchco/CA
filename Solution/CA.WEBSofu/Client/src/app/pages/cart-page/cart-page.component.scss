@@ -1,0 +1,80 @@
+@import '../../../styles/variables';
+
+app-cart-page {
+  .stepper {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    margin-bottom: 75px;
+    .divider {
+      flex: 1;
+      height: 2px;
+      background-color: $dropdown-divider-bg;
+    }
+    .circle {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #d7d8dc;
+      position: relative;
+      &.selected {
+        width: 25px;
+        height: 25px;
+        background-color: $primary-color;
+        &:before {
+          color: $primary-color;
+          bottom: -35px;
+        }
+      }
+      &:before {
+        content: attr(data-tittle);
+        position: absolute;
+        left: 50%;
+        bottom: -40px;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-size: 18px;
+      }
+    }
+  }
+  .product-img {
+    img {
+      width: 100%;
+      max-width: 65px;
+    }
+  }
+  .quantity {
+    .form-group {
+      margin-bottom: 0;
+      input {
+        max-width: 80px;
+      }
+    }
+  }
+  .coupon {
+    .form-group {
+      margin-bottom: 0;
+      .form-control {
+        background-color: transparent;
+      }
+    }
+    .apply {
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  @media screen and (max-width: 400px){
+    .stepper {
+      margin-bottom: 25px;
+      .circle {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}

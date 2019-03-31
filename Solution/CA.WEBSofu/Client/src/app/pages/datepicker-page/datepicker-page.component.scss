@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+app-datepicker-page {
+  .custom-day {
+    text-align: center;
+    padding: 0.185rem 0.25rem;
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+  }
+  .custom-day.range, .custom-day:hover {
+    background-color: $primary-color;
+    color: white;
+  }
+  .custom-day.faded {
+    background-color: rgba($primary-color, 0.5);
+  }
+}

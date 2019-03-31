@@ -1,0 +1,52 @@
+<h2 class="text-center">Gallery</h2>
+<div class="text-center">
+  <nav class="breadcrumb mx-auto d-inline-block">
+    <a class="breadcrumb-item text-body" routerLink="/">Home</a>
+    <a class="breadcrumb-item text-body" routerLink="/">Extra</a>
+    <span class="breadcrumb-item active">Gallery</span>
+  </nav>
+</div>
+<div class="row">
+  <div class="col-12 col-lg-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Simple gallery</h5>
+        <ngx-gallery [options]="simpleGalleryOptions" [images]="galleryImages"></ngx-gallery>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Multiple rows gallery</h5>
+        <ngx-gallery [options]="multipleRowsGalleryOptions" [images]="galleryImages"></ngx-gallery>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Thumbnails on top</h5>
+        <ngx-gallery [options]="thumbnailsTopGalleryOptions" [images]="galleryImages"></ngx-gallery>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Auto play</h5>
+        <ngx-gallery [options]="autoPlayGalleryOptions" [images]="galleryImages"></ngx-gallery>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Only image</h5>
+        <ngx-gallery [options]="onlyImageGalleryOptions" [images]="galleryImages"></ngx-gallery>
+
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Only thumbnails</h5>
+        <ngx-gallery [options]="onlyThumbnailsGalleryOptions" [images]="galleryImages"></ngx-gallery>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<h2 class="text-center">Tree</h2>
+<div class="text-center">
+  <nav class="breadcrumb mx-auto d-inline-block">
+    <a class="breadcrumb-item text-body" routerLink="/">Home</a>
+    <a class="breadcrumb-item text-body" routerLink="/">Extra</a>
+    <span class="breadcrumb-item active">Tree</span>
+  </nav>
+</div>
+<div class="row">
+  <div class="col-12 col-lg-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Basic tree</h5>
+        <tree-root [focused]="true" [nodes]="basicNodes"></tree-root>
+        <br>
+        <p>Keys:</p>
+        down | up | left | right | space | enter
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Filter</h5>
+        <div class="form-group">
+          <input class="form-control" type="text" id="filter" #filter
+                 (keyup)="filterTree.treeModel.filterNodes(filter.value)" placeholder="filter nodes">
+        </div>
+        <button class="btn btn-outline-primary btn-sm mb-3 mr-3" (click)="filterTree.treeModel.clearFilter()">Clear
+          Filter
+        </button>
+        <tree-root #filterTree [focused]="true" [nodes]="filterNodes"></tree-root>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Custom actions</h5>
+        <tree-root
+          [nodes]="customActionNodes"
+          [options]="customActionOptions"
+          [focused]="true"
+        >
+        </tree-root>
+        <br>
+        <b>Custom Keys:</b><br>
+        enter - show alert<br>
+        <br>
+        <b>Custom Mouse Actions:</b><br>
+        shift+click - select multi<br>
+        double click - expand / collapse<br>
+        right-click - show alert
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">API methods</h5>
+        <div>
+          <p>API:</p>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2" (click)="tree.treeModel.focusNextNode()">Next node
+          </button>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2" (click)="tree.treeModel.focusPreviousNode()">Previous
+            node
+          </button>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2" (click)="tree.treeModel.focusDrillDown()">Drill down
+          </button>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2" (click)="tree.treeModel.focusDrillUp()">Drill up
+          </button>
+          <p></p>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2"
+                  [disabled]="!tree.treeModel.getFocusedNode()"
+                  (click)="tree.treeModel.getFocusedNode().toggleActivated()">
+            {{ tree.treeModel.getFocusedNode()?.isActive ? 'Deactivate' : 'Activate' }}
+          </button>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2"
+                  [disabled]="!tree.treeModel.getFocusedNode()"
+                  (click)="tree.treeModel.getFocusedNode().toggleExpanded()">
+            {{ tree.treeModel.getFocusedNode()?.isExpanded ? 'Collapse' : 'Expand' }}
+          </button>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2"
+                  [disabled]="!tree.treeModel.getFocusedNode()"
+                  (click)="tree.treeModel.getFocusedNode().blur()">
+            Blur
+          </button>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2"
+                  (click)="addNode(tree)">
+            Add Node
+          </button>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2"
+                  (click)="activateSubSub(tree)">
+            Activate inner node
+          </button>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2"
+                  (click)="tree.treeModel.expandAll()">
+            Expand All
+          </button>
+          <button class="btn btn-outline-primary btn-sm mb-2 mr-2"
+                  (click)="tree.treeModel.collapseAll()">
+            Collapse All
+          </button>
+        </div>
+        <tree-root
+          #tree
+          [nodes]="nodes"
+          [options]="options"
+          [focused]="true"
+        >
+        </tree-root>
+
+      </div>
+    </div>
+  </div>
+</div>

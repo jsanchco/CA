@@ -1,0 +1,43 @@
+<h2 class="text-center">Drag & Drop</h2>
+<div class="text-center">
+  <nav class="breadcrumb mx-auto d-inline-block">
+    <a class="breadcrumb-item text-body" routerLink="/">Home</a>
+    <a class="breadcrumb-item text-body" routerLink="/">Extra</a>
+    <span class="breadcrumb-item active">Drag & Drop</span>
+  </nav>
+</div>
+<div class="row">
+  <div class="col-12 col-lg-6 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Drag from</h5>
+        <div [dragula]='"bag-one"' [dragulaModel]='links' class="drag-container">
+          <div *ngFor="let link of links" class="mt-3">
+            <i class="material-icons">folder</i>
+            <span>{{ link.name }}</span>
+            <div class="text-secondary">
+              <small>Some description</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Drag to</h5>
+        <div [dragula]='"bag-one"' [dragulaModel]='otherLinks' class="drag-container">
+          <div *ngFor="let link of otherLinks" class="mt-3">
+            <i class="material-icons">folder</i>
+            <span>{{ link.name }}</span>
+            <div class="text-secondary">
+              <small>Some description</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
