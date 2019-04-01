@@ -12,14 +12,22 @@ const routes: Routes = [
   //   loadChildren: './pages/main-page.module#MainPageModule',
   //   canActivate: [AuthorizatedGuard]
   // },
+  // {
+  //     path: '',
+  //     loadChildren: './pages/login-page/login-page.module#LoginPageModule'
+  // },
+  // {
+  //     path: 'login',
+  //     loadChildren: './pages/login-page/login-page.module#LoginPageModule'
+  // },
   {
-      path: '',
-      loadChildren: './pages/login-page/login-page.module#LoginPageModule'
-  },
-  {
-      path: 'login',
-      loadChildren: './pages/login-page/login-page.module#LoginPageModule'
-  },
+    path: '',
+    loadChildren: './pages/dashboard-page/dashboard-page.module#DashboardPageModule'
+},
+{
+    path: 'login',
+    loadChildren: './pages/dashboard-page/dashboard-page.module#DashboardPageModule'
+}
 ];
 
 @NgModule({

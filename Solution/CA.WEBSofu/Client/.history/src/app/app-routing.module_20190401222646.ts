@@ -14,11 +14,11 @@ const routes: Routes = [
   // },
   {
       path: '',
-      loadChildren: './pages/login-page/login-page.module#LoginPageModule'
+      loadChildren: '../pages/login-page/login-page.module#LoginPageModule'
   },
   {
       path: 'login',
-      loadChildren: './pages/login-page/login-page.module#LoginPageModule'
+      loadChildren: '../pages/login-page/login-page.module#LoginPageModule'
   },
 ];
 

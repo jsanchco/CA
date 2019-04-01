@@ -15,5 +15,13 @@ export class AppComponent {
   @HostBinding('class.loading') loading = false;
 
   constructor(public router: Router) {
+    // Send goggle analytics info about page change.
+    // If you do not need google analytics in your project, you can delete this part
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
+      }
+    });
   }
 }

@@ -2,14 +2,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import { EJAngular2Module } from 'ej-angular2';
-import 'syncfusion-ej-global/i18n/ej.culture.es-ES.min.js';
-import 'syncfusion-ej-global/l10n/ej.localetexts.es-ES.min.js';
-import { AppRoutingModule } from './app-routing.module';
-import {AppRoutesModule} from './routes/app-routes.module';
 
 import {AppComponent} from './app.component';
 import {MultimenuComponent} from './components/multimenu/multimenu.component';
-
+import {AppRoutesModule} from './routes/app-routes.module';
 import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -68,12 +64,6 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { ScrollPageComponent } from './pages/scroll-page/scroll-page.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
-// Helpers
-import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
-import { ErrorInterceptor } from './shared/helpers/error.interceptor';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -141,8 +131,7 @@ export function createTranslateLoader(http: HttpClient) {
     ReactiveFormsModule,
     PerfectScrollbarModule,
     RouterModule,
-    // AppRoutesModule,
-    AppRoutingModule,
+    AppRoutesModule,
     NgbModule.forRoot(),
     NgbButtonsModule,
     NgxGalleryModule,
@@ -167,10 +156,7 @@ export function createTranslateLoader(http: HttpClient) {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-  ],
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

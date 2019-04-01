@@ -2,14 +2,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import { EJAngular2Module } from 'ej-angular2';
-import 'syncfusion-ej-global/i18n/ej.culture.es-ES.min.js';
-import 'syncfusion-ej-global/l10n/ej.localetexts.es-ES.min.js';
-import { AppRoutingModule } from './app-routing.module';
-import {AppRoutesModule} from './routes/app-routes.module';
 
 import {AppComponent} from './app.component';
 import {MultimenuComponent} from './components/multimenu/multimenu.component';
-
+import {AppRoutesModule} from './routes/app-routes.module';
 import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -141,8 +137,7 @@ export function createTranslateLoader(http: HttpClient) {
     ReactiveFormsModule,
     PerfectScrollbarModule,
     RouterModule,
-    // AppRoutesModule,
-    AppRoutingModule,
+    AppRoutesModule,
     NgbModule.forRoot(),
     NgbButtonsModule,
     NgxGalleryModule,
