@@ -10,7 +10,7 @@ import {AppRoutesModule} from './routes/app-routes.module';
 import {AppComponent} from './app.component';
 import {MultimenuComponent} from './components/multimenu/multimenu.component';
 
-// import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
+import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TypographyPageComponent} from './pages/typography-page/typography-page.component';
@@ -88,11 +88,11 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     MultimenuComponent,
-    // DashboardPageComponent,
+    DashboardPageComponent,
     TypographyPageComponent,
     EchartComponent,
     DropdownPageComponent,
-    // LoginPageComponent,
+    LoginPageComponent,
     FormElementsPageComponent,
     ButtonsPageComponent,
     MainPageComponent,

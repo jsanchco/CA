@@ -35,7 +35,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   public submitLogin(form: NgForm): void {
-    console.log('submitLogin');
     this.router.navigate(['/dashboard']);
   }
 }
