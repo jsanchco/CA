@@ -48,8 +48,6 @@ export class LoginPageComponent implements OnInit {
       target: this.spin.nativeElement,
       label: this.translationService.translate('connect')
     });
-
-    this.waitService.showSpinner(this.spin.nativeElement);
   }
 
   public submitLogin(form: NgForm): void {

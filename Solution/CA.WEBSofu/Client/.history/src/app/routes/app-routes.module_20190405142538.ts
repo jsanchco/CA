@@ -48,14 +48,8 @@ import {ScrollPageComponent} from '../pages/scroll-page/scroll-page.component';
 
 import { AuthorizatedGuard } from '../shared/guard/authorizated.guard';
 
-// Pipes
-import { TranslatePipe } from '../shared/pipes/translation.pipe';
-
 // Services
 import { StorageService } from '../shared/services/storage.service';
-import { AuthenticationService } from '../shared/services/authentication.service';
-import { TranslationService } from '../shared/services/translation.service';
-import { WaitService } from '../shared/services/wait.service';
 
 // Routes model for application. Some of the pages are loaded lazily to increase startup time.
 const APP_ROUTES: Routes = [
@@ -120,21 +114,12 @@ const APP_ROUTES: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    TranslatePipe
-  ],
   imports: [
     RouterModule.forRoot(APP_ROUTES, {preloadingStrategy: PreloadAllModules}),
   ],
-  exports: [
-    TranslatePipe
-  ],
   providers: [
     StorageService,
-    AuthorizatedGuard,
-    AuthenticationService,
-    TranslationService,
-    WaitService
+    AuthorizatedGuard
   ]
 })
 

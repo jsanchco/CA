@@ -37,7 +37,7 @@ export class LoginPageComponent implements OnInit {
 
   constructor(    private authenticationService: AuthenticationService,
     private storageService: StorageService,
-    private translationService: TranslationService,
+    // private translationService: TranslationService,
     private waitService: WaitService,
     private router: Router) {
 
@@ -46,10 +46,8 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
     this.waitService.createSpinner({
       target: this.spin.nativeElement,
-      label: this.translationService.translate('connect')
+      // label: this.translationService.translate('connect')
     });
-
-    this.waitService.showSpinner(this.spin.nativeElement);
   }
 
   public submitLogin(form: NgForm): void {

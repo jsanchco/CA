@@ -1,3 +1,7 @@
+<div style="text-align:center">
+    <div id="ej2Spinner" #spin></div>
+</div>
+
 <div class="card mx-auto">
 
     <div style="text-align:center">
@@ -6,7 +10,7 @@
 
     <div class="card-body">
         <h2 class="card-title text-center mb-5">Login</h2>
-        <form id="formId" #formDir="ngForm" class="form-horizontal" #lForm="ngForm" (ngSubmit)="submitLogin(lForm)">
+        <form id="formId" [formGroup]="loginForm" #formDir="ngForm" class="form-horizontal" #lForm="ngForm" (ngSubmit)="submitLogin(lForm)">
             <div class="form-group ">
                 <label for="email">Email address</label>
                 <input type="email" class="form-control" id="email">

@@ -14,7 +14,6 @@ export class CartPageComponent implements OnInit {
   }
 
   // Model for items in cart
-  // tslint:disable-next-line:member-ordering
   products = [
     {
       name: 'MODERN blue chair',

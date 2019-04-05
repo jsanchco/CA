@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ElementRef, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {
   NgForm,
   FormGroup,
@@ -30,26 +30,13 @@ export class LoginPageComponent implements OnInit {
   public submitted: Boolean = false;
   public errorInLogin: Boolean = false;
 
-  @ViewChild('toastError')
-  public toastObj: ToastComponent;
-
-  @ViewChild('spin') spin: ElementRef;
-
   constructor(    private authenticationService: AuthenticationService,
     private storageService: StorageService,
     private translationService: TranslationService,
     private waitService: WaitService,
-    private router: Router) {
-
-    }
+    private router: Router) { }
 
   ngOnInit() {
-    this.waitService.createSpinner({
-      target: this.spin.nativeElement,
-      label: this.translationService.translate('connect')
-    });
-
-    this.waitService.showSpinner(this.spin.nativeElement);
   }
 
   public submitLogin(form: NgForm): void {
@@ -78,10 +65,5 @@ export class LoginPageComponent implements OnInit {
           this.waitService.hideSpinner(this.spin.nativeElement);
         });
     }
-  }
-
-  private correctLogin(data: Session) {
-    this.storageService.setCurrentSession(data);
-    this.router.navigate(['/dashboard']);
   }
 }
