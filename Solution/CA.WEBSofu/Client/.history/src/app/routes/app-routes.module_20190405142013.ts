@@ -122,6 +122,5 @@ const APP_ROUTES: Routes = [
     AuthorizatedGuard
   ]
 })
-
 export class AppRoutesModule {
 }

@@ -67,6 +67,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { ScrollPageComponent } from './pages/scroll-page/scroll-page.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Helpers
@@ -170,6 +171,5 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule {
 }

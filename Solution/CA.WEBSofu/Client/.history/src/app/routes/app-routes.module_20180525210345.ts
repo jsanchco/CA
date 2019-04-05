@@ -46,11 +46,6 @@ import {DataMapsPageComponent} from '../pages/data-maps-page/data-maps-page.comp
 import {TranslatePageComponent} from '../pages/translate-page/translate-page.component';
 import {ScrollPageComponent} from '../pages/scroll-page/scroll-page.component';
 
-import { AuthorizatedGuard } from '../shared/guard/authorizated.guard';
-
-// Services
-import { StorageService } from '../shared/services/storage.service';
-
 // Routes model for application. Some of the pages are loaded lazily to increase startup time.
 const APP_ROUTES: Routes = [
   {
@@ -116,12 +111,7 @@ const APP_ROUTES: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(APP_ROUTES, {preloadingStrategy: PreloadAllModules}),
-  ],
-  providers: [
-    StorageService,
-    AuthorizatedGuard
   ]
 })
-
 export class AppRoutesModule {
 }

@@ -1,7 +1,7 @@
 import {Component, HostBinding, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 
-import { L10n } from '@syncfusion/ej2-base';
+import { L10n, setCulture } from '@syncfusion/ej2-base';
 
 L10n.load({
   'es-ES': {
@@ -30,6 +30,9 @@ L10n.load({
       }
   }
 });
+
+// // Google analytics global variable
+// declare let ga: any;
 
 @Component({
   selector: 'app-root',
