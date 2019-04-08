@@ -1,9 +1,10 @@
 import {Component, HostListener, OnInit, ViewEncapsulation} from '@angular/core';
 import {ResizeService} from '../../resize/resize.service';
+import {TranslateService} from '@ngx-translate/core';
 import {routerTransition} from '../../utils/page.animation';
 import {Router} from '@angular/router';
 
-import {StorageService} from '../../shared/services/storage.service';
+import { StorageService } from '../../shared/services/storage.service';
 
 /**
  * This page wraps all other pages in application, it contains header, side menu and router outlet for child pages
@@ -25,37 +26,94 @@ export class MainPageComponent implements OnInit {
       iconClass: 'material-icons',
       iconCode: 'dashboard',
     },
-    // {
-    //   title: 'User pages',
-    //   iconClass: 'material-icons',
-    //   iconCode: 'person',
-    //   children: [
-    //     {
-    //       title: 'Login',
-    //       routerUrl: '/login'
-    //     },
-    //     {
-    //       title: 'Sing up',
-    //       routerUrl: '/register'
-    //     },
-    //     {
-    //       title: 'Profile',
-    //       routerUrl: '/main/profile'
-    //     },
-    //     {
-    //       title: 'Coming soon',
-    //       routerUrl: '/coming-soon'
-    //     },
-    //     {
-    //       title: 'Maintenance',
-    //       routerUrl: '/maintenance'
-    //     },
-    //     {
-    //       title: 'Not found',
-    //       routerUrl: '/404'
-    //     }
-    //   ]
-    // }
+    {
+      title: 'User pages',
+      iconClass: 'material-icons',
+      iconCode: 'person',
+      children: [
+        {
+          title: 'Login',
+          routerUrl: '/login'
+        },
+        {
+          title: 'Sing up',
+          routerUrl: '/register'
+        },
+        {
+          title: 'Profile',
+          routerUrl: '/main/profile'
+        },
+        {
+          title: 'Coming soon',
+          routerUrl: '/coming-soon'
+        },
+        {
+          title: 'Maintenance',
+          routerUrl: '/maintenance'
+        },
+        {
+          title: 'Not found',
+          routerUrl: '/404'
+        }
+      ]
+    },
+    {
+      title: 'Maps',
+      iconClass: 'material-icons',
+      iconCode: 'place',
+      children: [
+        {
+          title: 'Google Maps',
+          routerUrl: '/main/google-map',
+        },
+        {
+          title: 'Data Maps',
+          routerUrl: '/main/data-maps',
+        }
+      ]
+    },
+    {
+      title: 'Label',
+      count: 10,
+      iconClass: 'material-icons',
+      iconCode: 'label',
+      routerUrl: '',
+      children: []
+    },
+    {
+      title: 'Multilevel',
+      iconClass: 'material-icons',
+      iconCode: 'clear_all',
+      children: [
+        {
+          title: 'Level 1',
+          children: [
+            {
+              title: 'Level 2',
+            },
+            {
+              title: 'Level 2',
+            },
+            {
+              title: 'Level 2',
+            },
+          ]
+        },
+        {
+          title: 'Level 1',
+        },
+        {
+          title: 'Level 1',
+        },
+      ]
+    },
+    {
+      title: 'Buy Sofu',
+      iconClass: 'material-icons',
+      iconCode: 'star',
+      externalUrl: 'https://themeforest.net/item/sofu-angular-5-bootstrap-4-admin-template/21363343',
+      children: []
+    }
   ];
   // Side menu options
   isSmallMenuMode = false;
@@ -73,9 +131,15 @@ export class MainPageComponent implements OnInit {
 
   constructor(
     private resizeService: ResizeService,
+    translateService: TranslateService,
     private router: Router,
     private storageService: StorageService) {
     this.onResize();
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translateService.setDefaultLang('en');
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translateService.use('en');
   }
 
   /**

@@ -23,6 +23,7 @@ import {MaintenancePageComponent} from './pages/maintenance-page/maintenance-pag
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {NgxGalleryModule} from 'ngx-gallery';
 import {ProfilePageComponent} from './pages/profile-page/profile-page.component';
+import {AgmCoreModule} from '@agm/core';
 import {TextMaskModule} from 'angular2-text-mask';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';

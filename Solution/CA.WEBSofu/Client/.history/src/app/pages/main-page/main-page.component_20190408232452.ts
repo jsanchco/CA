@@ -25,37 +25,37 @@ export class MainPageComponent implements OnInit {
       iconClass: 'material-icons',
       iconCode: 'dashboard',
     },
-    // {
-    //   title: 'User pages',
-    //   iconClass: 'material-icons',
-    //   iconCode: 'person',
-    //   children: [
-    //     {
-    //       title: 'Login',
-    //       routerUrl: '/login'
-    //     },
-    //     {
-    //       title: 'Sing up',
-    //       routerUrl: '/register'
-    //     },
-    //     {
-    //       title: 'Profile',
-    //       routerUrl: '/main/profile'
-    //     },
-    //     {
-    //       title: 'Coming soon',
-    //       routerUrl: '/coming-soon'
-    //     },
-    //     {
-    //       title: 'Maintenance',
-    //       routerUrl: '/maintenance'
-    //     },
-    //     {
-    //       title: 'Not found',
-    //       routerUrl: '/404'
-    //     }
-    //   ]
-    // }
+    {
+      title: 'User pages',
+      iconClass: 'material-icons',
+      iconCode: 'person',
+      children: [
+        {
+          title: 'Login',
+          routerUrl: '/login'
+        },
+        {
+          title: 'Sing up',
+          routerUrl: '/register'
+        },
+        {
+          title: 'Profile',
+          routerUrl: '/main/profile'
+        },
+        {
+          title: 'Coming soon',
+          routerUrl: '/coming-soon'
+        },
+        {
+          title: 'Maintenance',
+          routerUrl: '/maintenance'
+        },
+        {
+          title: 'Not found',
+          routerUrl: '/404'
+        }
+      ]
+    }
   ];
   // Side menu options
   isSmallMenuMode = false;

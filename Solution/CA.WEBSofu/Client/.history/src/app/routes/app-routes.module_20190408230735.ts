@@ -9,7 +9,7 @@ import {MaintenancePageComponent} from '../pages/maintenance-page/maintenance-pa
 import {NotFoundPageComponent} from '../pages/not-found-page/not-found-page.component';
 import {ProfilePageComponent} from '../pages/profile-page/profile-page.component';
 
-import {AuthorizatedGuard} from '../shared/guard/authorizated.guard';
+import { AuthorizatedGuard } from '../shared/guard/authorizated.guard';
 
 // Routes model for application. Some of the pages are loaded lazily to increase startup time.
 const APP_ROUTES: Routes = [

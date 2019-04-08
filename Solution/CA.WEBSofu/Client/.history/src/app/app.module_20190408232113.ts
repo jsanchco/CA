@@ -23,6 +23,7 @@ import {MaintenancePageComponent} from './pages/maintenance-page/maintenance-pag
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {NgxGalleryModule} from 'ngx-gallery';
 import {ProfilePageComponent} from './pages/profile-page/profile-page.component';
+import {AgmCoreModule} from '@agm/core';
 import {TextMaskModule} from 'angular2-text-mask';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -72,6 +73,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgxGalleryModule,
     TextMaskModule,
     BrowserAnimationsModule,
+    // // Insert your google maps api key, if you do not need google map in your project, you can remove this import
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'YOUR_KEY_HERE'
+    // }),
     HttpClientModule,
     ToastModule,
     EJAngular2Module.forRoot()

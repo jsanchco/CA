@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {EJAngular2Module} from 'ej-angular2';
+import { EJAngular2Module } from 'ej-angular2';
 
 import 'syncfusion-ej-global/i18n/ej.culture.es-ES.min.js';
 import 'syncfusion-ej-global/l10n/ej.localetexts.es-ES.min.js';
@@ -15,6 +15,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 import {NgbButtonsModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ResizeService} from './resize/resize.service';
+import {EchartComponent} from './components/echart-component/echart.component';
 import {LoginPageComponent} from './pages/login-page/login-page.component';
 import {MainPageComponent} from './pages/main-page/main-page.component';
 import {RegisterPageComponent} from './pages/register-page/register-page.component';
@@ -23,34 +24,43 @@ import {MaintenancePageComponent} from './pages/maintenance-page/maintenance-pag
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {NgxGalleryModule} from 'ngx-gallery';
 import {ProfilePageComponent} from './pages/profile-page/profile-page.component';
+import {AgmCoreModule} from '@agm/core';
 import {TextMaskModule} from 'angular2-text-mask';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {ToastModule} from '@syncfusion/ej2-angular-notifications';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastModule } from '@syncfusion/ej2-angular-notifications';
 
 // Helpers
-import {JwtInterceptor} from './shared/helpers/jwt.interceptor';
-import {ErrorInterceptor} from './shared/helpers/error.interceptor';
+import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
+import { ErrorInterceptor } from './shared/helpers/error.interceptor';
 
 // Pipes
-import {TranslatePipe} from './shared/pipes/translation.pipe';
+import { TranslatePipe } from './shared/pipes/translation.pipe';
 
 // Services
-import {StorageService} from './shared/services/storage.service';
-import {AuthenticationService} from './shared/services/authentication.service';
-import {TranslationService} from './shared/services/translation.service';
-import {WaitService} from './shared/services/wait.service';
+import { StorageService } from './shared/services/storage.service';
+import { AuthenticationService } from './shared/services/authentication.service';
+import { TranslationService } from './shared/services/translation.service';
+import { WaitService } from './shared/services/wait.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
+
+// AoT requires an exported function for factories for translate module
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     MultimenuComponent,
     DashboardPageComponent,
+    EchartComponent,
     LoginPageComponent,
     MainPageComponent,
     RegisterPageComponent,
@@ -72,7 +82,18 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgxGalleryModule,
     TextMaskModule,
     BrowserAnimationsModule,
+    // Insert your google maps api key, if you do not need google map in your project, you can remove this import
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_KEY_HERE'
+    }),
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     ToastModule,
     EJAngular2Module.forRoot()
   ],

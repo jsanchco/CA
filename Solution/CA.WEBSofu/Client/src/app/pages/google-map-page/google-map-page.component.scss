@@ -1,9 +1,0 @@
-app-google-map-page {
-  agm-map {
-    height: 700px;
-    @media screen and(max-width: 400px) {
-      height: 300px;
-
-    }
-  }
-}
