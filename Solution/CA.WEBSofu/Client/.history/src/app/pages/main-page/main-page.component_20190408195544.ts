@@ -4,8 +4,6 @@ import {TranslateService} from '@ngx-translate/core';
 import {routerTransition} from '../../utils/page.animation';
 import {Router} from '@angular/router';
 
-import { StorageService } from '../../shared/services/storage.service';
-
 /**
  * This page wraps all other pages in application, it contains header, side menu and router outlet for child pages
  */
@@ -338,11 +336,7 @@ export class MainPageComponent implements OnInit {
   // Fixed header option
   isFixedHeader = true;
 
-  constructor(
-    private resizeService: ResizeService,
-    translateService: TranslateService,
-    private router: Router,
-    private storageService: StorageService) {
+  constructor(private resizeService: ResizeService, translateService: TranslateService, private router: Router) {
     this.onResize();
     // this language will be used as a fallback when a translation isn't found in the current language
     translateService.setDefaultLang('en');
@@ -424,7 +418,6 @@ export class MainPageComponent implements OnInit {
   }
 
   public logout() {
-    // this.router.navigate(['/login']);
-    this.storageService.logout();
+    this.router.navigate(['/login']);
   }
 }
