@@ -29,7 +29,7 @@ export class MainPageComponent implements OnInit {
       title: 'Users',
       routerUrl: '/main/users',
       iconClass: 'material-icons',
-      iconCode: 'people',
+      iconCode: 'icon-people',
     }
     // {
     //   title: 'User pages',

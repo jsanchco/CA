@@ -28,12 +28,7 @@ import {TextMaskModule} from 'angular2-text-mask';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {ButtonModule} from '@syncfusion/ej2-angular-buttons';
-import {ListViewModule} from '@syncfusion/ej2-angular-lists';
-import {DropDownListModule} from '@syncfusion/ej2-angular-dropdowns';
-import {TreeViewModule, TabModule} from '@syncfusion/ej2-angular-navigations';
 import {ToastModule} from '@syncfusion/ej2-angular-notifications';
-import {GridAllModule} from '@syncfusion/ej2-angular-grids';
 
 // Helpers
 import {JwtInterceptor} from './shared/helpers/jwt.interceptor';
@@ -81,13 +76,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     TextMaskModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ButtonModule,
-    ListViewModule,
-    DropDownListModule,
-    TreeViewModule,
-    TabModule,
     ToastModule,
-    GridAllModule,
     EJAngular2Module.forRoot()
   ],
   providers: [
