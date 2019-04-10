@@ -10,7 +10,8 @@ import { TreeViewModule, TabModule } from '@syncfusion/ej2-angular-navigations';
         ButtonModule,
         ListViewModule,
         DropDownListModule,
-        TreeViewModule
+        TreeViewModule,
+        TabModule,
         // RichTextEditorAllModule
     ],
     exports: [

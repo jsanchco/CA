@@ -2,14 +2,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {EJAngular2Module} from 'ej-angular2';
-import {CommonModule} from '@angular/common';
 
 import 'syncfusion-ej-global/i18n/ej.culture.es-ES.min.js';
 import 'syncfusion-ej-global/l10n/ej.localetexts.es-ES.min.js';
-
-import {ToastModule} from '@syncfusion/ej2-angular-notifications';
-import {GridAllModule} from '@syncfusion/ej2-angular-grids';
-import {PageService, SortService, FilterService, GroupService} from '@syncfusion/ej2-angular-grids';
 
 import {AppComponent} from './app.component';
 import {MultimenuComponent} from './components/multimenu/multimenu.component';
@@ -33,13 +28,12 @@ import {TextMaskModule} from 'angular2-text-mask';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-
-import {SharedSyncfusionModule} from './shared/shared-syncfusion.module';
-import { DialogModule } from '@syncfusion/ej2-angular-popups';
-import { NumericTextBoxAllModule } from '@syncfusion/ej2-angular-inputs';
-import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
-import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
-import { DropDownListAllModule } from '@syncfusion/ej2-angular-dropdowns';
+import {ButtonModule} from '@syncfusion/ej2-angular-buttons';
+import {ListViewModule} from '@syncfusion/ej2-angular-lists';
+import {DropDownListModule} from '@syncfusion/ej2-angular-dropdowns';
+import {TreeViewModule, TabModule} from '@syncfusion/ej2-angular-navigations';
+import {ToastModule} from '@syncfusion/ej2-angular-notifications';
+import {GridModule, GridAllModule} from '@syncfusion/ej2-angular-grids';
 
 // Helpers
 import {JwtInterceptor} from './shared/helpers/jwt.interceptor';
@@ -75,11 +69,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     UsersPageComponent
   ],
   imports: [
-    CommonModule,
     BrowserModule,
-    GridAllModule,
-    SharedSyncfusionModule,
-    NumericTextBoxAllModule, DialogModule, DatePickerAllModule, DropDownListAllModule,
     FormsModule,
     ReactiveFormsModule,
     PerfectScrollbarModule,
@@ -91,14 +81,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     TextMaskModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ToastModule,    
+    ButtonModule,
+    ListViewModule,
+    DropDownListModule,
+    TreeViewModule,
+    TabModule,
+    ToastModule,
+    GridModule,
+    GridAllModule,
     EJAngular2Module.forRoot()
   ],
   providers: [
-    PageService,
-    SortService,
-    FilterService,
-    GroupService,
     StorageService,
     AuthenticationService,
     TranslationService,
