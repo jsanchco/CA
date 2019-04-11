@@ -4,8 +4,8 @@ import {NgModule} from '@angular/core';
 import {EJAngular2Module} from 'ej-angular2';
 import {CommonModule} from '@angular/common';
 
-import 'syncfusion-ej-global/i18n/ej.culture.es-ES.min.js';
-import 'syncfusion-ej-global/l10n/ej.localetexts.es-ES.min.js';
+// import 'syncfusion-ej-global/i18n/ej.culture.es-ES.min.js';
+// import 'syncfusion-ej-global/l10n/ej.localetexts.es-ES.min.js';
 
 import {ToastModule} from '@syncfusion/ej2-angular-notifications';
 import {GridAllModule} from '@syncfusion/ej2-angular-grids';
@@ -92,7 +92,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserAnimationsModule,
     HttpClientModule,
     ToastModule,    
-    EJAngular2Module.forRoot()
+    // EJAngular2Module.forRoot()
   ],
   providers: [
     PageService,
