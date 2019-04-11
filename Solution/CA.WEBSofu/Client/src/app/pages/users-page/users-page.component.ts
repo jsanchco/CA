@@ -1,25 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { data } from './datasource';
-// import { PageSettingsModel } from '@syncfusion/ej2-angular-grids';
-
-// @Component({
-//   selector: 'app-users-page',
-//   templateUrl: './users-page.component.html',
-//   styleUrls: ['./users-page.component.scss'],
-// })
-
-// export class UsersPageComponent implements OnInit {
-
-//     public data: object[];
-//     public pageSettings: PageSettingsModel
-
-//     ngOnInit(): void {
-//         this.data = data;
-//          this.pageSettings = { pageSize: 6 };
-//     }
-// }
-
-
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { setCulture } from '@syncfusion/ej2-base';
 import {

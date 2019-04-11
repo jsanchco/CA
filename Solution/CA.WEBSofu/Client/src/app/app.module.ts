@@ -4,9 +4,6 @@ import {NgModule} from '@angular/core';
 import {EJAngular2Module} from 'ej-angular2';
 import {CommonModule} from '@angular/common';
 
-// import 'syncfusion-ej-global/i18n/ej.culture.es-ES.min.js';
-// import 'syncfusion-ej-global/l10n/ej.localetexts.es-ES.min.js';
-
 import {ToastModule} from '@syncfusion/ej2-angular-notifications';
 import {GridAllModule} from '@syncfusion/ej2-angular-grids';
 import {PageService, SortService, FilterService, GroupService} from '@syncfusion/ej2-angular-grids';
@@ -34,13 +31,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
-import {SharedSyncfusionModule} from './shared/shared-syncfusion.module';
-import { DialogModule } from '@syncfusion/ej2-angular-popups';
-import { NumericTextBoxAllModule } from '@syncfusion/ej2-angular-inputs';
-import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
-import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
-import { DropDownListAllModule } from '@syncfusion/ej2-angular-dropdowns';
-
 // Helpers
 import {JwtInterceptor} from './shared/helpers/jwt.interceptor';
 import {ErrorInterceptor} from './shared/helpers/error.interceptor';
@@ -53,7 +43,6 @@ import {StorageService} from './shared/services/storage.service';
 import {AuthenticationService} from './shared/services/authentication.service';
 import {TranslationService} from './shared/services/translation.service';
 import {WaitService} from './shared/services/wait.service';
-
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -78,8 +67,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CommonModule,
     BrowserModule,
     GridAllModule,
-    SharedSyncfusionModule,
-    NumericTextBoxAllModule, DialogModule, DatePickerAllModule, DropDownListAllModule,
     FormsModule,
     ReactiveFormsModule,
     PerfectScrollbarModule,
@@ -91,8 +78,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     TextMaskModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ToastModule,    
-    // EJAngular2Module.forRoot()
+    ToastModule
   ],
   providers: [
     PageService,
