@@ -16,4 +16,9 @@ export class UsersService {
     const url = this.storageService.getBaseApiUrl() + 'users';
     return this.http.get<User[]>(url);
   }
+
+  getById(id: number) {
+    const url = this.storageService.getBaseApiUrl() + 'users/' + id;
+    return this.http.get<User>(url);
+  }
 }

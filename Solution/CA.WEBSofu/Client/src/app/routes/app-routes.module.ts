@@ -9,6 +9,7 @@ import {MaintenancePageComponent} from '../pages/maintenance-page/maintenance-pa
 import {NotFoundPageComponent} from '../pages/not-found-page/not-found-page.component';
 import {ProfilePageComponent} from '../pages/profile-page/profile-page.component';
 import {UsersPageComponent} from '../pages/users-page/users-page.component';
+import {ProfessionsPageComponent} from '../pages/professions-page/professions-page.component';
 
 import {AuthorizatedGuard} from '../shared/guard/authorizated.guard';
 
@@ -18,6 +19,7 @@ const APP_ROUTES: Routes = [
     path: 'main', canActivate: [AuthorizatedGuard], component: MainPageComponent, children: [
       {path: 'dashboard', component: DashboardPageComponent},
       {path: 'users', component: UsersPageComponent},
+      {path: 'professions', component: ProfessionsPageComponent},
       {path: 'login', component: LoginPageComponent},
       {path: 'profile', component: ProfilePageComponent},
       {path: '', redirectTo: 'dashboard', pathMatch: 'prefix'},

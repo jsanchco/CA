@@ -50,7 +50,7 @@
                         name = userAuthenticate.name,
                         username = userAuthenticate.username,
                         email = userAuthenticate.email,
-                        surname = userAuthenticate.username,
+                        surname = userAuthenticate.surname,
                         birthDate = userAuthenticate.birthDate
                     },
                     token = userAuthenticate.token
@@ -84,6 +84,21 @@
             {
                 var data = _caSupervisor.GetAllUser().ToList();
                 return new { Items = data, data.Count };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception: ");
+                return StatusCode(500, ex);
+            }
+        }
+
+        // GET api/users/5
+        [HttpGet("{id}")]
+        public object Get(int id)
+        {
+            try
+            {
+                return _caSupervisor.GetUserById(id);
             }
             catch (Exception ex)
             {

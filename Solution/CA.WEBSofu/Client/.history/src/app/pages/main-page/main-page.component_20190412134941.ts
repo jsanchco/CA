@@ -118,8 +118,8 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const user = this.usersService.getById(1);
-    // this.currentUser = user.name;
+    const user = usersService.getById(1);
+    currentUser = user.name;
   }
 
   /**

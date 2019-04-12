@@ -4,9 +4,7 @@ import {routerTransition} from '../../utils/page.animation';
 import {Router} from '@angular/router';
 
 import {StorageService} from '../../shared/services/storage.service';
-import {UsersService} from '../../shared/services/users.service';
-
-import {User} from '../../shared/models/user.model';
+import {AuthenticationService} from '../../shared/services/authentication.service';
 
 /**
  * This page wraps all other pages in application, it contains header, side menu and router outlet for child pages
@@ -85,13 +83,12 @@ export class MainPageComponent implements OnInit {
   isBoxedLayout = false;
   // Fixed header option
   isFixedHeader = true;
-  currentUser: User;
 
   constructor(
     private resizeService: ResizeService,
     private router: Router,
     private storageService: StorageService,
-    private usersService: UsersService) {
+    private authenticationService: AuthenticationService) {
     this.onResize();
   }
 
@@ -118,8 +115,6 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const user = this.usersService.getById(1);
-    // this.currentUser = user.name;
   }
 
   /**
@@ -172,5 +167,14 @@ export class MainPageComponent implements OnInit {
   public logout() {
     localStorage.removeItem('isLoggedin');
     this.storageService.logout();
+  }
+
+  get currentUser() {
+    return localStorage.getItem('currentUser').name + ' '  + localStorage.getItem('currentUser').surname;
+    // return this.authenticationService.currentUserValue.name + ' '  + this.authenticationService.currentUserValue.surname;
+  }
+
+  test(): void {
+    console.log('Hola!!!');
   }
 }

@@ -46,13 +46,13 @@ export class UsersPageComponent implements OnInit {
     
     this.users = new DataManager({
       url: this.storageService.getBaseApiUrl() + 'users',
-      adaptor: new WebApiAdaptor ,
+      adaptor: new WebApiAdaptor,
       headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
     });
 
     this.professions = new DataManager({
       url: this.storageService.getBaseApiUrl() + 'professions',
-      adaptor: new WebApiAdaptor ,
+      adaptor: new WebApiAdaptor,
       headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }]
     });
 

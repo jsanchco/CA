@@ -26,6 +26,7 @@ import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.compo
 import {NgxGalleryModule} from 'ngx-gallery';
 import {ProfilePageComponent} from './pages/profile-page/profile-page.component';
 import {UsersPageComponent} from './pages/users-page/users-page.component';
+import {ProfessionsPageComponent} from './pages/professions-page/professions-page.component';
 import {TextMaskModule} from 'angular2-text-mask';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -61,7 +62,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NotFoundPageComponent,
     ProfilePageComponent,
     TranslatePipe,
-    UsersPageComponent
+    UsersPageComponent,
+    ProfessionsPageComponent
   ],
   imports: [
     CommonModule,
