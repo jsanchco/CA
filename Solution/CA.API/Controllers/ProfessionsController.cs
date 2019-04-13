@@ -8,8 +8,6 @@ namespace CA.API.Controllers
     using Domain.Supervisor;
     using Microsoft.Extensions.Logging;
     using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using Domain.ViewModels;
     using System.Linq;
 
@@ -29,23 +27,23 @@ namespace CA.API.Controllers
             _caSupervisor = caSupervisor;
         }
 
-        //[HttpGet]
-        //[Produces(typeof(List<ProfessionViewModel>))]
-        //public async Task<IActionResult> Get()
-        //{
-        //    try
-        //    {
-        //        return new ObjectResult(await _caSupervisor.GetAllProfessionAsync());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "Exception: ");
-        //        return StatusCode(500, ex);
-        //    }
-        //}
+        // GET api/professions/5
+        [HttpGet("{id}")]
+        public object Get(int id)
+        {
+            try
+            {
+                return _caSupervisor.GetProfessionById(id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception: ");
+                return StatusCode(500, ex);
+            }
+        }
 
         [HttpGet]
-        public object Get(int id, string description)
+        public object Get()
         {
             try
             {
@@ -58,21 +56,6 @@ namespace CA.API.Controllers
                 return StatusCode(500, ex);
             }
         }
-
-        //[HttpGet]
-        //public object Get()
-        //{
-        //    try
-        //    {
-        //        var data = _caSupervisor.GetAllProfession().ToList();
-        //        return new { Items = data, data.Count };
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "Exception: ");
-        //        return StatusCode(500, ex);
-        //    }
-        //}
 
         [HttpPost]
         public object Post([FromBody]ProfessionViewModel professionViewModel)
@@ -116,43 +99,6 @@ namespace CA.API.Controllers
             try
             {
                 return _caSupervisor.DeleteProfession(id);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Exception: ");
-                return StatusCode(500, ex);
-            }
-        }
-
-        [HttpGet("getspecial")]
-        //[Route("getspecial/{id}/{description}")]
-        public object GetSpecial(int id, string description)
-        {
-            try
-            {
-                var data = _caSupervisor.GetAllProfession().ToList()
-                    .Where(x => x.id == id && x.description.Contains(description))
-                    .ToList();
-                return new { Items = data, data.Count };
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Exception: ");
-                return StatusCode(500, ex);
-            }
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("getspecial1/{id}")]
-        public object GetSpecial1(int id)
-        {
-            try
-            {
-                var data = _caSupervisor.GetAllProfession().ToList()
-                    .Where(x => x.id == id)
-                    .ToList();
-                return new { Items = data, data.Count };
             }
             catch (Exception ex)
             {

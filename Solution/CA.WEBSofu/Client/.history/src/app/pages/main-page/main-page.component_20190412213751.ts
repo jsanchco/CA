@@ -4,6 +4,9 @@ import {routerTransition} from '../../utils/page.animation';
 import {Router} from '@angular/router';
 
 import {StorageService} from '../../shared/services/storage.service';
+import {UsersService} from '../../shared/services/users.service';
+
+import {User} from '../../shared/models/user.model';
 
 /**
  * This page wraps all other pages in application, it contains header, side menu and router outlet for child pages
@@ -82,12 +85,13 @@ export class MainPageComponent implements OnInit {
   isBoxedLayout = false;
   // Fixed header option
   isFixedHeader = true;
-  currentUser: string;
+  currentUser: User;
 
   constructor(
     private resizeService: ResizeService,
     private router: Router,
-    private storageService: StorageService) {
+    private storageService: StorageService,
+    private usersService: UsersService) {
     this.onResize();
   }
 
@@ -114,7 +118,8 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentUser = this.storageService.getCurrentUser().name + ' ' + this.storageService.getCurrentUser().surname;
+    const user = this.usersService.getById(1);
+    // this.currentUser = user.name;
   }
 
   /**

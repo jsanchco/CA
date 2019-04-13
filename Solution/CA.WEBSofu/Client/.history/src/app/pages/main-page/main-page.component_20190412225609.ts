@@ -4,6 +4,10 @@ import {routerTransition} from '../../utils/page.animation';
 import {Router} from '@angular/router';
 
 import {StorageService} from '../../shared/services/storage.service';
+import {UsersService} from '../../shared/services/users.service';
+import {ProfessionsService} from '../../shared/services/professions.service';
+
+import {User} from '../../shared/models/user.model';
 
 /**
  * This page wraps all other pages in application, it contains header, side menu and router outlet for child pages
@@ -87,7 +91,9 @@ export class MainPageComponent implements OnInit {
   constructor(
     private resizeService: ResizeService,
     private router: Router,
-    private storageService: StorageService) {
+    private storageService: StorageService,
+    private usersService: UsersService,
+    private professionsService: ProfessionsService) {
     this.onResize();
   }
 

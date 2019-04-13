@@ -107,6 +107,21 @@
             }
         }
 
+        // GET api/users/5/jesus
+        [HttpGet("{id}/{name}")]
+        public object Get(int id, string name)
+        {
+            try
+            {
+                return _caSupervisor.GetUserById(id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception: ");
+                return StatusCode(500, ex);
+            }
+        }
+
         [HttpPost]
         public object Post([FromBody]UserViewModel userViewModel)
         {

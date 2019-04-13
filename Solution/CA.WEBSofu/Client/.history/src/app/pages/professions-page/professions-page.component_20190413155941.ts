@@ -18,7 +18,7 @@ setCulture('es-ES');
 @Component({
   selector: 'app-professions-page',
   templateUrl: './professions-page.component.html',
-  styleUrls: ['./professions-page.component.scss'],
+  styleUrls: ['./professions-page.component.scss']
   providers: [ForeignKeyService, EditService, ToolbarService],
   encapsulation: ViewEncapsulation.None
 })

@@ -69,7 +69,7 @@ namespace CA.Domain.Supervisor
                 Age = newUserViewModel.age,
                 BirthDate = newUserViewModel.birthDate,
                 Email = newUserViewModel.email,
-                Password = newUserViewModel.password,
+                Password = "123456",
                 ProfessionId = newUserViewModel.professionId
             };
 
@@ -95,8 +95,7 @@ namespace CA.Domain.Supervisor
             user.Username = userViewModel.username;
             user.Age = userViewModel.age;
             user.BirthDate = userViewModel.birthDate;
-            user.Email = userViewModel.email;
-            user.Password = userViewModel.password;
+            user.Email = userViewModel.email;            
             user.ProfessionId = userViewModel.professionId;
 
             return await _userRepository.UpdateAsync(user, ct);
@@ -132,7 +131,7 @@ namespace CA.Domain.Supervisor
                 Age = newUserViewModel.age,
                 BirthDate = newUserViewModel.birthDate,
                 Email = newUserViewModel.email,
-                Password = newUserViewModel.password,
+                Password = "123456",
                 ProfessionId = newUserViewModel.professionId
             };
 
@@ -159,7 +158,6 @@ namespace CA.Domain.Supervisor
             user.Age = userViewModel.age;
             user.BirthDate = userViewModel.birthDate;
             user.Email = userViewModel.email;
-            user.Password = userViewModel.password;
             user.ProfessionId = userViewModel.professionId;
 
             return _userRepository.Update(user);

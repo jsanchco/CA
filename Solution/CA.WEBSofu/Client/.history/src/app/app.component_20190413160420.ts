@@ -13,11 +13,11 @@ L10n.load({
           'Cancel': 'Cancelar',
           'Item': 'Registro',
           'Items': 'Registros',
-          'DeleteOperationAlert': 'Selecciona un registro para poder <b>Borrar</b>',
+          'DeleteOperationAlert': 'Debes seleccionar un registro para poder borrar',
           'CancelButton': 'Cancelar',
           'ConfirmDelete': '¿Estás seguro de querer borrar este registro?',
           'EmptyRecord': 'No existen registros',
-          'EditOperationAlert': 'Selecciona un registro para poder <b>Editar</b>'
+          'EditOperationAlert': 'Selecciona un registro para poder Editar'
       },
       'pager': {
           'currentPageInfo': '{0} de {1} páginas',

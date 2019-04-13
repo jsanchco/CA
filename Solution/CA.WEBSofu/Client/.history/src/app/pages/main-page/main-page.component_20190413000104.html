@@ -5,7 +5,7 @@
             <i class="material-icons">menu</i>
         </div>
         <div class="search input-group">
-            <input type="text" class="form-control pr-2 py-0" placeholder="{{ 'search' | translate}}">
+            <input type="text" class="form-control pr-2 py-0" placeholder="Search">
             <div class="input-group-append">
                 <i class="material-icons pr-2">search</i>
             </div>
@@ -18,7 +18,7 @@
                 <div ngbDropdownMenu class="dropdown-menu">
                     <div class="dropdown-header d-flex justify-content-end align-items-center">
                         <img class="user-avatar" src="/assets/images/avatars/avatar-1.png">
-                        <div class="user-name">{{ currentUser }}</div>
+                        <div class="user-name">John Collins</div>
                         <i class="material-icons pl-4">keyboard_arrow_up</i>
                     </div>
                     <div class="dropdown-divider"></div>
@@ -26,9 +26,9 @@
                     <a class="dropdown-item" href="#">Profile</a>
                     <a class="dropdown-item" href="#">Options</a>
                     <div class="dropdown-divider"></div>
-                    <a class="d-flex" (click)="logout()">
-                        <span class="dropdown-item" style="cursor: pointer; width: 70%">Logout</span>
-                        <i class="material-icons ml-auto dropdown-item" style="cursor: pointer;width: 40%" (click)="logout()">exit_to_app</i>
+                    <a class="dropdown-item d-flex" (click)="logout()">
+                        <span class="dropdown-item" style="cursor: pointer;">Logout</span>
+                        <i class="material-icons ml-auto dropdown-item" style="cursor: pointer; margin-right: 50px;" (click)="logout()">exit_to_app</i>
                     </a>
                 </div>
             </div>
@@ -44,7 +44,7 @@
             <i class="material-icons">navigate_before</i>
         </div>
         <div class="logo">
-            <a href="/">S.G.I.E.</a>
+            <a href="/">SOFU</a>
         </div>
         <div class="user-info">
             <img src="/assets/images/avatars/avatar-1.png">

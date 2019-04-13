@@ -21,9 +21,4 @@ export class UsersService {
     const url = this.storageService.getBaseApiUrl() + 'users/' + id;
     return this.http.get<User>(url);
   }
-
-  getByIdAndName(id: number, name: string) {
-    const url = this.storageService.getBaseApiUrl() + 'users/' + id + '/' + name;
-    return this.http.get<User>(url);
-  }
 }
