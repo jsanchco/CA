@@ -40,15 +40,9 @@ export class MainPageComponent implements OnInit {
     {
       title: 'Car',
       routerUrl: '/main/car',
-      iconClass: 'material-icons',
-      iconCode: 'directions_car',
-    },
-    {
-      title: 'Default',
-      routerUrl: '/main/default',
-      iconClass: 'material-icons',
-      iconCode: 'star',
-    }    
+      iconClass: 'fa-car',
+      // iconCode: 'fa-car',
+    }
 
     // {
     //   title: 'User pages',

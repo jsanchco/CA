@@ -1,0 +1,25 @@
+.users-section {
+    position: absolute;
+    left: 10%;
+}
+
+.e-btn.e-flat.e-primary,
+.e-css.e-btn.e-flat.e-primary {
+    background-color: orange;
+    border-color: transparent;
+    color: #e3165b;
+}
+
+.e-btn.e-flat.e-primary:hover,
+.e-css.e-btn.e-flat.e-primary:hover {
+    background-color: rgba(227, 22, 91, 0.04);
+    border-color: transparent;
+    color: #e3165b;
+}
+
+.e-btn.e-flat.e-primary:focus,
+.e-css.e-btn.e-flat.e-primary:focus {
+    background-color: rgba(227, 22, 91, 0.12);
+    border-color: transparent;
+    color: #e3165b;
+}

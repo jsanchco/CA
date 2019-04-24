@@ -22,12 +22,8 @@ const APP_ROUTES: Routes = [
       {path: 'professions', component: ProfessionsPageComponent},
       {
         path: 'car',
-        loadChildren: '../pages/car/car.module#CarModule'
+        loadChildren: './car/car.module#CarModule'
       },
-      {
-        path: 'default',
-        loadChildren: '../pages/default/default.module#DefaultModule'
-      },      
       {path: 'login', component: LoginPageComponent},
       {path: 'profile', component: ProfilePageComponent},
       {path: '', redirectTo: 'dashboard', pathMatch: 'prefix'},
