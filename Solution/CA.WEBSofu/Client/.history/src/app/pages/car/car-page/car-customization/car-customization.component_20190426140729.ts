@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  AbstractControl,
+  NgForm,
   FormBuilder,
   FormGroup,
+  FormControl,
   Validators
 } from '@angular/forms';
+import { FormValidators } from '@syncfusion/ej2-angular-inputs';
 
 @Component({
   selector: 'app-car-customization',
@@ -26,7 +28,7 @@ export class CarCustomizationComponent implements OnInit {
   ngOnInit() {
     this.customCarForm = this.formBuilder.group({
       model: ['', Validators.required],
-      maxSpeed: ['', Validators.required, this.validateMaxSpeed]
+      maxSpeed: ['', Validators.required]
   });
 
   // document.getElementById('formId').addEventListener(
@@ -55,15 +57,6 @@ export class CarCustomizationComponent implements OnInit {
     const control = this.customCarForm.get(controlName);
     if (control.touched && control.errors != null) {
       error = JSON.stringify(control.errors);
-    }
-    return error;
-  }
-
-  private validateMaxSpeed(control: AbstractControl) {
-    const maxSpeed = control.value;
-    let error = null;
-    if (maxSpeed  < 0 || maxSpeed > 200) {
-      error = { ...error, number: 'La velocidad debe ser mayor que 0 y menos que 200' };
     }
     return error;
   }

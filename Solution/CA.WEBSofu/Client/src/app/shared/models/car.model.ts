@@ -1,3 +1,5 @@
-export class Car {
-    public ratio: number;
+export interface Car {
+  name: string;
+  maxSpeed: number;
+  currentSpeed: number;
 }

@@ -29,20 +29,20 @@
 </div> -->
 
 <div class="card mx-auto">
-    <div class="card-body">
-        <form id="formId" class="form-horizontal" [formGroup]="customCarForm" #formDir="ngForm" #lForm="ngForm" (ngSubmit)="submitCustomCarForm()">
-            <div class="form-group">
-                <label for="model">modelo</label>
-                <input formControlName="model" type="text" class="form-control" id="model">
-                <span class="e-error">{{ getError('model')}}</span>
-            </div>
-            <div class="form-group">
-                <label for="maxSpeed">máxima velocidad</label>
-                <input formControlName="maxSpeed" type="number" class="form-control" id="maxSpeed">
-            </div>
-            <div class="mt-5 text-center">
-                <button type="submit" class="btn btn-lg px-gdn-btn-outline card-bg" routerLink="/">APPLY</button>
-            </div>
-        </form>
-    </div>
+  <div class="card-body">
+    <form id="formId" class="form-horizontal" [formGroup]="customCarForm" #formDir="ngForm" #lForm="ngForm" (ngSubmit)="submitCustomCarForm()">  
+      <div class="form-group">
+          <label for="model">modelo</label>
+          <input formControlName="model" type="text" class="form-control" id="model">
+          <span>{{ getError('model')}}</span>
+      </div>
+      <div class="form-group">
+          <label for="maxSpeed">máxima velocidad</label>
+          <input formControlName="maxSpeed" type="text" class="form-control" id="maxSpeed">
+      </div>
+      <div class="mt-5 text-center">
+          <button type="submit" class="btn btn-lg px-gdn-btn-outline card-bg" routerLink="/">APPLY</button>
+      </div>
+    </form>
+  </div>
 </div>
