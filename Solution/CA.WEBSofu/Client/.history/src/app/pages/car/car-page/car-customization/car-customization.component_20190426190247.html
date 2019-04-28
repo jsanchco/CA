@@ -1,0 +1,49 @@
+<!-- <div class="card mx-auto">
+
+    <div class="card-body">
+        <h2 class="card-title text-center mb-5">Login</h2>
+        <form id="formId" [formGroup]="customCarForm" #formDir="ngForm" class="form-horizontal" #lForm="ngForm" (ngSubmit)="submitCustomCarForm(lForm)">
+            <div class="form-group">
+                <label for="model">{{ 'model' | translate }}</label>
+                <input formControlName="model" type="email" class="form-control" id="model">
+                <div *ngIf="model.errors">
+                    <div *ngIf="model.errors.required && model.touched" class="e-error">
+                        {{ 'field-required' | translate }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="maxSpeed">{{ 'maxSpeed' | translate }}</label>
+                <input formControlName="maxSpeed" type="text" class="form-control" id="maxSpeed">
+                <div *ngIf="maxSpeed.errors">
+                    <div *ngIf="maxSpeed.errors.required && maxSpeed.touched" class="e-error">
+                        {{ 'field-required' | translate }}
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 text-center">
+                <button type="submit" class="btn btn-lg px-gdn-btn-outline card-bg" routerLink="/">APPLY</button>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<div class="card mx-auto">
+    <div class="card-body">
+        <form id="formId" class="form-horizontal" [formGroup]="customCarForm" #formDir="ngForm" #lForm="ngForm" (ngSubmit)="submitCustomCarForm()">
+            <div class="form-group">
+                <label for="model">modelo</label>
+                <input formControlName="model" type="text" class="form-control" id="model">
+                <span class="e-error">{{ getError('model')}}</span>
+            </div>
+            <div class="form-group">
+                <label for="maxSpeed">máxima velocidad</label>
+                <input formControlName="maxSpeed" type="number" class="form-control" id="maxSpeed">
+                <span class="e-error">{{ getError('model')}}</span>
+            </div>
+            <div class="mt-5 text-center">
+                <button type="submit" class="btn btn-lg px-gdn-btn-outline card-bg" routerLink="/">APPLY</button>
+            </div>
+        </form>
+    </div>
+</div>

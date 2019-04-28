@@ -1,0 +1,26 @@
+<h2 class="text-center">Car</h2>
+
+<br>
+
+<div class="control-section">
+    <div class="col-lg-10 content-wrapper car-section" style="margin-bottom: 25px;">
+        <div class="card mb-3">
+            <div class="card-body">
+                <ngb-tabset type="pills" class="custom-tabs" (tabChange)="onTabChange()">
+                    <ngb-tab id="tab-selectbyid1" title="Custom">
+                        <ng-template ngbTabContent>
+                            <app-car-customization (updateCar)="onUpdateCar($event)"></app-car-customization>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab id="tab-selectbyid2" title="Odometer">
+                        <ng-template ngbTabContent>
+                            <div>
+                                <app-car-odometer></app-car-odometer>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-car-odometer',
+  templateUrl: './car-odometer.component.html',
+  styleUrls: ['./car-odometer.component.scss']
+})
+export class CarOdometerComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  fetchTab(): void {
+    console.log('Active Odometer');
+  }
+}
