@@ -22,7 +22,9 @@
             services
                 .AddScoped<IUserRepository, UserRepository>()
                 .AddScoped<IAddressRepository, AddressRepository>()
-                .AddScoped<IProfessionRepository, ProfessionRepository>();
+                .AddScoped<IProfessionRepository, ProfessionRepository>()
+                .AddScoped<IDocumentTypeRepository, DocumentTypeRepository>()
+                .AddScoped<IDocumentRepository, DocumentRepository>();
 
             return services;
         }
