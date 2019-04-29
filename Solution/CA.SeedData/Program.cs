@@ -149,6 +149,57 @@ namespace CA.SeedData
 
                 context.SaveChanges();
 
+                if (!context.DocumentType.Any())
+                {
+                    context.DocumentType.Add(new DocumentType
+                    {
+                        AddedDate = DateTime.Now,
+                        Name = "pdf",
+                        Extension = ".pdf"
+                    });
+                    context.DocumentType.Add(new DocumentType
+                    {
+                        AddedDate = DateTime.Now,
+                        Name = "word",
+                        Extension = ".doc"
+                    });
+                    context.DocumentType.Add(new DocumentType
+                    {
+                        AddedDate = DateTime.Now,
+                        Name = "excel",
+                        Extension = ".xls"
+                    });
+                }
+
+                context.SaveChanges();
+
+                if (!context.Document.Any())
+                {
+                    context.Document.Add(new Document
+                    {
+                        AddedDate = DateTime.Now,
+                        Name = "MyDocumentPdf",
+                        Url = @"c:\Log\MyDocumentPdf.pdf",
+                        DocumentTypeId = 1
+                    });
+                    context.Document.Add(new Document
+                    {
+                        AddedDate = DateTime.Now,
+                        Name = "MyDocumentWord",
+                        Url = @"c:\Log\MyDocumentWord.doc",
+                        DocumentTypeId = 2
+                    });
+                    context.Document.Add(new Document
+                    {
+                        AddedDate = DateTime.Now,
+                        Name = "MyDocumentExcel",
+                        Url = @"c:\Log\MyDocumentExcel.xls",
+                        DocumentTypeId = 3
+                    });
+                }
+
+                context.SaveChanges();
+
                 dbContextTransaction.Commit();
 
                 stopWatch.Stop();
@@ -159,6 +210,8 @@ namespace CA.SeedData
                 Console.WriteLine($"Table User -> {context.User.Count()} rows");
                 Console.WriteLine($"Table Address -> {context.Address.Count()} rows");
                 Console.WriteLine($"Table Profession -> {context.Profession.Count()} rows");
+                Console.WriteLine($"Table DocumentType -> {context.DocumentType.Count()} rows");
+                Console.WriteLine($"Table Document -> {context.Document.Count()} rows");
                 Console.WriteLine($"\t{ts.Seconds}.{ts.Milliseconds} sg.ms");
 
                 Console.WriteLine("");

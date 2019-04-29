@@ -12,7 +12,7 @@
     {
         public DocumentTypeConfiguration(EntityTypeBuilder<DocumentType> entity)
         {
-            entity.ToTable("Document");
+            entity.ToTable("DocumentType");
 
             entity.HasKey(x => x.Id);
             entity.Property(x => x.Id).ValueGeneratedOnAdd();

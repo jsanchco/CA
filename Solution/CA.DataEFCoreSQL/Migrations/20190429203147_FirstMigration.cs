@@ -9,6 +9,23 @@ namespace CA.DataEFCoreSQL.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "DocumentType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddedDate = table.Column<DateTime>(nullable: false),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
+                    IPAddress = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    Extension = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DocumentType", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Profession",
                 columns: table => new
                 {
@@ -23,6 +40,30 @@ namespace CA.DataEFCoreSQL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Profession", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Document",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddedDate = table.Column<DateTime>(nullable: false),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
+                    IPAddress = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    Url = table.Column<string>(nullable: false),
+                    DocumentTypeId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Document", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK__DocumentType__DocumentId",
+                        column: x => x.DocumentTypeId,
+                        principalTable: "DocumentType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -84,6 +125,11 @@ namespace CA.DataEFCoreSQL.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IFK_DocumentType_Document",
+                table: "Document",
+                column: "DocumentTypeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IFK_Profession_User",
                 table: "User",
                 column: "ProfessionId");
@@ -95,7 +141,13 @@ namespace CA.DataEFCoreSQL.Migrations
                 name: "Address");
 
             migrationBuilder.DropTable(
+                name: "Document");
+
+            migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "DocumentType");
 
             migrationBuilder.DropTable(
                 name: "Profession");

@@ -47,6 +47,59 @@ namespace CA.DataEFCoreSQL.Migrations
                     b.ToTable("Address");
                 });
 
+            modelBuilder.Entity("CA.Domain.Entities.Document", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("AddedDate")
+                        .IsRequired();
+
+                    b.Property<int>("DocumentTypeId");
+
+                    b.Property<string>("IPAddress");
+
+                    b.Property<DateTime?>("ModifiedDate");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<string>("Url")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocumentTypeId")
+                        .HasName("IFK_DocumentType_Document");
+
+                    b.ToTable("Document");
+                });
+
+            modelBuilder.Entity("CA.Domain.Entities.DocumentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("AddedDate")
+                        .IsRequired();
+
+                    b.Property<string>("Extension")
+                        .IsRequired();
+
+                    b.Property<string>("IPAddress");
+
+                    b.Property<DateTime?>("ModifiedDate");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DocumentType");
+                });
+
             modelBuilder.Entity("CA.Domain.Entities.Profession", b =>
                 {
                     b.Property<int>("Id")
@@ -114,6 +167,15 @@ namespace CA.DataEFCoreSQL.Migrations
                         .WithMany("Addresses")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK__Address__UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("CA.Domain.Entities.Document", b =>
+                {
+                    b.HasOne("CA.Domain.Entities.DocumentType", "DocumentType")
+                        .WithMany("Documents")
+                        .HasForeignKey("DocumentTypeId")
+                        .HasConstraintName("FK__DocumentType__DocumentId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
