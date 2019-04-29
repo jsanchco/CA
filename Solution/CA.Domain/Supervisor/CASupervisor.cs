@@ -14,6 +14,8 @@ namespace CA.Domain.Supervisor
         private readonly IUserRepository _userRepository;
         private readonly IAddressRepository _addressRepository;
         private readonly IProfessionRepository _professionRepository;
+        private readonly IDocumentRepository _documentRepository;
+        private readonly IDocumentTypeRepository _documentTypeRepository;
         private readonly AppSettings _appSettings;
 
         public CASupervisor()
@@ -24,11 +26,15 @@ namespace CA.Domain.Supervisor
             IUserRepository userRepository,
             IAddressRepository addressRepository,
             IProfessionRepository professionRepository,
+            IDocumentRepository documentRepository,
+            IDocumentTypeRepository documentTypeRepository,
             IOptions<AppSettings> appSettings)
         {
             _userRepository = userRepository;
             _addressRepository = addressRepository;
             _professionRepository = professionRepository;
+            _documentRepository = documentRepository;
+            _documentTypeRepository = documentTypeRepository;
             _appSettings = appSettings.Value;
         }
     }

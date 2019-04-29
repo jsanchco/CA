@@ -64,5 +64,32 @@ namespace CA.Domain.Supervisor
         bool DeleteProfession(int id);
 
         #endregion
+
+        #region Document
+
+        Task<List<DocumentViewModel>> GetAllDocumentsAsync(CancellationToken ct = default(CancellationToken));
+        Task<DocumentViewModel> GetDocumentByIdAsync(int id, CancellationToken ct = default(CancellationToken));
+        Task<DocumentViewModel> AddDocumentAsync(DocumentViewModel newDocumentViewModel, CancellationToken ct = default(CancellationToken));
+        Task<bool> UpdateDocumentAsync(DocumentViewModel documentViewModel, CancellationToken ct = default(CancellationToken));
+        Task<bool> DeleteDocumentAsync(int id, CancellationToken ct = default(CancellationToken));
+
+
+        List<DocumentViewModel> GetAllDocuments();
+        DocumentViewModel GetDocumentById(int id);
+        DocumentViewModel AddDocument(DocumentViewModel newDocumentViewModel);
+        bool UpdateDocument(DocumentViewModel documentViewModel);
+        bool DeleteDocument(int id);
+
+        #endregion
+
+        #region DocumentType
+
+        Task<List<DocumentTypeViewModel>> GetAllDocumentTypesAsync(CancellationToken ct = default(CancellationToken));
+        Task<DocumentTypeViewModel> GetDocumentTypeByIdAsync(int id, CancellationToken ct = default(CancellationToken));
+
+        List<DocumentTypeViewModel> GetAllDocumentTypes();
+        DocumentTypeViewModel GetDocumentTypeById(int id);
+
+        #endregion
     }
 }

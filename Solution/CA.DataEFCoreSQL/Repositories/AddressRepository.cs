@@ -134,7 +134,6 @@
             _context.Address.Remove(toRemove);
             _context.SaveChanges();
             return true;
-
         }
     }
 }
