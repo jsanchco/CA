@@ -35,7 +35,12 @@ export class TranslationService {
                 'allrightsreserved': 'all rights reserved',
                 'model': 'model',
                 'maxSpeed': 'maximum speed',
-                'apply': 'APPLY'
+                'apply': 'APPLY',
+                'error': 'Error',
+                'information': 'Information',
+                'warning': 'Warning',
+                'incorrect-form': 'Incorrect form',
+                'correct-form': 'Updated form'
             }
         },
         'spa' : {
@@ -55,7 +60,12 @@ export class TranslationService {
                 'search': 'buscar',
                 'model': 'modelo',
                 'maxSpeed': 'máxima velocidad',
-                'apply': 'APLICAR'
+                'apply': 'APLICAR',
+                'error': 'Error',
+                'information': 'Información',
+                'warning': 'Adverencia',
+                'incorrect-form': 'Formulario incorrecto',
+                'correct-form': 'Formulario actualizado correctamente'
             }
         }
     };

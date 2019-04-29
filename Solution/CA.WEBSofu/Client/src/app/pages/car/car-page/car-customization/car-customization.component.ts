@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -9,6 +9,10 @@ import {
 // Models
 import { Car } from '../../../../shared/models/car.model';
 
+// Services
+import { TranslationService } from '../../../../shared/services/translation.service';
+import { ToastType, ToastService } from '../../../../shared/services/toast.service';
+
 @Component({
   selector: 'app-car-customization',
   templateUrl: './car-customization.component.html',
@@ -17,13 +21,18 @@ import { Car } from '../../../../shared/models/car.model';
 
 export class CarCustomizationComponent implements OnInit {
 
+  @ViewChild("toast") toast: ElementRef;
+
   @Input() public car: Car;
   @Output() public updateCar = new EventEmitter<Car>();
 
   public customCarForm: FormGroup;
   public isSubmitted = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private translationService: TranslationService,
+    private toastService: ToastService) {
   }
 
   ngOnInit() {
@@ -59,8 +68,17 @@ export class CarCustomizationComponent implements OnInit {
     if (this.customCarForm.valid) {
       this.car = Object.assign({}, this.customCarForm.value);
       this.updateCar.emit(this.car);
+      this.toastService.showToast(
+        this.toast.nativeElement, 
+        this.translationService.translate('correct-form'),
+        ToastType.Success
+      );
     } else {
-      console.log('Formulario incorrecto');
+      this.toastService.showToast(
+        this.toast.nativeElement, 
+        this.translationService.translate('incorrect-form'),
+        ToastType.Error
+      );
     }
   }
 }

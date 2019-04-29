@@ -8,34 +8,24 @@
         <div id="ej2Spinner" #spin></div>
     </div>
 
-    <ejs-toast #toastError id='toastError'></ejs-toast>
+    <div id="ej2Toast" #toast></div>
 
     <div class="card-body">
         <h2 class="card-title text-center mb-5">Login</h2>
         <form id="formId" [formGroup]="loginForm" #formDir="ngForm" class="form-horizontal" #lForm="ngForm" (ngSubmit)="submitLogin(lForm)">
             <div class="form-group">
                 <label for="username">{{ 'username' | translate }}</label>
-                <input formControlName="username" type="text" class="form-control" id="email">
-                <div *ngIf="username.errors">
-                    <div *ngIf="username.errors.required && username.touched" class="e-error">
-                        {{ 'field-required' | translate }}
-                    </div>
-                </div>
+                <input formControlName="username" type="text" class="form-control" id="username">
+                <span class="e-error">{{ getError('username')}}</span>
             </div>
             <div class="form-group">
                 <label for="passwords">{{ 'password' | translate }}</label>
-                <input formControlName="password" type="password" class="form-control" id="passwords">
-                <div *ngIf="password.errors">
-                    <div *ngIf="password.errors.required && password.touched" class="e-error">
-                        {{ 'field-required' | translate }}
-                    </div>
-                </div>
+                <input formControlName="password" type="password" class="form-control" id="password">
+                <span class="e-error">{{ getError('password')}}</span>
             </div>
             <div class="mt-5 text-center">
                 <button type="submit" class="btn btn-lg px-gdn-btn-outline card-bg" routerLink="/">LOGIN</button>
             </div>
-            <!-- <div class="mt-4 text-center">Forgot password? <a routerLink="/main/dashboard">Reset</a></div>
-            <div class="text-center">Don’t have an account? <a routerLink="/register">Sign up</a></div> -->
             <div class="dropdown-divider my-4"></div>
             <div class="text-center">{{ 'orconnectwith' | translate }}</div>
             <div class="d-flex justify-content-center mt-4">

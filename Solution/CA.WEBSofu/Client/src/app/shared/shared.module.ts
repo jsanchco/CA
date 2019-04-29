@@ -8,6 +8,7 @@ import { TranslatePipe } from '../shared/pipes/translation.pipe';
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { TranslationService } from '../shared/services/translation.service';
 import { WaitService } from '../shared/services/wait.service';
+import { ToastService } from '../shared/services/toast.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { WaitService } from '../shared/services/wait.service';
   providers: [
     AuthenticationService,
     TranslationService,
-    WaitService
+    WaitService,
+    ToastService
   ]
 })
 

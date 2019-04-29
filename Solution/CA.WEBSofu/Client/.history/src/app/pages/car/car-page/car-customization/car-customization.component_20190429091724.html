@@ -1,5 +1,3 @@
-<div id="ej2Toast" #toast></div>
-
 <div class="card mx-auto">
     <div class="card-body">
         <form id="formId" class="form-horizontal" [formGroup]="customCarForm" #formDir="ngForm" #lForm="ngForm" (ngSubmit)="submitCustomCarForm()">
@@ -15,6 +13,11 @@
             </div>
             <div class="mt-5 text-center">
                 <button type="submit" class="btn btn-lg px-gdn-btn-outline card-bg">{{ 'apply' | translate }}</button>
+            </div>
+            <div class="form-group">
+                <div *ngIf="!customCarForm.valid && isSubmitted">
+                    <span class="e-error">Formulario incorrecto</span>
+                </div>
             </div>
         </form>
     </div>
