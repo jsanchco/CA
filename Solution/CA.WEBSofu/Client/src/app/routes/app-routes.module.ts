@@ -21,6 +21,10 @@ const APP_ROUTES: Routes = [
       {path: 'users', component: UsersPageComponent},
       {path: 'professions', component: ProfessionsPageComponent},
       {
+        path: 'documents',
+        loadChildren: '../pages/documents/documents.module#DocumentsModule'
+      },      
+      {
         path: 'car',
         loadChildren: '../pages/car/car.module#CarModule'
       },
