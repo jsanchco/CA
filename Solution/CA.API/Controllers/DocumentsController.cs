@@ -9,6 +9,13 @@
     using System;
     using System.Linq;
     using Domain.ViewModels;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Http;
+    using Domain.Helpers;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Options;
 
     #endregion
 
@@ -19,11 +26,19 @@
     {
         private readonly ICASupervisor _caSupervisor;
         private readonly ILogger<AddressesController> _logger;
+        private readonly IOptions<AppSettings> _config;
+        private readonly IHostingEnvironment _env;
 
-        public DocumentsController(ILogger<AddressesController> logger, ICASupervisor caSupervisor)
+        public DocumentsController(
+            ILogger<AddressesController> logger, 
+            ICASupervisor caSupervisor, 
+            IOptions<AppSettings> config,
+            IHostingEnvironment env) 
         {
             _logger = logger;
             _caSupervisor = caSupervisor;
+            _config = config;
+            _env = env;
         }
 
         // GET api/documents/5
@@ -105,5 +120,61 @@
             }
         }
 
+        [HttpPost("uploadfiles")]
+        public async Task<IActionResult> Post(List<IFormFile> files)
+        {
+            try
+            {
+                var file = HttpContext.Request.Form.Files["uploadfiles"];
+                var path = Path.Combine(_env.ContentRootPath, _config.Value.PathDocuments, "test.pdf");
+                var size = file.Length;
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                return Ok(new { size, path });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception: ");
+                return StatusCode(500, ex);
+            }
+        }
+
+        //[HttpPost("uploadfiles")]
+        ////public async Task<IActionResult> Post(List<IFormFile> files)
+        //public async Task<IActionResult> Post(List<IFormFile> files)
+        //{
+        //    var httpPostedFile = HttpContext.Request.Form.Files["uploadfiles"];
+        //    //var valueFromClient = HttpContext.Request.Form.Keys.FirstOrDefault(x => x == "car");
+        //    var valueFromClient = HttpContext.Request.Form.Keys.FirstOrDefault(x => x == "document");
+        //    var ObtainedValue = HttpContext.Request.Form[valueFromClient];
+        //    var profession = JsonConvert.DeserializeObject<ProfessionViewModel>(ObtainedValue);
+
+        //    var path = Path.Combine(_env.ContentRootPath, _config.Value.PathDocuments, "test.pdf");
+
+        //    var size = files.Sum(f => f.Length);
+
+        //    // full path to file in temp location
+        //    var filePath = Path.GetTempFileName();
+
+        //    foreach (var formFile in files)
+        //    {
+        //        if (formFile.Length > 0)
+        //        {
+        //            using (var stream = new FileStream(filePath, FileMode.Create))
+        //            {
+        //                await formFile.CopyToAsync(stream);
+        //            }
+        //        }
+        //    }
+
+        //    // process uploaded files
+        //    // Don't rely on or trust the FileName property without validation.
+
+        //    return Ok(new { count = files.Count, size, filePath });
+        //}
     }
 }

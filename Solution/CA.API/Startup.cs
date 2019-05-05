@@ -42,7 +42,8 @@
                 .AddCorsConfiguration()
                 .AddConnectionProvider(Configuration)
                 .AddAppSettings(Configuration)
-                .AddAuthentication(Configuration);
+                .AddAuthentication(Configuration)
+                .AddAssetsFolders(Configuration);
 
             services.AddSwaggerGen(s =>
             {

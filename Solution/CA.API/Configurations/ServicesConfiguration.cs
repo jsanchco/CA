@@ -12,6 +12,8 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.IdentityModel.Tokens;
     using Domain.Helpers;
+    using System.IO;
+    using Microsoft.AspNetCore.Hosting;
 
     #endregion
 
@@ -85,6 +87,20 @@
                 });
 
             services.AddScoped<AppSettings>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddAssetsFolders(this IServiceCollection services, IConfiguration configuration)
+        {
+            var appSettingsSection = configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            var contentRoot = configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
+
+            var pathDirectory = $"{contentRoot}\\{appSettingsSection.Get<AppSettings>().PathDocuments}";
+            if (!Directory.Exists(pathDirectory))
+                Directory.CreateDirectory(pathDirectory);
 
             return services;
         }

@@ -30,7 +30,7 @@ L10n.load({
           'previousPagerTooltip': 'Zum vorherigen Pager'
       },
       'uploader': {
-        'dropFilesHint': 'Ó arrastra archivos aquí'
+        'dropFilesHint': 'O arrastra archivos aquí'
       }
   }
 });
