@@ -9,6 +9,7 @@ export class StorageService {
   private localStorageService;
   private currentSession: Session = null;
   private BASE_API_URL = 'http://localhost:44314/api/';
+  // private BASE_API_URL = 'http://localhost:4500/api/';
 
   constructor(private router: Router) {
     this.localStorageService = localStorage;
