@@ -30,11 +30,8 @@ export class DocumentsViewComponent implements OnInit {
     const url = this.storageService.getBaseApiUrl() + 'documents/gettestfile';
     this.documentsService.getDocument(url).subscribe(fileData => {
       saveFile(fileData, 'test.pdf');
-    }, error => {
-        this.toastService.showToast(
-          this.toast.nativeElement,
-          error.messageError,
-          ToastType.Error);
-    });
+    }, err => {
+        console.log('hello!!!' + err)},
+      () => console.log('yay'));
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // Services
 import { ToastType, ToastService } from '../../../../shared/services/toast.service';
@@ -16,8 +16,6 @@ import { saveFile } from '../../../../shared/helpers/file-download';
 
 export class DocumentsViewComponent implements OnInit {
 
-  @ViewChild('toast') toast: ElementRef;
-
   constructor(
     private storageService: StorageService,
     private documentsService: DocumentsService,
@@ -30,11 +28,8 @@ export class DocumentsViewComponent implements OnInit {
     const url = this.storageService.getBaseApiUrl() + 'documents/gettestfile';
     this.documentsService.getDocument(url).subscribe(fileData => {
       saveFile(fileData, 'test.pdf');
-    }, error => {
-        this.toastService.showToast(
-          this.toast.nativeElement,
-          error.messageError,
-          ToastType.Error);
-    });
+    }, err => {
+        console.log('hello!!!' + err)},
+      () => console.log('yay'));
   }
 }

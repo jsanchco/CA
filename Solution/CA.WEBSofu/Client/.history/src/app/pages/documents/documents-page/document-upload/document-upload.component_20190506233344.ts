@@ -38,7 +38,7 @@ export class DocumentUploadComponent implements OnInit {
       this.toastService.showToast(
         this.toast.nativeElement,
         message,
-        ToastType.Success);
+        ToastType.Error);
     }
   }
 
@@ -49,7 +49,7 @@ export class DocumentUploadComponent implements OnInit {
     this.toastService.showToast(
       this.toast.nativeElement,
       message,
-      ToastType.Error);
+      ToastType.Success);
   }
 
   public onUploading(args: any) {
