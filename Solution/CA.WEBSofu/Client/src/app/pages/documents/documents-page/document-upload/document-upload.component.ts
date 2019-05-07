@@ -12,9 +12,8 @@ import { Profession } from '../../../../shared/models/profession.model';
   templateUrl: './document-upload.component.html',
   styleUrls: ['./document-upload.component.scss']
 })
-export class DocumentUploadComponent implements OnInit {
 
-  @ViewChild('toast') toast: ElementRef;
+export class DocumentUploadComponent implements OnInit {
 
   public path: Object;
 
@@ -33,10 +32,8 @@ export class DocumentUploadComponent implements OnInit {
   public onUploadSuccess(args: any): void  {
     if (args.operation === 'upload') {
       const message = 'File uploaded successfully';
-      console.log(message);
 
       this.toastService.showToast(
-        this.toast.nativeElement,
         message,
         ToastType.Success);
     }
@@ -44,10 +41,8 @@ export class DocumentUploadComponent implements OnInit {
 
   public onUploadFailure(args: any): void  {
     const message = 'File failed to upload';
-    console.log(message);
 
     this.toastService.showToast(
-      this.toast.nativeElement,
       message,
       ToastType.Error);
   }

@@ -1,9 +1,10 @@
-import {Component, HostListener, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ViewChild, ElementRef, HostListener, OnInit, ViewEncapsulation} from '@angular/core';
 import {ResizeService} from '../../resize/resize.service';
 import {routerTransition} from '../../utils/page.animation';
 import {Router} from '@angular/router';
 
 import {StorageService} from '../../shared/services/storage.service';
+import { ToastType, ToastService } from '../../shared/services/toast.service';
 
 /**
  * This page wraps all other pages in application, it contains header, side menu and router outlet for child pages
@@ -17,6 +18,9 @@ import {StorageService} from '../../shared/services/storage.service';
 })
 
 export class MainPageComponent implements OnInit {
+
+  @ViewChild('toast') toast: ElementRef;
+
   // Model for side menu
   menuModel = [
     {
@@ -106,7 +110,8 @@ export class MainPageComponent implements OnInit {
   constructor(
     private resizeService: ResizeService,
     private router: Router,
-    private storageService: StorageService) {
+    private storageService: StorageService,
+    private toastService: ToastService) {
     this.onResize();
   }
 
@@ -144,6 +149,11 @@ export class MainPageComponent implements OnInit {
     setTimeout(() => {
       this.resizeService.resizeInformer$.next()
     }, 0);
+
+    this.toastService.showToast(
+          this.toast.nativeElement,
+          'Hello!!!!!',
+          ToastType.Error);
   }
 
   toggleCompactMenu() {

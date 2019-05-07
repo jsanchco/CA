@@ -16,8 +16,6 @@ import { saveFile } from '../../../../shared/helpers/file-download';
 
 export class DocumentsViewComponent implements OnInit {
 
-  @ViewChild('toast') toast: ElementRef;
-
   constructor(
     private storageService: StorageService,
     private documentsService: DocumentsService,
@@ -32,7 +30,6 @@ export class DocumentsViewComponent implements OnInit {
       saveFile(fileData, 'test.pdf');
     }, error => {
         this.toastService.showToast(
-          this.toast.nativeElement,
           error.messageError,
           ToastType.Error);
     });

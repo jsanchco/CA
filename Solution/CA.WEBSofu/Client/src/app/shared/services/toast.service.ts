@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Toast, ToastModel } from '@syncfusion/ej2-notifications';
+import { DOCUMENT } from '@angular/common';
 
 // Services
 import { TranslationService } from './translation.service';
@@ -16,20 +17,21 @@ export enum ToastType {
 export class ToastService {
   public toastInstance: Toast;
 
-  constructor(private translationService: TranslationService) {}
+  constructor(
+    @Inject(DOCUMENT) private document: HTMLDocument,
+    private translationService: TranslationService) {
+  }
   
   // To create the toast component
-  createToast: Function = (element: HTMLElement, model: ToastModel): Toast => {
-    if (!element.classList.contains('e-toast')) {
-      this.toastInstance = new Toast(model, element);
-    }
+  createToast: Function = (model: ToastModel): Toast => {
+    this.toastInstance = new Toast(model, this.document.getElementById('ej2Toast'));
+
     return this.toastInstance
   };
- 
+  
   // To show the toast component
-  showToast: Function = (elemnet: HTMLElement, content: string, type: ToastType) => {
-    //this.toastInstance = this.createToast(elemnet, model);
-    this.toastInstance = this.createToast(elemnet);
+  showToast: Function = (content: string, type: ToastType) => {
+    this.toastInstance = this.createToast();
     this.toastInstance.width = '100%';
     this.toastInstance.position.X = 'Center';
     this.toastInstance.position.Y = 'Bottom';

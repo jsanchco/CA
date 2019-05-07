@@ -21,8 +21,6 @@ import { ToastType, ToastService } from '../../../../shared/services/toast.servi
 
 export class CarCustomizationComponent implements OnInit {
 
-  @ViewChild('toast') toast: ElementRef;
-
   @Input() public car: Car;
   @Output() public updateCar = new EventEmitter<Car>();
 
@@ -69,13 +67,11 @@ export class CarCustomizationComponent implements OnInit {
       this.car = Object.assign({}, this.customCarForm.value);
       this.updateCar.emit(this.car);
       this.toastService.showToast(
-        this.toast.nativeElement,
         this.translationService.translate('correct-form'),
         ToastType.Success
       );
     } else {
       this.toastService.showToast(
-        this.toast.nativeElement,
         this.translationService.translate('incorrect-form'),
         ToastType.Error
       );
