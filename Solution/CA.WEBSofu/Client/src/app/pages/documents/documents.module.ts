@@ -4,13 +4,18 @@ import { DocumentsRoutingModule } from './documents-routing.module';
 import { DocumentsPageComponent } from './documents-page/documents-page.component';
 import { DocumentUploadComponent } from './documents-page/document-upload/document-upload.component';
 import { DocumentsViewComponent } from './documents-page/documents-view/documents-view.component';
+import { DocumentsModalComponent } from './documents-page/documents-modal/documents-modal.component';
 
 import { UploaderModule } from '@syncfusion/ej2-angular-inputs';
-
+import { DialogComponent } from '@syncfusion/ej2-angular-popups';
+import { EmitType } from '@syncfusion/ej2-base';
+// import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
+// import { RadioButtonModule } from '@syncfusion/ej2-angular-buttons';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
 @NgModule({
-  declarations: [DocumentsPageComponent, DocumentUploadComponent, DocumentsViewComponent],
-  imports: [CommonModule, DocumentsRoutingModule, UploaderModule]
+  declarations: [DocumentsPageComponent, DocumentUploadComponent, DocumentsViewComponent, DocumentsModalComponent],
+  imports: [CommonModule, DocumentsRoutingModule, UploaderModule, DialogModule]
 })
 
 export class DocumentsModule { }
