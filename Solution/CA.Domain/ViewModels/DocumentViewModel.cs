@@ -7,5 +7,6 @@ namespace CA.Domain.ViewModels
         public string url { get; set; }
 
         public int documentTypeId { get; set; }
+        public string documentTypeName { get; set; }
     }
 }

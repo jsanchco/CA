@@ -15,7 +15,7 @@ export class DocumentsModalComponent implements OnInit {
     public dlgButtons: Object[];
     public target = '.control-section';
 
-    public header = 'About SYNCFUSION Succinctly Series';
+    public header = 'Upload File';
     public showCloseIcon: Boolean = true;
     public width = '50%';
     public animationSettings: Object = { effect: 'None' };

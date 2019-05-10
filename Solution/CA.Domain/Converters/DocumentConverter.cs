@@ -25,7 +25,8 @@
 
                 name = document.Name,
                 url = document.Url,
-                documentTypeId = document.DocumentTypeId
+                documentTypeId = document.DocumentTypeId,
+                documentTypeName = document.DocumentType.Name
             };
 
             return documentViewModel;
@@ -44,7 +45,8 @@
 
                         name = document.Name,
                         url = document.Url,
-                        documentTypeId = document.DocumentTypeId
+                        documentTypeId = document.DocumentTypeId,
+                        documentTypeName = document.DocumentType.Name
                     };
                     return model;
                 })

@@ -3,4 +3,5 @@ export interface Documents {
   name: string;
   url: string;
   documentTypeId: number;
+  documentTypeName: string;
 }

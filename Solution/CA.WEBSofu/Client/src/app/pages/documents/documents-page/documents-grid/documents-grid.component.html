@@ -1,0 +1,8 @@
+<ejs-grid #grid [dataSource]='documents' [editSettings]='editSettings' [toolbar]='toolbar' allowPaging='true' [pageSettings]='pageSettings' (actionFailure)='actionFailure($event)' (actionBegin)='actionBegin($event)' (actionComplete)='actionComplete($event)'>
+  <e-columns>
+      <e-column field='id' [isPrimaryKey]="true" [isIdentity]="true" headerText='Id' width='120' textAlign='Left'></e-column>
+      <e-column field='name' headerText='Nombre' width='160'></e-column>
+      <e-column field='url' headerText='URL' width='120' textAlign='Left'></e-column>
+      <e-column field='documentTypeId' headerText='Tipo' width=150 foreignKeyField='id' foreignKeyValue='name' [dataSource]='documenTypes'></e-column>
+  </e-columns>
+</ejs-grid>

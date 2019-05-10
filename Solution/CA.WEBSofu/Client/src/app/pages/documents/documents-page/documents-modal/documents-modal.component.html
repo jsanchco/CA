@@ -2,22 +2,13 @@
 
     <button class="btn btn-lg px-gdn-btn-outline card-bg" (click)="openModal()">Open Modal</button>
 
-    <!-- Render Button to open the Dialog -->
-    <!-- <button ejs-button id='dlgbtn' #ButtonInstance (click)="BtnClick()">Open</button> -->
-
     <ejs-dialog #Dialog [visible]='false' [buttons]='dlgButtons' [header]='header' [animationSettings]='animationSettings' [showCloseIcon]='showCloseIcon' [target]='target' [width]='width' (open)="dialogOpen()" (close)="dialogClose()">
-        <ng-template #content>
-            <p>In the Succinctly series, Syncfusion created a robust, free library of more than 130 technical e-books formatted for PDF, Kindle, and EPUB. <br>
-                <br> The Succinctly series was born in 2012 out of a desire to provide concise technical e-books for software developers Each title in the Succinctly series is written by a carefully chosen expert and provides essential content in about
-                100 pages.</p>
+        <div>
+            <app-document-upload></app-document-upload>
+        </div>
+        <ng-template #footerTemplate>
+          <button class="btn btn-sm px-gdn-btn-outline card-bg" style="margin: 10px;">Cerrar</button>
         </ng-template>
     </ejs-dialog>
 </div>
 
-<!-- custom code start -->
-<style>
-    .control-section {
-        height: 100%;
-        /* min-height: 350px; */
-    }
-</style>
