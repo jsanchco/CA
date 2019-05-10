@@ -11,9 +11,9 @@ export enum ToastType {
   Success,
   Warning
 }
-
+ 
 @Injectable()
-
+ 
 export class ToastService {
   public toastInstance: Toast;
 
@@ -21,14 +21,14 @@ export class ToastService {
     @Inject(DOCUMENT) private document: HTMLDocument,
     private translationService: TranslationService) {
   }
-
+  
   // To create the toast component
   createToast: Function = (model: ToastModel): Toast => {
     this.toastInstance = new Toast(model, this.document.getElementById('ej2Toast'));
 
     return this.toastInstance
   };
-
+  
   // To show the toast component
   showToast: Function = (content: string, type: ToastType) => {
     this.toastInstance = this.createToast();
@@ -52,7 +52,7 @@ export class ToastService {
         this.toastInstance.content = content;
         this.toastInstance.cssClass = 'e-toast-success';
         this.toastInstance.icon = 'e-success toast-icons';
-
+        
         break;
 
       // Warning
@@ -61,9 +61,9 @@ export class ToastService {
         this.toastInstance.content = content;
         this.toastInstance.cssClass = 'e-toast-warning';
         this.toastInstance.icon = 'e-warning toast-icons';
-
+        
         break;
-
+    
       // Information
       default:
         this.toastInstance.title = this.translationService.translate('information');
@@ -75,14 +75,14 @@ export class ToastService {
     }
     this.toastInstance.show();
   }
-
+ 
   // To hide the toast component
   hideToast: Function = () => {
     if (this.toastInstance) {
       this.toastInstance.hide();
     }
   }
-
+ 
   // To hide the all toast component
   hideToastAll: Function = () => {
     if (this.toastInstance) {

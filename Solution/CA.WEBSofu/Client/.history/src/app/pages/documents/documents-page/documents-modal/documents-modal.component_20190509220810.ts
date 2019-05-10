@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { DialogComponent } from '@syncfusion/ej2-angular-popups';
 import { EmitType } from '@syncfusion/ej2-base';
 
@@ -8,39 +8,36 @@ import { EmitType } from '@syncfusion/ej2-base';
   styleUrls: ['./documents-modal.component.scss']
 })
 
-export class DocumentsModalComponent implements OnInit {
+export class DocumentsModalComponent {
 
   @ViewChild('Dialog')
     public Dialog: DialogComponent;
-    public dlgButtons: Object[];
-    public target = '.control-section';
-
-    public header = 'About SYNCFUSION Succinctly Series';
+    public BtnClick: EmitType<object> = () => {
+        this.Dialog.show();
+    }
+    public header: string = 'About SYNCFUSION Succinctly Series';
     public showCloseIcon: Boolean = true;
-    public width = '50%';
+    public width: string = '50%';
     public animationSettings: Object = { effect: 'None' };
     public hide: any;
-
-    constructor() { }
-
-    ngOnInit() {
-        this.dlgButtons = [{ click: this.dlgBtnClick.bind(this), buttonModel: { content: 'Learn More', isPrimary: true } }];
+    ngAfterViewInit(): void {
+        document.getElementById('dlgbtn').focus();
     }
-
     // On Dialog close, 'Open' Button will be shown
     public dialogClose: EmitType<object> = () => {
-
+        document.getElementById('dlgbtn').style.display = '';
     }
     // On Dialog open, 'Open' Button will be hidden
     public dialogOpen: EmitType<object> = () => {
-
+        document.getElementById('dlgbtn').style.display = 'none';
     }
 
     public dlgBtnClick: EmitType<object> = () => {
         window.open('https://www.syncfusion.com/company/about-us');
     }
 
-    openModal(): void {
-        this.Dialog.show();
-    }
+    public dlgButtons: Object[] = [{ click: this.dlgBtnClick.bind(this), buttonModel: { content: 'Learn More', isPrimary: true } }];
+    public target: string = '.control-section';
+    constructor() { }
+
 }
