@@ -4,5 +4,6 @@
     {
         public string Secret { get; set; }
         public string PathDocuments { get; set; }
+        public string PathImages { get; set; }
     }
 }

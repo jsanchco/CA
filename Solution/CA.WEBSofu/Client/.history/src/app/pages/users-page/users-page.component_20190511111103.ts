@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { setCulture } from '@syncfusion/ej2-base';
 import {
   GridComponent,
@@ -42,15 +42,16 @@ export class UsersPageComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.users = new DataManager({
       url: this.storageService.getBaseApiUrl() + 'users',
-      adaptor: new WebApiAdaptor ,
+      adaptor: new WebApiAdaptor,
       headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
     });
 
     this.professions = new DataManager({
       url: this.storageService.getBaseApiUrl() + 'professions',
-      adaptor: new WebApiAdaptor ,
+      adaptor: new WebApiAdaptor,
       headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }]
     });
 
@@ -97,5 +98,10 @@ export class UsersPageComponent implements OnInit {
         cssClass: 'e-toast-success',
         content: 'Operacion realizada con éxito'});
     }
+  }
+
+  onDataBound(e: any) {
+    console.log(this.grid.getRows());
+    console.log(this.users.getCurrentViewData());
   }
 }

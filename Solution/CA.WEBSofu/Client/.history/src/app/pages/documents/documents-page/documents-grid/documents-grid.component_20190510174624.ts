@@ -39,7 +39,7 @@ export class DocumentsGridComponent implements OnInit {
   constructor(
     private storageService: StorageService,
     private translationService: TranslationService,
-    private toastService: ToastService) {
+    private toastService: ToastService) { 
 
   }
 
@@ -61,26 +61,4 @@ export class DocumentsGridComponent implements OnInit {
     this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
   }
 
-  actionComplete(args: any): void {
-    this.toastService.showToast(
-      this.translationService.translate('operation-OK'),
-      ToastType.Success
-    );
-  }
-
-  actionFailure(e: any): void {
-    let messageError = '';
-    if (e.error[0] != null) {
-      messageError = e.error[0].error.statusText;
-    } else {
-      if (e.error.error != null) {
-        messageError = e.error.error.statusText;
-      }
-    }
-
-    this.toastService.showToast(
-      messageError,
-      ToastType.Error
-    );
-  }
 }

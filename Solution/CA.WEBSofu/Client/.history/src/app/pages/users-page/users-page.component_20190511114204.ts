@@ -101,9 +101,9 @@ export class UsersPageComponent implements OnInit {
   }
 
   onDataBound(e: any) {
+    console.log(this.grid.getRowInfo(e.target));
+    console.log(this.users);
     const rows = this.grid.getDataRows()
-    for (let i = 0; i < rows.length; i++) {
-      console.log(rows[i].name);
-    }
+    console.log(rows);
   }
 }

@@ -4,10 +4,7 @@
 
 <button type="button" (click)="getImageFromService()">Get Image</button>
 
-<p>
-    <img [src]="imageToShow" alt="Place image title">
-</p>
-
-<p>
+<img [src]="imageToShow" alt="Place image title" *ngIf="!isImageLoading; else noImageFound">
+<ng-template #noImageFound>
     <img src="../../../../../assets/images/default.jpg" alt="Defaultimage">
-</p>
+</ng-template>

@@ -70,7 +70,7 @@ export class DocumentsViewComponent implements OnInit {
      const imgUrl = 'https://picsum.photos/200/300/?random';
        this.isImageLoading = true;
        const url = this.storageService.getBaseApiUrl() + 'documents/getimage';
-       this.documentsService.getImage(url).subscribe(data => {
+       this.documentsService.getImage(imgUrl).subscribe(data => {
          this.createImageFromBlob(data);
          this.isImageLoading = false;
        }, error => {

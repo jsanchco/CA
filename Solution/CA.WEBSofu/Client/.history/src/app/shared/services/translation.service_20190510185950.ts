@@ -30,7 +30,19 @@ export class TranslationService {
                 'blank-page' : 'Test',
                 'field-required' : 'This field is required',
                 'validate': 'VALIDATE',
-                'connect': 'Connect ...'
+                'connect': 'Connect ...',
+                'orconnectwith': 'Or connect with ...',
+                'allrightsreserved': 'all rights reserved',
+                'model': 'model',
+                'maxSpeed': 'maximum speed',
+                'apply': 'APPLY',
+                'error': 'Error',
+                'information': 'Information',
+                'warning': 'Warning',
+                'incorrect-form': 'Incorrect form',
+                'correct-form': 'Updated form',
+                'operation-OK': 'Operation OK',
+                'operation-KO': 'Operation KO'
             }
         },
         'spa' : {
@@ -44,7 +56,20 @@ export class TranslationService {
                 'blank-page' : 'Test',
                 'field-required' : 'Este campo es necesario',
                 'validate': 'VALIDAR',
-                'connect': 'Conectando ...'
+                'connect': 'Conectando ...',
+                'orconnectwith': 'O conecta con ...',
+                'allrightsreserved': 'todos los derechos reservados',
+                'search': 'buscar',
+                'model': 'modelo',
+                'maxSpeed': 'máxima velocidad',
+                'apply': 'APLICAR',
+                'error': 'Error',
+                'information': 'Información',
+                'warning': 'Adverencia',
+                'incorrect-form': 'Formulario incorrecto',
+                'correct-form': 'Formulario actualizado correctamente',
+                'operation-OK': 'Operación realizada con éxito',
+                'operation-KO': 'Ha ocurrido un error en la operación'
             }
         }
     };

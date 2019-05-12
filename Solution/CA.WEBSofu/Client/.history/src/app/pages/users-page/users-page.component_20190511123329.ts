@@ -42,15 +42,16 @@ export class UsersPageComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.users = new DataManager({
       url: this.storageService.getBaseApiUrl() + 'users',
-      adaptor: new WebApiAdaptor ,
+      adaptor: new WebApiAdaptor,
       headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }],
     });
 
     this.professions = new DataManager({
       url: this.storageService.getBaseApiUrl() + 'professions',
-      adaptor: new WebApiAdaptor ,
+      adaptor: new WebApiAdaptor,
       headers: [{ Authorization: 'Bearer ' + this.storageService.getCurrentSession().token }]
     });
 
@@ -96,6 +97,13 @@ export class UsersPageComponent implements OnInit {
         icon: 'e-success toast-icons',
         cssClass: 'e-toast-success',
         content: 'Operacion realizada con éxito'});
+    }
+  }
+
+  onDataBound(e: any) {
+    const rows = this.grid.getDataRows()
+    for (let i = 0; i < rows.length; i++) {
+      console.log(rows[i].name);
     }
   }
 }

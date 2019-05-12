@@ -165,6 +165,28 @@
             }
         }
 
+        [HttpGet("getimage")]
+        public IActionResult GetImage(int documentId)
+        {
+            try
+            {
+                var localFilePath = Path.Combine(_env.ContentRootPath, _config.Value.PathImages, "test.jpg");
+                if (!System.IO.File.Exists(localFilePath))
+                {
+                    _logger.LogError("File not found", "Error: ");
+                    return StatusCode(500, "File not found");
+                }
+
+                var fStream = new FileStream(localFilePath, FileMode.Open, FileAccess.Read);
+                return File(fStream, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception: ");
+                return StatusCode(500, ex);
+            }
+        }
+
         //[HttpPost("uploadfiles")]
         ////public async Task<IActionResult> Post(List<IFormFile> files)
         //public async Task<IActionResult> Post(List<IFormFile> files)

@@ -102,6 +102,10 @@
             if (!Directory.Exists(pathDirectory))
                 Directory.CreateDirectory(pathDirectory);
 
+            pathDirectory = $"{contentRoot}\\{appSettingsSection.Get<AppSettings>().PathImages}";
+            if (!Directory.Exists(pathDirectory))
+                Directory.CreateDirectory(pathDirectory);
+
             return services;
         }
     }

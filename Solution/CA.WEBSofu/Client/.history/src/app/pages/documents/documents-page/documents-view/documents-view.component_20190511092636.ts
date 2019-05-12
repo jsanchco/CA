@@ -67,7 +67,6 @@ export class DocumentsViewComponent implements OnInit {
    }
 
    getImageFromService() {
-     const imgUrl = 'https://picsum.photos/200/300/?random';
        this.isImageLoading = true;
        const url = this.storageService.getBaseApiUrl() + 'documents/getimage';
        this.documentsService.getImage(url).subscribe(data => {

@@ -40,7 +40,9 @@ export class TranslationService {
                 'information': 'Information',
                 'warning': 'Warning',
                 'incorrect-form': 'Incorrect form',
-                'correct-form': 'Updated form'
+                'correct-form': 'Updated form',
+                'operation-OK': 'Operation OK',
+                'operation-KO': 'Operation KO'
             }
         },
         'spa' : {
@@ -65,7 +67,9 @@ export class TranslationService {
                 'information': 'Información',
                 'warning': 'Adverencia',
                 'incorrect-form': 'Formulario incorrecto',
-                'correct-form': 'Formulario actualizado correctamente'
+                'correct-form': 'Formulario actualizado correctamente',
+                'operation-OK': 'Operación realizada con éxito',
+                'operation-KO': 'Ha ocurrido un error en la operación'
             }
         }
     };

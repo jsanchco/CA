@@ -16,12 +16,4 @@ export class DocumentsService {
       responseType: 'blob'
     });
   }
-
-  public getImage(path: string): Observable<Blob> {
-    return this.http.get(path,
-    {
-      params: { documentId: '1' },
-      responseType: 'blob'
-    });
-  }
 }
