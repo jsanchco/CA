@@ -106,7 +106,7 @@ export class UsersPageComponent implements OnInit {
   onQueryCellInfo(args: any) {
     if (args.column.field === 'image') {
       const image = new Image();
-      image.src = 'data:image/jpg;base64, ' + args.data.image; // base64 string
+      image.src = 'data:image/png;base64,' + args.data.image; // base64 string
       args.cell.appendChild(image); // Appended the image to particular cell
    }
   }

@@ -8,5 +8,4 @@ export class User {
     public email: string;
     public professionId: number;
     public professionName: string;
-    public image: string;
 }

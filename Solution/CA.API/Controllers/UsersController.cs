@@ -11,6 +11,10 @@
     using Models;
     using Microsoft.Extensions.Logging;
     using System.Linq;
+    using System.IO;
+    using Domain.Helpers;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Options;
 
     #endregion
 
@@ -21,11 +25,15 @@
     {
         private readonly ICASupervisor _caSupervisor;
         private readonly ILogger<AddressesController> _logger;
+        private readonly IOptions<AppSettings> _config;
+        private readonly IHostingEnvironment _env;
 
-        public UsersController(ILogger<AddressesController> logger, ICASupervisor caSupervisor)
+        public UsersController(ILogger<AddressesController> logger, ICASupervisor caSupervisor, IOptions<AppSettings> config, IHostingEnvironment env)
         {
             _logger = logger;
             _caSupervisor = caSupervisor;
+            _config = config;
+            _env = env;
         }
 
         [AllowAnonymous]
@@ -83,6 +91,18 @@
             try
             {
                 var data = _caSupervisor.GetAllUser().ToList();
+                foreach (var user in data)
+                {
+                    var localFilePath = Path.Combine(_env.ContentRootPath, _config.Value.PathImages, "default.jpg");
+                    if (!System.IO.File.Exists(localFilePath))
+                    {
+                        _logger.LogError("File not found", "Error: ");
+                        return StatusCode(500, "File not found");
+                    }
+
+                    var image = System.IO.File.ReadAllBytes(localFilePath);
+                    user.image = $"data:image/jpg;base64, {Convert.ToBase64String(image, 0, image.Length)}";
+                }
                 return new { Items = data, data.Count };
             }
             catch (Exception ex)
