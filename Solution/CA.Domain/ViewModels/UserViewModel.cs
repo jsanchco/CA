@@ -19,6 +19,6 @@ namespace CA.Domain.ViewModels
         public string token { get; set; }
         public int professionId { get; set; }
         public string professionName { get; set; }
-        public string image { get; set; }
+        public string photoData { get; set; }
     }
 }

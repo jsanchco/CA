@@ -34,7 +34,7 @@ namespace CA.Domain.Supervisor
                 IPAddress = newDocumentViewModel.iPAddress,
 
                 Name = newDocumentViewModel.name,
-                Url = newDocumentViewModel.url,
+                Data = newDocumentViewModel.data,
                 DocumentTypeId = newDocumentViewModel.documentTypeId
             };
 
@@ -55,7 +55,7 @@ namespace CA.Domain.Supervisor
             document.IPAddress = documentViewModel.iPAddress;
 
             document.Name = documentViewModel.name;
-            document.Url = documentViewModel.url;
+            document.Data = documentViewModel.data;
             document.DocumentTypeId = documentViewModel.documentTypeId;
 
             return await _documentRepository.UpdateDocumentAsync(document, ct);
@@ -86,7 +86,7 @@ namespace CA.Domain.Supervisor
                 IPAddress = newDocumentViewModel.iPAddress,
 
                 Name = newDocumentViewModel.name,
-                Url = newDocumentViewModel.url,
+                Data = newDocumentViewModel.data,
                 DocumentTypeId = newDocumentViewModel.documentTypeId
             };
 
@@ -108,7 +108,7 @@ namespace CA.Domain.Supervisor
             document.IPAddress = documentViewModel.iPAddress;
 
             document.Name = documentViewModel.name;
-            document.Url = documentViewModel.url;
+            document.Data = documentViewModel.data;
             document.DocumentTypeId = documentViewModel.documentTypeId;
 
             return _documentRepository.UpdateDocument(document);

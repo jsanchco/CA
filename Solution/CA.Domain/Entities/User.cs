@@ -22,5 +22,6 @@
         public virtual Profession Profession { get; set; }
 
         public virtual ICollection<Address> Addresses { get; set; } = new HashSet<Address>();
+        public virtual ICollection<Document> Documents { get; set; } = new HashSet<Document>();
     }
 }

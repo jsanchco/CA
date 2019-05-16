@@ -117,8 +117,4 @@ export class UsersPageComponent implements OnInit {
       args.cell.appendChild(image); // Appended the image to particular cell
    }
   }
-
-  changeImage(id: number): void {
-    console.log('doubleclick -> ' + id);
-  }
 }

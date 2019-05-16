@@ -118,7 +118,7 @@ export class UsersPageComponent implements OnInit {
    }
   }
 
-  changeImage(id: number): void {
-    console.log('doubleclick -> ' + id);
+  changeImage(): void {
+    console.log('doubleclick');
   }
 }

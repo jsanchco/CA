@@ -169,6 +169,12 @@ namespace CA.SeedData
                         Name = "excel",
                         Extension = ".xls"
                     });
+                    context.DocumentType.Add(new DocumentType
+                    {
+                        AddedDate = DateTime.Now,
+                        Name = "PhotoProfile",
+                        Extension = ".jpg"
+                    });
                 }
 
                 context.SaveChanges();
@@ -179,21 +185,21 @@ namespace CA.SeedData
                     {
                         AddedDate = DateTime.Now,
                         Name = "MyDocumentPdf",
-                        Url = @"c:\Log\MyDocumentPdf.pdf",
+                        Data = @"c:\Log\MyDocumentPdf.pdf",
                         DocumentTypeId = 1
                     });
                     context.Document.Add(new Document
                     {
                         AddedDate = DateTime.Now,
                         Name = "MyDocumentWord",
-                        Url = @"c:\Log\MyDocumentWord.doc",
+                        Data = @"c:\Log\MyDocumentWord.doc",
                         DocumentTypeId = 2
                     });
                     context.Document.Add(new Document
                     {
                         AddedDate = DateTime.Now,
                         Name = "MyDocumentExcel",
-                        Url = @"c:\Log\MyDocumentExcel.xls",
+                        Data = @"c:\Log\MyDocumentExcel.xls",
                         DocumentTypeId = 3
                     });
                 }

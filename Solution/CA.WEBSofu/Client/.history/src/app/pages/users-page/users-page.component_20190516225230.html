@@ -17,7 +17,7 @@
                 <e-column headerText='Employee Image' width='150' textAlign='Center'>
                     <ng-template #template let-data>
                         <div class="image">
-                            <img [src]="'data:image/jpg;base64, ' + data.photoData | safeHtml" (dblclick)="changeImage(data.id)" />
+                            <img [src]="'data:image/jpg;base64, ' + data.photoData | safeHtml" [dblclick]="changeImage()" />
                         </div>
                     </ng-template>
                 </e-column>

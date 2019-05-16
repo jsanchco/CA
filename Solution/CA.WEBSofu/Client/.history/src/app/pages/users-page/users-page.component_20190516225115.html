@@ -17,11 +17,11 @@
                 <e-column headerText='Employee Image' width='150' textAlign='Center'>
                     <ng-template #template let-data>
                         <div class="image">
-                            <img [src]="'data:image/jpg;base64, ' + data.photoData | safeHtml" (dblclick)="changeImage(data.id)" />
+                            <img [src]="'data:image/jpg;base64, ' + data.photoData | safeHtml" (dblclick)="changeImage({{data.id}})" />
                         </div>
                     </ng-template>
                 </e-column>
-                <e-column field='id' [isPrimaryKey]='true' [isIdentity]='true' headerText='Id' width='120' textAlign='Left'></e-column>
+                <e-column field='id' [isPrimaryKey]="true" [isIdentity]="true" headerText='Id' width='120' textAlign='Left'></e-column>
                 <e-column field='name' headerText='Nombre' width='160'></e-column>
                 <e-column field='surname' headerText='Apellidos' width='120' textAlign='Left'></e-column>
                 <e-column field='username' headerText='Nick' width='150' textAlign='Left'></e-column>

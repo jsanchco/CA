@@ -93,7 +93,7 @@
                 var data = _caSupervisor.GetAllUser().ToList();
                 foreach (var user in data)
                 {
-                    var localFilePath = Path.Combine(_env.ContentRootPath, _config.Value.PathImages, "default.jpg");
+                    var localFilePath = Path.Combine(_env.ContentRootPath, _config.Value.PathImages, "test.jpg");
                     if (!System.IO.File.Exists(localFilePath))
                     {
                         _logger.LogError("File not found", "Error: ");
@@ -102,7 +102,7 @@
 
                     var image = System.IO.File.ReadAllBytes(localFilePath);
                     //user.image = $"data:image/jpg;base64, {Convert.ToBase64String(image, 0, image.Length)}";
-                    user.image = Convert.ToBase64String(image, 0, image.Length);
+                    user.photoData = Convert.ToBase64String(image, 0, image.Length);
                 }
                 return new { Items = data, data.Count };
             }

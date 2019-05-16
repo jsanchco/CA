@@ -43,30 +43,6 @@ namespace CA.DataEFCoreSQL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Document",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AddedDate = table.Column<DateTime>(nullable: false),
-                    ModifiedDate = table.Column<DateTime>(nullable: true),
-                    IPAddress = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: false),
-                    Url = table.Column<string>(nullable: false),
-                    DocumentTypeId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Document", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK__DocumentType__DocumentId",
-                        column: x => x.DocumentTypeId,
-                        principalTable: "DocumentType",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -119,6 +95,37 @@ namespace CA.DataEFCoreSQL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Document",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddedDate = table.Column<DateTime>(nullable: false),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
+                    IPAddress = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    Data = table.Column<string>(nullable: false),
+                    DocumentTypeId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Document", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK__DocumentType__DocumentId",
+                        column: x => x.DocumentTypeId,
+                        principalTable: "DocumentType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK__Document__UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IFK_User_Address",
                 table: "Address",
@@ -128,6 +135,11 @@ namespace CA.DataEFCoreSQL.Migrations
                 name: "IFK_DocumentType_Document",
                 table: "Document",
                 column: "DocumentTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IFK_User_Documents",
+                table: "Document",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IFK_Profession_User",
@@ -144,10 +156,10 @@ namespace CA.DataEFCoreSQL.Migrations
                 name: "Document");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "DocumentType");
 
             migrationBuilder.DropTable(
-                name: "DocumentType");
+                name: "User");
 
             migrationBuilder.DropTable(
                 name: "Profession");

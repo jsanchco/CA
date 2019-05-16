@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CA.DataEFCoreSQL.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20190429203147_FirstMigration")]
+    [Migration("20190516192821_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,9 @@ namespace CA.DataEFCoreSQL.Migrations
                     b.Property<DateTime?>("AddedDate")
                         .IsRequired();
 
+                    b.Property<string>("Data")
+                        .IsRequired();
+
                     b.Property<int>("DocumentTypeId");
 
                     b.Property<string>("IPAddress");
@@ -67,13 +70,15 @@ namespace CA.DataEFCoreSQL.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<string>("Url")
-                        .IsRequired();
+                    b.Property<int?>("UserId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DocumentTypeId")
                         .HasName("IFK_DocumentType_Document");
+
+                    b.HasIndex("UserId")
+                        .HasName("IFK_User_Documents");
 
                     b.ToTable("Document");
                 });
@@ -179,6 +184,11 @@ namespace CA.DataEFCoreSQL.Migrations
                         .HasForeignKey("DocumentTypeId")
                         .HasConstraintName("FK__DocumentType__DocumentId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CA.Domain.Entities.User", "User")
+                        .WithMany("Documents")
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK__Document__UserId");
                 });
 
             modelBuilder.Entity("CA.Domain.Entities.User", b =>

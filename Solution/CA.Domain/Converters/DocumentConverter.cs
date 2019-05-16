@@ -24,9 +24,10 @@
                 iPAddress = document.IPAddress,
 
                 name = document.Name,
-                url = document.Url,
+                data = document.Data,
                 documentTypeId = document.DocumentTypeId,
-                documentTypeName = document.DocumentType.Name
+                documentTypeName = document.DocumentType.Name,
+                userId = document.UserId
             };
 
             return documentViewModel;
@@ -44,9 +45,10 @@
                         iPAddress = document.IPAddress,
 
                         name = document.Name,
-                        url = document.Url,
+                        data = document.Data,
                         documentTypeId = document.DocumentTypeId,
-                        documentTypeName = document.DocumentType.Name
+                        documentTypeName = document.DocumentType.Name,
+                        userId = document.UserId
                     };
                     return model;
                 })
