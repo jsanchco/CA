@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 // Pipes
 import { TranslatePipe } from '../shared/pipes/translation.pipe';
+import { SafeHtmlPipe } from '../shared/pipes/safeHtml.pipe';
 
 // Services
 import { AuthenticationService } from '../shared/services/authentication.service';
@@ -12,13 +13,15 @@ import { ToastService } from '../shared/services/toast.service';
 
 @NgModule({
   declarations: [
-    TranslatePipe
+    TranslatePipe,
+    SafeHtmlPipe
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    TranslatePipe
+    TranslatePipe,
+    SafeHtmlPipe
   ],
   providers: [
     AuthenticationService,

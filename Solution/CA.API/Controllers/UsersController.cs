@@ -101,7 +101,8 @@
                     }
 
                     var image = System.IO.File.ReadAllBytes(localFilePath);
-                    user.image = $"data:image/jpg;base64, {Convert.ToBase64String(image, 0, image.Length)}";
+                    //user.image = $"data:image/jpg;base64, {Convert.ToBase64String(image, 0, image.Length)}";
+                    user.image = Convert.ToBase64String(image, 0, image.Length);
                 }
                 return new { Items = data, data.Count };
             }
